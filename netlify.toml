@@ -1,5 +1,9 @@
 [build]
+  command = "python3 generate_static_site.py"
   publish = "dist"
+
+[build.environment]
+  PYTHON_VERSION = "3.9"
 
 [[redirects]]
   from = "/*"
