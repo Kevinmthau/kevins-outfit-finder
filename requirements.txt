@@ -1,1 +1,2 @@
-Pillow==9.5.0
+# No special requirements needed for static site generation
+# All dependencies are Python standard library
