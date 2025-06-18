@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Clothing Items Directory - Kevin's Outfit Finder{% endblock %}
+
+{% block content %}
+<div class="stats">
+    <strong>{{ total_items }}</strong> unique clothing items found across all outfit pages
+</div>
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search for clothing items..." 
+           onkeyup="searchItems()" autocomplete="off">
+</div>
+
+<div id="searchResults" class="item-grid">
+    {% for item, pages in clothing_items %}
+    <div class="item-card" onclick="window.location.href='/item/{{ item | urlencode }}'">
+        <div class="item-name">{{ item }}</div>
+        <div class="item-count">
+            Appears on {{ pages|length }} page{% if pages|length > 1 %}s{% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if not clothing_items %}
+<div style="text-align: center; color: #7f8c8d; margin-top: 50px;">
+    <p>No clothing items found. Make sure to run the extraction script first:</p>
+    <code>python extract_clothing_items.py</code>
+</div>
+{% endif %}
+{% endblock %}

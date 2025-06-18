@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin's Outfit Finder</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        .nav {
+            background: #34495e;
+            padding: 10px 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .nav button {
+            color: #ecf0f1;
+            background: none;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .nav button:hover, .nav button.active {
+            background-color: #2c3e50;
+        }
+        .content {
+            padding: 30px;
+        }
+        .search-box {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .search-box input {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            width: 300px;
+            max-width: 100%;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-box input:focus {
+            border-color: #3498db;
+        }
+        .stats {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #2c3e50;
+        }
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .item-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .item-card:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .item-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        .item-count {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        .page-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .page-card {
+            text-align: center;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #e9ecef;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .page-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .page-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .page-title {
+            margin-top: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .hidden {
+            display: none;
+        }
+        .page-detail {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .page-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        .page-items {
+            flex: 1;
+            min-width: 300px;
+        }
+        .page-items h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .item-link {
+            text-decoration: none;
+            color: #2c3e50;
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s;
+        }
+        .item-link:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 4px;
+            }
+            .header {
+                padding: 15px;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .content {
+                padding: 20px;
+            }
+            .search-box input {
+                width: 100%;
+            }
+            .item-grid {
+                grid-template-columns: 1fr;
+            }
+            .page-images {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            .page-detail {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="page-title">Kevin's Outfit Finder</h1>
+        </div>
+        <div class="nav">
+            <button onclick="showAllItems()" class="active" id="nav-all">All Items</button>
+            <button onclick="showHome()" id="nav-home">Home</button>
+        </div>
+        <div class="content">
+            <!-- Home View -->
+            <div id="home-view">
+                <div class="stats">
+                    <strong>76</strong> unique clothing items across <strong>89</strong> outfit pages
+                </div>
+
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search for clothing items..." onkeyup="filterItems()">
+                </div>
+
+                <div id="items-grid" class="item-grid">
+                    
+                    <div class="item-card" onclick="showItemDetail('The Row brown tassel loafer')">
+                        <div class="item-name">The Row brown tassel loafer</div>
+                        <div class="item-count">
+                            Appears on 54 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Saint Laurent loafer')">
+                        <div class="item-name">Saint Laurent loafer</div>
+                        <div class="item-count">
+                            Appears on 33 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Lardini green blazer')">
+                        <div class="item-name">Lardini green blazer</div>
+                        <div class="item-count">
+                            Appears on 19 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Lardini prince of wales blazer')">
+                        <div class="item-name">Lardini prince of wales blazer</div>
+                        <div class="item-count">
+                            Appears on 13 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Dries pink polo')">
+                        <div class="item-name">Dries pink polo</div>
+                        <div class="item-count">
+                            Appears on 12 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Zegna blue polo')">
+                        <div class="item-name">Zegna blue polo</div>
+                        <div class="item-count">
+                            Appears on 11 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Valentino ivory canvas trouser')">
+                        <div class="item-name">Valentino ivory canvas trouser</div>
+                        <div class="item-count">
+                            Appears on 11 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Beams khaki')">
+                        <div class="item-name">Beams khaki</div>
+                        <div class="item-count">
+                            Appears on 10 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Iris Von Arnim grey polo')">
+                        <div class="item-name">Iris Von Arnim grey polo</div>
+                        <div class="item-count">
+                            Appears on 9 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Boglioli green polo')">
+                        <div class="item-name">Boglioli green polo</div>
+                        <div class="item-count">
+                            Appears on 9 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Lardini green polo')">
+                        <div class="item-name">Lardini green polo</div>
+                        <div class="item-count">
+                            Appears on 9 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Boglioli ivory blazer')">
+                        <div class="item-name">Boglioli ivory blazer</div>
+                        <div class="item-count">
+                            Appears on 9 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Saint Laurent ivory trouser')">
+                        <div class="item-name">Saint Laurent ivory trouser</div>
+                        <div class="item-count">
+                            Appears on 7 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Caruso camel blazer')">
+                        <div class="item-name">Caruso camel blazer</div>
+                        <div class="item-count">
+                            Appears on 6 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Loro Piana sandal')">
+                        <div class="item-name">Loro Piana sandal</div>
+                        <div class="item-count">
+                            Appears on 6 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Loro Piana tan 5-pocket')">
+                        <div class="item-name">Loro Piana tan 5-pocket</div>
+                        <div class="item-count">
+                            Appears on 6 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Boglioli pink pique polo')">
+                        <div class="item-name">Boglioli pink pique polo</div>
+                        <div class="item-count">
+                            Appears on 5 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Boglioli tan pique polo')">
+                        <div class="item-name">Boglioli tan pique polo</div>
+                        <div class="item-count">
+                            Appears on 5 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Valentino camel trouser')">
+                        <div class="item-name">Valentino camel trouser</div>
+                        <div class="item-count">
+                            Appears on 5 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Saint Laurent olive trouser')">
+                        <div class="item-name">Saint Laurent olive trouser</div>
+                        <div class="item-count">
+                            Appears on 5 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Beams plaid trouser')">
+                        <div class="item-name">Beams plaid trouser</div>
+                        <div class="item-count">
+                            Appears on 5 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Drakes ivory corduroy')">
+                        <div class="item-name">Drakes ivory corduroy</div>
+                        <div class="item-count">
+                            Appears on 5 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Boglioli tan polo')">
+                        <div class="item-name">Boglioli tan polo</div>
+                        <div class="item-count">
+                            Appears on 4 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Saint Laurent blush sweater')">
+                        <div class="item-name">Saint Laurent blush sweater</div>
+                        <div class="item-count">
+                            Appears on 4 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Brioni taupe shirt')">
+                        <div class="item-name">Brioni taupe shirt</div>
+                        <div class="item-count">
+                            Appears on 4 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Altea olive polo')">
+                        <div class="item-name">Altea olive polo</div>
+                        <div class="item-count">
+                            Appears on 4 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Dries burgundy polo')">
+                        <div class="item-name">Dries burgundy polo</div>
+                        <div class="item-count">
+                            Appears on 4 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Loewe espadrille')">
+                        <div class="item-name">Loewe espadrille</div>
+                        <div class="item-count">
+                            Appears on 4 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Prada ivory polo')">
+                        <div class="item-name">Prada ivory polo</div>
+                        <div class="item-count">
+                            Appears on 4 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('The Row teal trouser')">
+                        <div class="item-name">The Row teal trouser</div>
+                        <div class="item-count">
+                            Appears on 4 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Dries striped trouser')">
+                        <div class="item-name">Dries striped trouser</div>
+                        <div class="item-count">
+                            Appears on 4 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('APC navy trouser')">
+                        <div class="item-name">APC navy trouser</div>
+                        <div class="item-count">
+                            Appears on 4 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Prada navy polo')">
+                        <div class="item-name">Prada navy polo</div>
+                        <div class="item-count">
+                            Appears on 3 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('The Row striped shirt')">
+                        <div class="item-name">The Row striped shirt</div>
+                        <div class="item-count">
+                            Appears on 3 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Dries striped polo')">
+                        <div class="item-name">Dries striped polo</div>
+                        <div class="item-count">
+                            Appears on 3 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Saint Laurent floral shirt')">
+                        <div class="item-name">Saint Laurent floral shirt</div>
+                        <div class="item-count">
+                            Appears on 3 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Dries striped shirt')">
+                        <div class="item-name">Dries striped shirt</div>
+                        <div class="item-count">
+                            Appears on 3 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Prada navy trouser')">
+                        <div class="item-name">Prada navy trouser</div>
+                        <div class="item-count">
+                            Appears on 3 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Valentino camel cardigan')">
+                        <div class="item-name">Valentino camel cardigan</div>
+                        <div class="item-count">
+                            Appears on 3 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Saint Laurent blue striped shirt')">
+                        <div class="item-name">Saint Laurent blue striped shirt</div>
+                        <div class="item-count">
+                            Appears on 3 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Valentino navy blazer')">
+                        <div class="item-name">Valentino navy blazer</div>
+                        <div class="item-count">
+                            Appears on 3 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Loewe striped long sleeve polo')">
+                        <div class="item-name">Loewe striped long sleeve polo</div>
+                        <div class="item-count">
+                            Appears on 3 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Dunhill brown polo')">
+                        <div class="item-name">Dunhill brown polo</div>
+                        <div class="item-count">
+                            Appears on 3 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Altea navy polo')">
+                        <div class="item-name">Altea navy polo</div>
+                        <div class="item-count">
+                            Appears on 3 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('APC white jean')">
+                        <div class="item-name">APC white jean</div>
+                        <div class="item-count">
+                            Appears on 3 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Loewe striped polo')">
+                        <div class="item-name">Loewe striped polo</div>
+                        <div class="item-count">
+                            Appears on 2 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Loro Piana ivory polo')">
+                        <div class="item-name">Loro Piana ivory polo</div>
+                        <div class="item-count">
+                            Appears on 2 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Valentino burgundy tie')">
+                        <div class="item-name">Valentino burgundy tie</div>
+                        <div class="item-count">
+                            Appears on 2 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Castaner cream espadrille')">
+                        <div class="item-name">Castaner cream espadrille</div>
+                        <div class="item-count">
+                            Appears on 2 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Lardini grey marl polo')">
+                        <div class="item-name">Lardini grey marl polo</div>
+                        <div class="item-count">
+                            Appears on 2 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('The Row navy 5-pocket')">
+                        <div class="item-name">The Row navy 5-pocket</div>
+                        <div class="item-count">
+                            Appears on 2 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Ikiji grey tee')">
+                        <div class="item-name">Ikiji grey tee</div>
+                        <div class="item-count">
+                            Appears on 2 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Lardini linen short')">
+                        <div class="item-name">Lardini linen short</div>
+                        <div class="item-count">
+                            Appears on 2 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Prada floral shirt')">
+                        <div class="item-name">Prada floral shirt</div>
+                        <div class="item-count">
+                            Appears on 2 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Derek Rose khaki short')">
+                        <div class="item-name">Derek Rose khaki short</div>
+                        <div class="item-count">
+                            Appears on 2 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Lardini green short')">
+                        <div class="item-name">Lardini green short</div>
+                        <div class="item-count">
+                            Appears on 2 pages
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Boglioli teal polo')">
+                        <div class="item-name">Boglioli teal polo</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Prada green sweater')">
+                        <div class="item-name">Prada green sweater</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Boglioli green polo Beams khaki')">
+                        <div class="item-name">Boglioli green polo Beams khaki</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Fedeli green shirt Beams khaki')">
+                        <div class="item-name">Fedeli green shirt Beams khaki</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Lardini striped shirt')">
+                        <div class="item-name">Lardini striped shirt</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Boglioli blue shirt')">
+                        <div class="item-name">Boglioli blue shirt</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Boglioli green striped shirt')">
+                        <div class="item-name">Boglioli green striped shirt</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Boglioli linen blazer')">
+                        <div class="item-name">Boglioli linen blazer</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Saint Laurent silk shirt')">
+                        <div class="item-name">Saint Laurent silk shirt</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Valentino navy trouser')">
+                        <div class="item-name">Valentino navy trouser</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('The Row taupe polo')">
+                        <div class="item-name">The Row taupe polo</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Prada blue sweater')">
+                        <div class="item-name">Prada blue sweater</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Valentino striped shirt')">
+                        <div class="item-name">Valentino striped shirt</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Beams brown polo')">
+                        <div class="item-name">Beams brown polo</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Loro Piana khaki')">
+                        <div class="item-name">Loro Piana khaki</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Saint Laurent brown corduroy')">
+                        <div class="item-name">Saint Laurent brown corduroy</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Prada silk shirt')">
+                        <div class="item-name">Prada silk shirt</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Loro Piana white short')">
+                        <div class="item-name">Loro Piana white short</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Boglioli pink short')">
+                        <div class="item-name">Boglioli pink short</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                    <div class="item-card" onclick="showItemDetail('Loro piana sandal')">
+                        <div class="item-name">Loro piana sandal</div>
+                        <div class="item-count">
+                            Appears on 1 page
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item Detail View -->
+            <div id="item-view" class="hidden">
+                <a onclick="showAllItems()" class="back-link">&larr; Back to all items</a>
+                <div id="item-detail-content"></div>
+            </div>
+
+            <!-- Page Detail View -->
+            <div id="page-view" class="hidden">
+                <a onclick="showAllItems()" class="back-link">&larr; Back to all items</a>
+                <div id="page-detail-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data
+        const clothingIndex = {"Iris Von Arnim grey polo": ["page_1", "page_20", "page_40", "page_53", "page_57", "page_72", "page_79", "page_81", "page_86"], "Boglioli teal polo": ["page_1"], "Prada navy polo": ["page_1", "page_63", "page_86"], "Saint Laurent ivory trouser": ["page_1", "page_2", "page_3", "page_4", "page_5", "page_6", "page_7"], "Saint Laurent loafer": ["page_1", "page_3", "page_6", "page_9", "page_10", "page_11", "page_12", "page_13", "page_16", "page_17", "page_21", "page_22", "page_23", "page_24", "page_26", "page_27", "page_28", "page_62", "page_63", "page_64", "page_65", "page_66", "page_67", "page_68", "page_69", "page_75", "page_76", "page_78", "page_80", "page_83", "page_84", "page_85", "page_86"], "Boglioli tan polo": ["page_2", "page_14", "page_42", "page_72"], "The Row striped shirt": ["page_2", "page_37", "page_61"], "Saint Laurent blush sweater": ["page_2", "page_9", "page_36", "page_61"], "The Row brown tassel loafer": ["page_2", "page_3", "page_4", "page_5", "page_7", "page_8", "page_13", "page_14", "page_15", "page_18", "page_19", "page_25", "page_28", "page_29", "page_30", "page_31", "page_32", "page_33", "page_34", "page_35", "page_36", "page_37", "page_38", "page_39", "page_40", "page_41", "page_42", "page_43", "page_44", "page_45", "page_46", "page_47", "page_48", "page_49", "page_50", "page_51", "page_52", "page_55", "page_56", "page_57", "page_58", "page_59", "page_60", "page_61", "page_67", "page_68", "page_69", "page_70", "page_71", "page_72", "page_73", "page_74", "page_79", "page_81"], "Boglioli green polo": ["page_3", "page_27", "page_31", "page_52", "page_59", "page_62", "page_69", "page_73", "page_82"], "Lardini green blazer": ["page_3", "page_6", "page_7", "page_10", "page_12", "page_15", "page_26", "page_27", "page_35", "page_41", "page_43", "page_46", "page_47", "page_48", "page_50", "page_51", "page_52", "page_59", "page_60"], "Lardini green polo": ["page_4", "page_31", "page_40", "page_53", "page_62", "page_68", "page_81", "page_82", "page_84"], "Lardini prince of wales blazer": ["page_4", "page_5", "page_7", "page_13", "page_15", "page_18", "page_41", "page_42", "page_43", "page_44", "page_66", "page_68", "page_71"], "Caruso camel blazer": ["page_4", "page_29", "page_30", "page_31", "page_44", "page_45"], "Dries pink polo": ["page_5", "page_16", "page_25", "page_49", "page_58", "page_70", "page_71", "page_76", "page_81", "page_86", "page_87", "page_88"], "Zegna blue polo": ["page_6", "page_13", "page_26", "page_35", "page_43", "page_46", "page_51", "page_60", "page_85", "page_86", "page_88"], "Brioni taupe shirt": ["page_7", "page_15", "page_48", "page_50"], "Dries striped polo": ["page_8", "page_25", "page_84"], "Beams khaki": ["page_8", "page_9", "page_12", "page_13", "page_14", "page_15", "page_16", "page_17", "page_18", "page_19"], "Boglioli pink pique polo": ["page_9", "page_57", "page_62", "page_65", "page_74"], "Prada green sweater": ["page_9"], "Saint Laurent floral shirt": ["page_9", "page_83", "page_85"], "Boglioli green polo Beams khaki": ["page_10"], "Fedeli green shirt Beams khaki": ["page_11"], "Boglioli ivory blazer": ["page_11", "page_16", "page_18", "page_19", "page_22", "page_28", "page_49", "page_55", "page_56"], "Lardini striped shirt": ["page_12"], "Altea olive polo": ["page_17", "page_24", "page_53", "page_64"], "Boglioli blue shirt": ["page_18"], "Dries striped shirt": ["page_19", "page_29", "page_37"], "Prada navy trouser": ["page_20", "page_21", "page_22"], "Loro Piana sandal": ["page_20", "page_24", "page_27", "page_53", "page_77", "page_80"], "Loewe striped polo": ["page_21", "page_54"], "Dries burgundy polo": ["page_21", "page_34", "page_40", "page_67"], "Loro Piana ivory polo": ["page_22", "page_88"], "Boglioli tan pique polo": ["page_23", "page_63", "page_66", "page_72", "page_82"], "Valentino ivory canvas trouser": ["page_23", "page_24", "page_25", "page_26", "page_27", "page_28", "page_29", "page_30", "page_31", "page_32", "page_33"], "Loewe espadrille": ["page_23", "page_24", "page_27", "page_80"], "Boglioli green striped shirt": ["page_28"], "Valentino camel cardigan": ["page_28", "page_36", "page_37"], "Prada ivory polo": ["page_30", "page_55", "page_63", "page_88"], "Saint Laurent blue striped shirt": ["page_32", "page_38", "page_39"], "Valentino navy blazer": ["page_32", "page_38", "page_39"], "Loewe striped long sleeve polo": ["page_33", "page_75", "page_78"], "Valentino camel trouser": ["page_34", "page_35", "page_36", "page_37", "page_38"], "Boglioli linen blazer": ["page_34"], "Saint Laurent silk shirt": ["page_36"], "Valentino burgundy tie": ["page_38", "page_39"], "Valentino navy trouser": ["page_39"], "Saint Laurent olive trouser": ["page_40", "page_41", "page_42", "page_43", "page_44"], "The Row taupe polo": ["page_41"], "Dunhill brown polo": ["page_44", "page_45", "page_57"], "The Row teal trouser": ["page_45", "page_46", "page_47", "page_48"], "Prada blue sweater": ["page_47"], "Dries striped trouser": ["page_49", "page_50", "page_51", "page_52"], "APC navy trouser": ["page_53", "page_54", "page_55", "page_56"], "Castaner cream espadrille": ["page_54", "page_83"], "Valentino striped shirt": ["page_56"], "Beams brown polo": ["page_57"], "Beams plaid trouser": ["page_57", "page_58", "page_59", "page_60", "page_61"], "Loro Piana khaki": ["page_62"], "Altea navy polo": ["page_63", "page_72", "page_84"], "Loro Piana tan 5-pocket": ["page_65", "page_66", "page_67", "page_68", "page_69", "page_70"], "Drakes ivory corduroy": ["page_71", "page_72", "page_73", "page_74", "page_75"], "APC white jean": ["page_76", "page_77", "page_78"], "Lardini grey marl polo": ["page_77", "page_89"], "The Row navy 5-pocket": ["page_79", "page_80"], "Ikiji grey tee": ["page_80", "page_81"], "Saint Laurent brown corduroy": ["page_81"], "Prada silk shirt": ["page_82"], "Lardini linen short": ["page_82", "page_83"], "Prada floral shirt": ["page_83", "page_84"], "Derek Rose khaki short": ["page_84", "page_85"], "Loro Piana white short": ["page_86"], "Boglioli pink short": ["page_87"], "Loro piana sandal": ["page_87"], "Lardini green short": ["page_88", "page_89"]};
+        const pageItems = {"page_1": ["Iris Von Arnim grey polo", "Boglioli teal polo", "Prada navy polo", "Saint Laurent ivory trouser", "Saint Laurent loafer"], "page_2": ["Boglioli tan polo", "The Row striped shirt", "Saint Laurent blush sweater", "Saint Laurent ivory trouser", "The Row brown tassel loafer"], "page_3": ["Boglioli green polo", "Saint Laurent ivory trouser", "Lardini green blazer", "The Row brown tassel loafer", "Saint Laurent loafer"], "page_4": ["Lardini green polo", "Saint Laurent ivory trouser", "Lardini prince of wales blazer", "Caruso camel blazer", "The Row brown tassel loafer"], "page_5": ["Dries pink polo", "Saint Laurent ivory trouser", "Lardini prince of wales blazer", "The Row brown tassel loafer"], "page_6": ["Zegna blue polo", "Saint Laurent ivory trouser", "Lardini green blazer", "Saint Laurent loafer"], "page_7": ["Brioni taupe shirt", "Saint Laurent ivory trouser", "Lardini prince of wales blazer", "Lardini green blazer", "The Row brown tassel loafer"], "page_8": ["Dries striped polo", "Beams khaki", "The Row brown tassel loafer"], "page_9": ["Boglioli pink pique polo", "Saint Laurent blush sweater", "Prada green sweater", "Saint Laurent floral shirt", "Beams khaki", "Saint Laurent loafer"], "page_10": ["Boglioli green polo Beams khaki", "Lardini green blazer", "Saint Laurent loafer"], "page_11": ["Fedeli green shirt Beams khaki", "Boglioli ivory blazer", "Saint Laurent loafer"], "page_12": ["Lardini striped shirt", "Beams khaki", "Lardini green blazer", "Saint Laurent loafer"], "page_13": ["Zegna blue polo", "Beams khaki", "Lardini prince of wales blazer", "Saint Laurent loafer", "The Row brown tassel loafer"], "page_14": ["Boglioli tan polo", "Beams khaki", "The Row brown tassel loafer"], "page_15": ["Brioni taupe shirt", "Beams khaki", "Lardini prince of wales blazer", "Lardini green blazer", "The Row brown tassel loafer"], "page_16": ["Dries pink polo", "Beams khaki", "Boglioli ivory blazer", "Saint Laurent loafer"], "page_17": ["Altea olive polo", "Beams khaki", "Saint Laurent loafer"], "page_18": ["Boglioli blue shirt", "Beams khaki", "Lardini prince of wales blazer", "Boglioli ivory blazer", "The Row brown tassel loafer"], "page_19": ["Dries striped shirt", "Beams khaki", "Boglioli ivory blazer", "The Row brown tassel loafer"], "page_20": ["Iris Von Arnim grey polo", "Prada navy trouser", "Loro Piana sandal"], "page_21": ["Loewe striped polo", "Dries burgundy polo", "Prada navy trouser", "Saint Laurent loafer"], "page_22": ["Loro Piana ivory polo", "Prada navy trouser", "Boglioli ivory blazer", "Saint Laurent loafer"], "page_23": ["Boglioli tan pique polo", "Valentino ivory canvas trouser", "Saint Laurent loafer", "Loewe espadrille"], "page_24": ["Altea olive polo", "Valentino ivory canvas trouser", "Saint Laurent loafer", "Loro Piana sandal", "Loewe espadrille"], "page_25": ["Dries striped polo", "Dries pink polo", "Valentino ivory canvas trouser", "The Row brown tassel loafer"], "page_26": ["Zegna blue polo", "Valentino ivory canvas trouser", "Lardini green blazer", "Saint Laurent loafer"], "page_27": ["Boglioli green polo", "Valentino ivory canvas trouser", "Lardini green blazer", "Saint Laurent loafer", "Loro Piana sandal", "Loewe espadrille"], "page_28": ["Boglioli green striped shirt", "Valentino ivory canvas trouser", "Valentino camel cardigan", "Boglioli ivory blazer", "The Row brown tassel loafer", "Saint Laurent loafer"], "page_29": ["Dries striped shirt", "Valentino ivory canvas trouser", "Caruso camel blazer", "The Row brown tassel loafer"], "page_30": ["Prada ivory polo", "Valentino ivory canvas trouser", "Caruso camel blazer", "The Row brown tassel loafer"], "page_31": ["Boglioli green polo", "Lardini green polo", "Valentino ivory canvas trouser", "Caruso camel blazer", "The Row brown tassel loafer"], "page_32": ["Saint Laurent blue striped shirt", "Valentino ivory canvas trouser", "Valentino navy blazer", "The Row brown tassel loafer"], "page_33": ["Loewe striped long sleeve polo", "Valentino ivory canvas trouser", "The Row brown tassel loafer"], "page_34": ["Dries burgundy polo", "Valentino camel trouser", "Boglioli linen blazer", "The Row brown tassel loafer"], "page_35": ["Zegna blue polo", "Valentino camel trouser", "Lardini green blazer", "The Row brown tassel loafer"], "page_36": ["Saint Laurent silk shirt", "Valentino camel trouser", "Valentino camel cardigan", "Saint Laurent blush sweater", "The Row brown tassel loafer"], "page_37": ["The Row striped shirt", "Valentino camel trouser", "Valentino camel cardigan", "Dries striped shirt", "The Row brown tassel loafer"], "page_38": ["Saint Laurent blue striped shirt", "Valentino camel trouser", "Valentino navy blazer", "Valentino burgundy tie", "The Row brown tassel loafer"], "page_39": ["Saint Laurent blue striped shirt", "Valentino navy trouser", "Valentino navy blazer", "Valentino burgundy tie", "The Row brown tassel loafer"], "page_40": ["Lardini green polo", "Saint Laurent olive trouser", "Dries burgundy polo", "Iris Von Arnim grey polo", "The Row brown tassel loafer"], "page_41": ["The Row taupe polo", "Saint Laurent olive trouser", "Lardini prince of wales blazer", "Lardini green blazer", "The Row brown tassel loafer"], "page_42": ["Boglioli tan polo", "Saint Laurent olive trouser", "Lardini prince of wales blazer", "The Row brown tassel loafer"], "page_43": ["Zegna blue polo", "Saint Laurent olive trouser", "Lardini green blazer", "Lardini prince of wales blazer", "The Row brown tassel loafer"], "page_44": ["Dunhill brown polo", "Saint Laurent olive trouser", "Lardini prince of wales blazer", "Caruso camel blazer", "The Row brown tassel loafer"], "page_45": ["Dunhill brown polo", "The Row teal trouser", "Caruso camel blazer", "The Row brown tassel loafer"], "page_46": ["Zegna blue polo", "The Row teal trouser", "The Row brown tassel loafer", "Lardini green blazer"], "page_47": ["Prada blue sweater", "The Row teal trouser", "The Row brown tassel loafer", "Lardini green blazer"], "page_48": ["Brioni taupe shirt", "The Row teal trouser", "The Row brown tassel loafer", "Lardini green blazer"], "page_49": ["Dries pink polo", "Dries striped trouser", "Boglioli ivory blazer", "The Row brown tassel loafer"], "page_50": ["Brioni taupe shirt", "Dries striped trouser", "Lardini green blazer", "The Row brown tassel loafer"], "page_51": ["Zegna blue polo", "Dries striped trouser", "Lardini green blazer", "The Row brown tassel loafer"], "page_52": ["Boglioli green polo", "Dries striped trouser", "Lardini green blazer", "The Row brown tassel loafer"], "page_53": ["Iris Von Arnim grey polo", "Lardini green polo", "Altea olive polo", "APC navy trouser", "Loro Piana sandal"], "page_54": ["Loewe striped polo", "APC navy trouser", "Castaner cream espadrille"], "page_55": ["Prada ivory polo", "APC navy trouser", "Boglioli ivory blazer", "The Row brown tassel loafer"], "page_56": ["Valentino striped shirt", "APC navy trouser", "Boglioli ivory blazer", "The Row brown tassel loafer"], "page_57": ["Iris Von Arnim grey polo", "Beams brown polo", "Dunhill brown polo", "Boglioli pink pique polo", "Beams plaid trouser", "The Row brown tassel loafer"], "page_58": ["Dries pink polo", "Beams plaid trouser", "The Row brown tassel loafer"], "page_59": ["Boglioli green polo", "Beams plaid trouser", "Lardini green blazer", "The Row brown tassel loafer"], "page_60": ["Zegna blue polo", "Beams plaid trouser", "Lardini green blazer", "The Row brown tassel loafer"], "page_61": ["The Row striped shirt", "Beams plaid trouser", "Saint Laurent blush sweater", "The Row brown tassel loafer"], "page_62": ["Boglioli green polo", "Lardini green polo", "Boglioli pink pique polo", "Loro Piana khaki", "Saint Laurent loafer"], "page_63": ["Boglioli tan pique polo", "Prada ivory polo", "Altea navy polo", "Prada navy polo", "Saint Laurent loafer"], "page_64": ["Altea olive polo", "Saint Laurent loafer"], "page_65": ["Boglioli pink pique polo", "Loro Piana tan 5-pocket", "Saint Laurent loafer"], "page_66": ["Boglioli tan pique polo", "Loro Piana tan 5-pocket", "Lardini prince of wales blazer", "Saint Laurent loafer"], "page_67": ["Dries burgundy polo", "Loro Piana tan 5-pocket", "The Row brown tassel loafer", "Saint Laurent loafer"], "page_68": ["Lardini green polo", "Loro Piana tan 5-pocket", "Lardini prince of wales blazer", "The Row brown tassel loafer", "Saint Laurent loafer"], "page_69": ["Boglioli green polo", "Loro Piana tan 5-pocket", "The Row brown tassel loafer", "Saint Laurent loafer"], "page_70": ["Dries pink polo", "Loro Piana tan 5-pocket", "The Row brown tassel loafer"], "page_71": ["Dries pink polo", "Drakes ivory corduroy", "Lardini prince of wales blazer", "The Row brown tassel loafer"], "page_72": ["Iris Von Arnim grey polo", "Boglioli tan pique polo", "Altea navy polo", "Boglioli tan polo", "Drakes ivory corduroy", "The Row brown tassel loafer"], "page_73": ["Boglioli green polo", "Drakes ivory corduroy", "The Row brown tassel loafer"], "page_74": ["Boglioli pink pique polo", "Drakes ivory corduroy", "The Row brown tassel loafer"], "page_75": ["Loewe striped long sleeve polo", "Drakes ivory corduroy", "Saint Laurent loafer"], "page_76": ["Dries pink polo", "APC white jean", "Saint Laurent loafer"], "page_77": ["Lardini grey marl polo", "APC white jean", "Loro Piana sandal"], "page_78": ["Loewe striped long sleeve polo", "APC white jean", "Saint Laurent loafer"], "page_79": ["The Row navy 5-pocket", "Iris Von Arnim grey polo", "The Row brown tassel loafer"], "page_80": ["Ikiji grey tee", "The Row navy 5-pocket", "Loro Piana sandal", "Saint Laurent loafer", "Loewe espadrille"], "page_81": ["Lardini green polo", "Dries pink polo", "Iris Von Arnim grey polo", "Saint Laurent brown corduroy", "Ikiji grey tee", "The Row brown tassel loafer"], "page_82": ["Boglioli green polo", "Lardini green polo", "Boglioli tan pique polo", "Prada silk shirt", "Lardini linen short"], "page_83": ["Saint Laurent floral shirt", "Prada floral shirt", "Saint Laurent loafer", "Lardini linen short", "Castaner cream espadrille"], "page_84": ["Prada floral shirt", "Lardini green polo", "Dries striped polo", "Altea navy polo", "Derek Rose khaki short", "Saint Laurent loafer"], "page_85": ["Saint Laurent floral shirt", "Zegna blue polo", "Derek Rose khaki short", "Saint Laurent loafer"], "page_86": ["Zegna blue polo", "Dries pink polo", "Iris Von Arnim grey polo", "Prada navy polo", "Loro Piana white short", "Saint Laurent loafer"], "page_87": ["Dries pink polo", "Boglioli pink short", "Loro piana sandal"], "page_88": ["Prada ivory polo", "Dries pink polo", "Zegna blue polo", "Lardini green short", "Loro Piana ivory polo"], "page_89": ["Lardini grey marl polo", "Lardini green short"]};
+
+        // Navigation
+        function showAllItems() {
+            document.getElementById('home-view').classList.remove('hidden');
+            document.getElementById('item-view').classList.add('hidden');
+            document.getElementById('page-view').classList.add('hidden');
+            document.getElementById('page-title').textContent = "Kevin's Outfit Finder";
+            updateNavigation('nav-all');
+        }
+
+        function showHome() {
+            showAllItems();
+            updateNavigation('nav-home');
+        }
+
+        function updateNavigation(activeId) {
+            document.querySelectorAll('.nav button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(activeId).classList.add('active');
+        }
+
+        // Search functionality
+        function filterItems() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.item-card');
+            
+            items.forEach(item => {
+                const itemName = item.querySelector('.item-name').textContent.toLowerCase();
+                item.style.display = itemName.includes(search) ? 'block' : 'none';
+            });
+        }
+
+        // Show item detail
+        function showItemDetail(itemName) {
+            if (!clothingIndex[itemName]) return;
+            
+            const pages = clothingIndex[itemName];
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('page-view').classList.add('hidden');
+            document.getElementById('item-view').classList.remove('hidden');
+            document.getElementById('page-title').textContent = itemName;
+            
+            const content = document.getElementById('item-detail-content');
+            content.innerHTML = `
+                <div class="stats">
+                    This item appears on <strong>${pages.length}</strong> page${pages.length > 1 ? 's' : ''}
+                </div>
+                <div class="page-images">
+                    ${pages.map(page => `
+                        <div class="page-card" onclick="showPageDetail('${page}')">
+                            <img src="images/${page}.png" alt="${page}" onerror="this.style.display='none';">
+                            <div class="page-title">${page.replace('page_', 'Page ')}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        // Show page detail
+        function showPageDetail(pageName) {
+            if (!pageItems[pageName]) return;
+            
+            const items = pageItems[pageName];
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('item-view').classList.add('hidden');
+            document.getElementById('page-view').classList.remove('hidden');
+            document.getElementById('page-title').textContent = pageName.replace('page_', 'Page ');
+            
+            const content = document.getElementById('page-detail-content');
+            content.innerHTML = `
+                <div class="page-detail">
+                    <div class="page-image">
+                        <img src="images/${pageName}.png" alt="${pageName}" 
+                             style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"
+                             onerror="this.style.display='none';">
+                    </div>
+                    <div class="page-items">
+                        <h3>Clothing items on this page:</h3>
+                        <div class="item-list">
+                            ${items.map(item => `
+                                <a onclick="showItemDetail('${item.replace(/'/g, "\'")}')" class="item-link">
+                                    ${item}
+                                </a>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showAllItems();
+        });
+    </script>
+</body>
+</html>

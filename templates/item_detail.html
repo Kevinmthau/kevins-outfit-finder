@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}{{ item_name }} - Kevin's Outfit Finder{% endblock %}
+
+{% block header %}{{ item_name }}{% endblock %}
+
+{% block content %}
+<a href="/" class="back-link">&larr; Back to all items</a>
+
+<div class="stats">
+    This item appears on <strong>{{ pages|length }}</strong> page{% if pages|length > 1 %}s{% endif %}
+</div>
+
+<div class="page-images">
+    {% for page in pages %}
+    <div class="page-card">
+        <a href="/page/{{ page }}">
+            <img src="/images/{{ page }}.png" alt="{{ page }}" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div style="display:none; padding: 40px; color: #7f8c8d;">
+                Image not available
+            </div>
+        </a>
+        <div class="page-title">
+            <a href="/page/{{ page }}" style="text-decoration: none; color: inherit;">
+                {{ page.replace('page_', 'Page ') }}
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if not pages %}
+<div style="text-align: center; color: #7f8c8d; margin-top: 50px;">
+    <p>No pages found for this item.</p>
+</div>
+{% endif %}
+{% endblock %}
