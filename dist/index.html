@@ -106,6 +106,24 @@
             color: #7f8c8d;
             font-size: 0.9rem;
         }
+        .category-section {
+            margin-bottom: 40px;
+        }
+        .category-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .category-header h2 {
+            margin: 0 0 8px 0;
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+        .category-description {
+            margin: 0;
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
         .page-images {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -234,458 +252,482 @@
                     <input type="text" id="searchInput" placeholder="Search for clothing items..." onkeyup="filterItems()">
                 </div>
 
-                <div id="items-grid" class="item-grid">
+                <div id="items-grid">
                     
-                    <div class="item-card" onclick="showItemDetail('The Row brown tassel loafer')">
-                        <div class="item-name">The Row brown tassel loafer</div>
-                        <div class="item-count">
-                            Appears on 54 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Saint Laurent loafer')">
-                        <div class="item-name">Saint Laurent loafer</div>
-                        <div class="item-count">
-                            Appears on 33 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Lardini green blazer')">
-                        <div class="item-name">Lardini green blazer</div>
-                        <div class="item-count">
-                            Appears on 19 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Lardini prince of wales blazer')">
-                        <div class="item-name">Lardini prince of wales blazer</div>
-                        <div class="item-count">
-                            Appears on 13 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Dries pink polo')">
-                        <div class="item-name">Dries pink polo</div>
-                        <div class="item-count">
-                            Appears on 12 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Beams khaki')">
-                        <div class="item-name">Beams khaki</div>
-                        <div class="item-count">
-                            Appears on 12 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Zegna blue polo')">
-                        <div class="item-name">Zegna blue polo</div>
-                        <div class="item-count">
-                            Appears on 11 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Valentino ivory canvas trouser')">
-                        <div class="item-name">Valentino ivory canvas trouser</div>
-                        <div class="item-count">
-                            Appears on 11 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Boglioli green polo')">
-                        <div class="item-name">Boglioli green polo</div>
-                        <div class="item-count">
-                            Appears on 10 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Iris Von Arnim grey polo')">
-                        <div class="item-name">Iris Von Arnim grey polo</div>
-                        <div class="item-count">
-                            Appears on 9 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Lardini green polo')">
-                        <div class="item-name">Lardini green polo</div>
-                        <div class="item-count">
-                            Appears on 9 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Boglioli ivory blazer')">
-                        <div class="item-name">Boglioli ivory blazer</div>
-                        <div class="item-count">
-                            Appears on 9 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Saint Laurent ivory trouser')">
-                        <div class="item-name">Saint Laurent ivory trouser</div>
-                        <div class="item-count">
-                            Appears on 7 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Caruso camel blazer')">
-                        <div class="item-name">Caruso camel blazer</div>
-                        <div class="item-count">
-                            Appears on 6 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Loro Piana sandal')">
-                        <div class="item-name">Loro Piana sandal</div>
-                        <div class="item-count">
-                            Appears on 6 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Loro Piana tan 5-pocket')">
-                        <div class="item-name">Loro Piana tan 5-pocket</div>
-                        <div class="item-count">
-                            Appears on 6 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Boglioli pink pique polo')">
-                        <div class="item-name">Boglioli pink pique polo</div>
-                        <div class="item-count">
-                            Appears on 5 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Boglioli tan pique polo')">
-                        <div class="item-name">Boglioli tan pique polo</div>
-                        <div class="item-count">
-                            Appears on 5 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Valentino camel trouser')">
-                        <div class="item-name">Valentino camel trouser</div>
-                        <div class="item-count">
-                            Appears on 5 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Saint Laurent olive trouser')">
-                        <div class="item-name">Saint Laurent olive trouser</div>
-                        <div class="item-count">
-                            Appears on 5 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Beams plaid trouser')">
-                        <div class="item-name">Beams plaid trouser</div>
-                        <div class="item-count">
-                            Appears on 5 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Drakes ivory corduroy')">
-                        <div class="item-name">Drakes ivory corduroy</div>
-                        <div class="item-count">
-                            Appears on 5 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Boglioli tan polo')">
-                        <div class="item-name">Boglioli tan polo</div>
-                        <div class="item-count">
-                            Appears on 4 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Saint Laurent blush sweater')">
-                        <div class="item-name">Saint Laurent blush sweater</div>
-                        <div class="item-count">
-                            Appears on 4 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Brioni taupe shirt')">
-                        <div class="item-name">Brioni taupe shirt</div>
-                        <div class="item-count">
-                            Appears on 4 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Altea olive polo')">
-                        <div class="item-name">Altea olive polo</div>
-                        <div class="item-count">
-                            Appears on 4 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Dries burgundy polo')">
-                        <div class="item-name">Dries burgundy polo</div>
-                        <div class="item-count">
-                            Appears on 4 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Loewe espadrille')">
-                        <div class="item-name">Loewe espadrille</div>
-                        <div class="item-count">
-                            Appears on 4 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Prada ivory polo')">
-                        <div class="item-name">Prada ivory polo</div>
-                        <div class="item-count">
-                            Appears on 4 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('The Row teal trouser')">
-                        <div class="item-name">The Row teal trouser</div>
-                        <div class="item-count">
-                            Appears on 4 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Dries striped trouser')">
-                        <div class="item-name">Dries striped trouser</div>
-                        <div class="item-count">
-                            Appears on 4 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('APC navy trouser')">
-                        <div class="item-name">APC navy trouser</div>
-                        <div class="item-count">
-                            Appears on 4 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Prada navy polo')">
-                        <div class="item-name">Prada navy polo</div>
-                        <div class="item-count">
-                            Appears on 3 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('The Row striped shirt')">
-                        <div class="item-name">The Row striped shirt</div>
-                        <div class="item-count">
-                            Appears on 3 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Dries striped polo')">
-                        <div class="item-name">Dries striped polo</div>
-                        <div class="item-count">
-                            Appears on 3 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Saint Laurent floral shirt')">
-                        <div class="item-name">Saint Laurent floral shirt</div>
-                        <div class="item-count">
-                            Appears on 3 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Dries striped shirt')">
-                        <div class="item-name">Dries striped shirt</div>
-                        <div class="item-count">
-                            Appears on 3 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Prada navy trouser')">
-                        <div class="item-name">Prada navy trouser</div>
-                        <div class="item-count">
-                            Appears on 3 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Valentino camel cardigan')">
-                        <div class="item-name">Valentino camel cardigan</div>
-                        <div class="item-count">
-                            Appears on 3 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Saint Laurent blue striped shirt')">
-                        <div class="item-name">Saint Laurent blue striped shirt</div>
-                        <div class="item-count">
-                            Appears on 3 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Valentino navy blazer')">
-                        <div class="item-name">Valentino navy blazer</div>
-                        <div class="item-count">
-                            Appears on 3 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Loewe striped long sleeve polo')">
-                        <div class="item-name">Loewe striped long sleeve polo</div>
-                        <div class="item-count">
-                            Appears on 3 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Dunhill brown polo')">
-                        <div class="item-name">Dunhill brown polo</div>
-                        <div class="item-count">
-                            Appears on 3 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Altea navy polo')">
-                        <div class="item-name">Altea navy polo</div>
-                        <div class="item-count">
-                            Appears on 3 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('APC white jean')">
-                        <div class="item-name">APC white jean</div>
-                        <div class="item-count">
-                            Appears on 3 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Loewe striped polo')">
-                        <div class="item-name">Loewe striped polo</div>
-                        <div class="item-count">
-                            Appears on 2 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Loro Piana ivory polo')">
-                        <div class="item-name">Loro Piana ivory polo</div>
-                        <div class="item-count">
-                            Appears on 2 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Valentino burgundy tie')">
-                        <div class="item-name">Valentino burgundy tie</div>
-                        <div class="item-count">
-                            Appears on 2 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Castaner cream espadrille')">
-                        <div class="item-name">Castaner cream espadrille</div>
-                        <div class="item-count">
-                            Appears on 2 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Lardini grey marl polo')">
-                        <div class="item-name">Lardini grey marl polo</div>
-                        <div class="item-count">
-                            Appears on 2 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('The Row navy 5-pocket')">
-                        <div class="item-name">The Row navy 5-pocket</div>
-                        <div class="item-count">
-                            Appears on 2 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Ikiji grey tee')">
-                        <div class="item-name">Ikiji grey tee</div>
-                        <div class="item-count">
-                            Appears on 2 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Lardini linen short')">
-                        <div class="item-name">Lardini linen short</div>
-                        <div class="item-count">
-                            Appears on 2 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Prada floral shirt')">
-                        <div class="item-name">Prada floral shirt</div>
-                        <div class="item-count">
-                            Appears on 2 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Derek Rose khaki short')">
-                        <div class="item-name">Derek Rose khaki short</div>
-                        <div class="item-count">
-                            Appears on 2 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Lardini green short')">
-                        <div class="item-name">Lardini green short</div>
-                        <div class="item-count">
-                            Appears on 2 pages
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Boglioli teal polo')">
-                        <div class="item-name">Boglioli teal polo</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Prada green sweater')">
-                        <div class="item-name">Prada green sweater</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Fedeli green shirt')">
-                        <div class="item-name">Fedeli green shirt</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Lardini striped shirt')">
-                        <div class="item-name">Lardini striped shirt</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Boglioli blue shirt')">
-                        <div class="item-name">Boglioli blue shirt</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Boglioli green striped shirt')">
-                        <div class="item-name">Boglioli green striped shirt</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Boglioli linen blazer')">
-                        <div class="item-name">Boglioli linen blazer</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Saint Laurent silk shirt')">
-                        <div class="item-name">Saint Laurent silk shirt</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Valentino navy trouser')">
-                        <div class="item-name">Valentino navy trouser</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('The Row taupe polo')">
-                        <div class="item-name">The Row taupe polo</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Prada blue sweater')">
-                        <div class="item-name">Prada blue sweater</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Valentino striped shirt')">
-                        <div class="item-name">Valentino striped shirt</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Beams brown polo')">
-                        <div class="item-name">Beams brown polo</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Loro Piana khaki')">
-                        <div class="item-name">Loro Piana khaki</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Saint Laurent brown corduroy')">
-                        <div class="item-name">Saint Laurent brown corduroy</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Prada silk shirt')">
-                        <div class="item-name">Prada silk shirt</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Loro Piana white short')">
-                        <div class="item-name">Loro Piana white short</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Boglioli pink short')">
-                        <div class="item-name">Boglioli pink short</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
-                    <div class="item-card" onclick="showItemDetail('Loro piana sandal')">
-                        <div class="item-name">Loro piana sandal</div>
-                        <div class="item-count">
-                            Appears on 1 page
-                        </div>
-                    </div>
+                <div class="category-section">
+                    <div class="category-header">
+                        <h2>👖 Bottoms</h2>
+                        <p class="category-description">Trousers, shorts, and pants (20 items)</p>
+                    </div>
+                    <div class="item-grid">
+                        <div class="item-card" onclick="showItemDetail('Beams khaki')">
+                            <div class="item-name">Beams khaki</div>
+                            <div class="item-count">
+                                Appears on 12 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Valentino ivory canvas trouser')">
+                            <div class="item-name">Valentino ivory canvas trouser</div>
+                            <div class="item-count">
+                                Appears on 11 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Saint Laurent ivory trouser')">
+                            <div class="item-name">Saint Laurent ivory trouser</div>
+                            <div class="item-count">
+                                Appears on 7 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Loro Piana tan 5-pocket')">
+                            <div class="item-name">Loro Piana tan 5-pocket</div>
+                            <div class="item-count">
+                                Appears on 6 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Valentino camel trouser')">
+                            <div class="item-name">Valentino camel trouser</div>
+                            <div class="item-count">
+                                Appears on 5 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Saint Laurent olive trouser')">
+                            <div class="item-name">Saint Laurent olive trouser</div>
+                            <div class="item-count">
+                                Appears on 5 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Beams plaid trouser')">
+                            <div class="item-name">Beams plaid trouser</div>
+                            <div class="item-count">
+                                Appears on 5 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('The Row teal trouser')">
+                            <div class="item-name">The Row teal trouser</div>
+                            <div class="item-count">
+                                Appears on 4 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Dries striped trouser')">
+                            <div class="item-name">Dries striped trouser</div>
+                            <div class="item-count">
+                                Appears on 4 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('APC navy trouser')">
+                            <div class="item-name">APC navy trouser</div>
+                            <div class="item-count">
+                                Appears on 4 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Prada navy trouser')">
+                            <div class="item-name">Prada navy trouser</div>
+                            <div class="item-count">
+                                Appears on 3 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('APC white jean')">
+                            <div class="item-name">APC white jean</div>
+                            <div class="item-count">
+                                Appears on 3 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('The Row navy 5-pocket')">
+                            <div class="item-name">The Row navy 5-pocket</div>
+                            <div class="item-count">
+                                Appears on 2 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Lardini linen short')">
+                            <div class="item-name">Lardini linen short</div>
+                            <div class="item-count">
+                                Appears on 2 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Derek Rose khaki short')">
+                            <div class="item-name">Derek Rose khaki short</div>
+                            <div class="item-count">
+                                Appears on 2 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Lardini green short')">
+                            <div class="item-name">Lardini green short</div>
+                            <div class="item-count">
+                                Appears on 2 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Valentino navy trouser')">
+                            <div class="item-name">Valentino navy trouser</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Loro Piana khaki')">
+                            <div class="item-name">Loro Piana khaki</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Loro Piana white short')">
+                            <div class="item-name">Loro Piana white short</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Boglioli pink short')">
+                            <div class="item-name">Boglioli pink short</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-section">
+                    <div class="category-header">
+                        <h2>👔 Tops</h2>
+                        <p class="category-description">Shirts, polos, blazers, and sweaters (49 items)</p>
+                    </div>
+                    <div class="item-grid">
+                        <div class="item-card" onclick="showItemDetail('Lardini green blazer')">
+                            <div class="item-name">Lardini green blazer</div>
+                            <div class="item-count">
+                                Appears on 19 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Lardini prince of wales blazer')">
+                            <div class="item-name">Lardini prince of wales blazer</div>
+                            <div class="item-count">
+                                Appears on 13 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Dries pink polo')">
+                            <div class="item-name">Dries pink polo</div>
+                            <div class="item-count">
+                                Appears on 12 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Zegna blue polo')">
+                            <div class="item-name">Zegna blue polo</div>
+                            <div class="item-count">
+                                Appears on 11 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Boglioli green polo')">
+                            <div class="item-name">Boglioli green polo</div>
+                            <div class="item-count">
+                                Appears on 10 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Iris Von Arnim grey polo')">
+                            <div class="item-name">Iris Von Arnim grey polo</div>
+                            <div class="item-count">
+                                Appears on 9 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Lardini green polo')">
+                            <div class="item-name">Lardini green polo</div>
+                            <div class="item-count">
+                                Appears on 9 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Boglioli ivory blazer')">
+                            <div class="item-name">Boglioli ivory blazer</div>
+                            <div class="item-count">
+                                Appears on 9 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Caruso camel blazer')">
+                            <div class="item-name">Caruso camel blazer</div>
+                            <div class="item-count">
+                                Appears on 6 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Boglioli pink pique polo')">
+                            <div class="item-name">Boglioli pink pique polo</div>
+                            <div class="item-count">
+                                Appears on 5 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Boglioli tan pique polo')">
+                            <div class="item-name">Boglioli tan pique polo</div>
+                            <div class="item-count">
+                                Appears on 5 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Drakes ivory corduroy')">
+                            <div class="item-name">Drakes ivory corduroy</div>
+                            <div class="item-count">
+                                Appears on 5 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Boglioli tan polo')">
+                            <div class="item-name">Boglioli tan polo</div>
+                            <div class="item-count">
+                                Appears on 4 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Saint Laurent blush sweater')">
+                            <div class="item-name">Saint Laurent blush sweater</div>
+                            <div class="item-count">
+                                Appears on 4 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Brioni taupe shirt')">
+                            <div class="item-name">Brioni taupe shirt</div>
+                            <div class="item-count">
+                                Appears on 4 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Altea olive polo')">
+                            <div class="item-name">Altea olive polo</div>
+                            <div class="item-count">
+                                Appears on 4 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Dries burgundy polo')">
+                            <div class="item-name">Dries burgundy polo</div>
+                            <div class="item-count">
+                                Appears on 4 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Prada ivory polo')">
+                            <div class="item-name">Prada ivory polo</div>
+                            <div class="item-count">
+                                Appears on 4 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Prada navy polo')">
+                            <div class="item-name">Prada navy polo</div>
+                            <div class="item-count">
+                                Appears on 3 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('The Row striped shirt')">
+                            <div class="item-name">The Row striped shirt</div>
+                            <div class="item-count">
+                                Appears on 3 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Dries striped polo')">
+                            <div class="item-name">Dries striped polo</div>
+                            <div class="item-count">
+                                Appears on 3 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Saint Laurent floral shirt')">
+                            <div class="item-name">Saint Laurent floral shirt</div>
+                            <div class="item-count">
+                                Appears on 3 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Dries striped shirt')">
+                            <div class="item-name">Dries striped shirt</div>
+                            <div class="item-count">
+                                Appears on 3 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Valentino camel cardigan')">
+                            <div class="item-name">Valentino camel cardigan</div>
+                            <div class="item-count">
+                                Appears on 3 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Saint Laurent blue striped shirt')">
+                            <div class="item-name">Saint Laurent blue striped shirt</div>
+                            <div class="item-count">
+                                Appears on 3 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Valentino navy blazer')">
+                            <div class="item-name">Valentino navy blazer</div>
+                            <div class="item-count">
+                                Appears on 3 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Loewe striped long sleeve polo')">
+                            <div class="item-name">Loewe striped long sleeve polo</div>
+                            <div class="item-count">
+                                Appears on 3 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Dunhill brown polo')">
+                            <div class="item-name">Dunhill brown polo</div>
+                            <div class="item-count">
+                                Appears on 3 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Altea navy polo')">
+                            <div class="item-name">Altea navy polo</div>
+                            <div class="item-count">
+                                Appears on 3 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Loewe striped polo')">
+                            <div class="item-name">Loewe striped polo</div>
+                            <div class="item-count">
+                                Appears on 2 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Loro Piana ivory polo')">
+                            <div class="item-name">Loro Piana ivory polo</div>
+                            <div class="item-count">
+                                Appears on 2 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Valentino burgundy tie')">
+                            <div class="item-name">Valentino burgundy tie</div>
+                            <div class="item-count">
+                                Appears on 2 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Lardini grey marl polo')">
+                            <div class="item-name">Lardini grey marl polo</div>
+                            <div class="item-count">
+                                Appears on 2 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Ikiji grey tee')">
+                            <div class="item-name">Ikiji grey tee</div>
+                            <div class="item-count">
+                                Appears on 2 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Prada floral shirt')">
+                            <div class="item-name">Prada floral shirt</div>
+                            <div class="item-count">
+                                Appears on 2 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Boglioli teal polo')">
+                            <div class="item-name">Boglioli teal polo</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Prada green sweater')">
+                            <div class="item-name">Prada green sweater</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Fedeli green shirt')">
+                            <div class="item-name">Fedeli green shirt</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Lardini striped shirt')">
+                            <div class="item-name">Lardini striped shirt</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Boglioli blue shirt')">
+                            <div class="item-name">Boglioli blue shirt</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Boglioli green striped shirt')">
+                            <div class="item-name">Boglioli green striped shirt</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Boglioli linen blazer')">
+                            <div class="item-name">Boglioli linen blazer</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Saint Laurent silk shirt')">
+                            <div class="item-name">Saint Laurent silk shirt</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('The Row taupe polo')">
+                            <div class="item-name">The Row taupe polo</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Prada blue sweater')">
+                            <div class="item-name">Prada blue sweater</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Valentino striped shirt')">
+                            <div class="item-name">Valentino striped shirt</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Beams brown polo')">
+                            <div class="item-name">Beams brown polo</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Saint Laurent brown corduroy')">
+                            <div class="item-name">Saint Laurent brown corduroy</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Prada silk shirt')">
+                            <div class="item-name">Prada silk shirt</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-section">
+                    <div class="category-header">
+                        <h2>👞 Shoes</h2>
+                        <p class="category-description">Loafers, espadrilles, and sandals (6 items)</p>
+                    </div>
+                    <div class="item-grid">
+                        <div class="item-card" onclick="showItemDetail('The Row brown tassel loafer')">
+                            <div class="item-name">The Row brown tassel loafer</div>
+                            <div class="item-count">
+                                Appears on 54 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Saint Laurent loafer')">
+                            <div class="item-name">Saint Laurent loafer</div>
+                            <div class="item-count">
+                                Appears on 33 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Loro Piana sandal')">
+                            <div class="item-name">Loro Piana sandal</div>
+                            <div class="item-count">
+                                Appears on 6 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Loewe espadrille')">
+                            <div class="item-name">Loewe espadrille</div>
+                            <div class="item-count">
+                                Appears on 4 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Castaner cream espadrille')">
+                            <div class="item-name">Castaner cream espadrille</div>
+                            <div class="item-count">
+                                Appears on 2 pages
+                            </div>
+                        </div>
+                        <div class="item-card" onclick="showItemDetail('Loro piana sandal')">
+                            <div class="item-name">Loro piana sandal</div>
+                            <div class="item-count">
+                                Appears on 1 page
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
 

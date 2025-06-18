@@ -16,12 +16,48 @@ def load_data():
         page_items = json.load(f)
     return clothing_index, page_items
 
+def categorize_clothing_item(item_name):
+    """Categorize clothing items into bottoms, tops, and shoes"""
+    item_lower = item_name.lower()
+    
+    # Bottoms (pants, trousers, shorts, jeans)
+    if any(keyword in item_lower for keyword in ['trouser', 'short', 'jean', '5-pocket', 'khaki', 'pant']):
+        return 'bottoms'
+    
+    # Shoes (loafers, espadrilles, sandals)
+    elif any(keyword in item_lower for keyword in ['loafer', 'espadrille', 'sandal', 'shoe']):
+        return 'shoes'
+    
+    # Everything else is considered tops (shirts, polos, blazers, sweaters, etc.)
+    else:
+        return 'tops'
+
+def sort_items_by_category(clothing_index):
+    """Sort items by category: bottoms, tops, then shoes"""
+    categorized_items = {'bottoms': [], 'tops': [], 'shoes': []}
+    
+    # Categorize all items
+    for item, pages in clothing_index.items():
+        category = categorize_clothing_item(item)
+        categorized_items[category].append((item, pages))
+    
+    # Sort each category by frequency (most common first)
+    for category in categorized_items:
+        categorized_items[category].sort(key=lambda x: len(x[1]), reverse=True)
+    
+    # Combine in order: bottoms, tops, shoes
+    sorted_items = (categorized_items['bottoms'] + 
+                   categorized_items['tops'] + 
+                   categorized_items['shoes'])
+    
+    return sorted_items, categorized_items
+
 def create_static_html():
     """Create the main static HTML file"""
     clothing_index, page_items = load_data()
     
-    # Sort items by frequency
-    sorted_items = sorted(clothing_index.items(), key=lambda x: len(x[1]), reverse=True)
+    # Sort items by category: bottoms, tops, shoes
+    sorted_items, categorized_items = sort_items_by_category(clothing_index)
     
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -130,6 +166,24 @@ def create_static_html():
         .item-count {{
             color: #7f8c8d;
             font-size: 0.9rem;
+        }}
+        .category-section {{
+            margin-bottom: 40px;
+        }}
+        .category-header {{
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+        }}
+        .category-header h2 {{
+            margin: 0 0 8px 0;
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }}
+        .category-description {{
+            margin: 0;
+            color: #7f8c8d;
+            font-size: 0.95rem;
         }}
         .page-images {{
             display: grid;
@@ -259,8 +313,8 @@ def create_static_html():
                     <input type="text" id="searchInput" placeholder="Search for clothing items..." onkeyup="filterItems()">
                 </div>
 
-                <div id="items-grid" class="item-grid">
-                    {generate_item_cards(sorted_items)}
+                <div id="items-grid">
+                    {generate_categorized_item_cards(categorized_items)}
                 </div>
             </div>
 
@@ -381,21 +435,52 @@ def create_static_html():
 
     return html_content
 
-def generate_item_cards(sorted_items):
-    """Generate HTML for item cards"""
-    cards = []
-    for item, pages in sorted_items:
-        # Escape quotes for JavaScript
-        escaped_item = item.replace("'", "\\'")
-        card = f"""
-                    <div class="item-card" onclick="showItemDetail('{escaped_item}')">
-                        <div class="item-name">{item}</div>
-                        <div class="item-count">
-                            Appears on {len(pages)} page{'s' if len(pages) > 1 else ''}
-                        </div>
-                    </div>"""
-        cards.append(card)
-    return ''.join(cards)
+def generate_categorized_item_cards(categorized_items):
+    """Generate HTML for categorized item cards"""
+    html_sections = []
+    
+    # Category information
+    categories = {
+        'bottoms': {'title': '👖 Bottoms', 'description': 'Trousers, shorts, and pants'},
+        'tops': {'title': '👔 Tops', 'description': 'Shirts, polos, blazers, and sweaters'},
+        'shoes': {'title': '👞 Shoes', 'description': 'Loafers, espadrilles, and sandals'}
+    }
+    
+    for category in ['bottoms', 'tops', 'shoes']:
+        items = categorized_items[category]
+        if not items:
+            continue
+            
+        category_info = categories[category]
+        
+        # Category header
+        category_html = f"""
+                <div class="category-section">
+                    <div class="category-header">
+                        <h2>{category_info['title']}</h2>
+                        <p class="category-description">{category_info['description']} ({len(items)} items)</p>
+                    </div>
+                    <div class="item-grid">"""
+        
+        # Generate cards for this category
+        for item, pages in items:
+            escaped_item = item.replace("'", "\\'")
+            card = f"""
+                        <div class="item-card" onclick="showItemDetail('{escaped_item}')">
+                            <div class="item-name">{item}</div>
+                            <div class="item-count">
+                                Appears on {len(pages)} page{'s' if len(pages) > 1 else ''}
+                            </div>
+                        </div>"""
+            category_html += card
+        
+        category_html += """
+                    </div>
+                </div>"""
+        
+        html_sections.append(category_html)
+    
+    return ''.join(html_sections)
 
 def create_netlify_files():
     """Create necessary files for Netlify deployment"""
