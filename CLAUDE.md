@@ -4,108 +4,166 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Kevin's Outfit Finder is a mobile-first web application for browsing and discovering clothing combinations from a curated summer wardrobe collection. The project uses OCR to extract clothing items from outfit images and provides a visual discovery interface optimized for mobile devices.
+Kevin's Outfit Finder is a mobile-first web application for browsing and discovering clothing combinations from curated wardrobe collections (Summer and Spring). The project uses OCR to extract clothing items from outfit images and provides a visual discovery interface with image modal/lightbox functionality.
 
 ## Architecture
 
 ### Dual Development Approach
 - **Development Mode**: Flask web application (`app.py`) for local development and testing
-- **Production Mode**: Static site generation (`generate_static_site.py`) for Netlify deployment
+- **Production Mode**: Static site generation (`generate_static_site_with_collections.py`) for Netlify deployment
 
 ### Data Architecture
-The application uses a dual-index system with two core JSON files:
+The application maintains separate datasets for each collection:
+
+**Summer Collection:**
 - `clothing_index.json`: Maps clothing items → pages where they appear
 - `page_items.json`: Maps outfit pages → clothing items they contain
+- Images in `Kevin_Summer_Looks_Pages/` (90 pages)
 
-This bidirectional mapping enables efficient lookups for both "show me all outfits with this item" and "show me all items on this page" queries.
-
-### OCR Processing Pipeline
-1. **Raw extraction**: `extract_clothing_items.py` uses Tesseract OCR on images in `Kevin_Summer_Looks_Pages/`
-2. **Manual curation**: `page_items.json` is manually edited for accuracy
-3. **Index rebuilding**: `rebuild_index.py` regenerates `clothing_index.json` from curated page data
+**Spring Collection:**
+- `clothing_index_spring.json`: Categorized items with format "Item Name (Category)"
+- `page_items_spring.json`: Includes category metadata for each item
+- `category_stats_spring.json`: Category statistics
+- Images in `KEVIN_Spring_Looks_Images/` (109 pages)
 
 ## Essential Commands
 
 ### Local Development
 ```bash
-# Start Flask development server
+# Start Flask development server (Summer collection only)
 python3 app.py
 # Visit http://localhost:5000
 
 # Start data cleaning web interface
 python3 data_cleaner.py
 # Visit http://localhost:5001/clean
+
+# Test static site locally
+cd dist && python3 -m http.server 8080
+# Visit http://localhost:8080
 ```
 
-### Data Processing
+### OCR Processing
 ```bash
-# Extract clothing items from images using OCR
+# Extract Summer collection items
 export PATH="/opt/homebrew/bin:$PATH"  # Ensure Tesseract is available
 python3 extract_clothing_items.py
 
+# Extract Spring collection with improved separation and categorization
+python3 extract_spring_clothing_improved.py
+
+# Clean OCR artifacts (e.g., "i The Row" → "The Row")
+python3 clean_ocr_artifacts.py
+
+# Merge duplicate items across collections
+python3 merge_duplicates.py
+```
+
+### Data Management
+```bash
 # Rebuild clothing index after manual edits to page_items.json
 python3 rebuild_index.py
 
 # Analyze data for cleaning opportunities
 python3 analyze_data.py
+
+# Clean data directly with interactive prompts
+python3 clean_data_directly.py
 ```
 
 ### Static Site Generation
 ```bash
-# Generate static site for deployment
-python3 generate_static_site.py
-# Output created in dist/ directory
+# Generate static site with both collections (PREFERRED)
+python3 generate_static_site_with_collections.py
 
-# Test static site locally
-cd dist && python3 -m http.server 8080
+# Legacy: Generate Summer-only site
+python3 generate_static_site.py
 ```
 
-### Data Management Workflow
-When updating clothing data:
-1. Edit `page_items.json` manually for accuracy
-2. Run `python3 rebuild_index.py` to regenerate clothing_index.json
-3. Run `python3 generate_static_site.py` to update static site
-4. Commit and push for automatic Netlify deployment
+### Deployment
+```bash
+# After generating static site
+netlify deploy --prod --dir=dist
+
+# Or drag and drop the 'dist' folder to Netlify web interface
+```
 
 ## Key Technical Details
 
 ### OCR Configuration
-- Tesseract path set to `/opt/homebrew/bin/tesseract` for macOS Homebrew installations
-- OCR parsing logic in `extract_clothing_items.py` handles multi-line brand names and item descriptions
-- Manual data curation recommended for production accuracy
+- Tesseract path: `/opt/homebrew/bin/tesseract` (macOS Homebrew)
+- Spring extraction (`extract_spring_clothing_improved.py`) includes:
+  - Automatic item separation for combined entries
+  - Category detection (Outerwear, Tops, Bottoms, Footwear, Accessories)
+  - Brand recognition for 30+ luxury brands
+  - Artifact cleaning (removes OCR noise like leading characters)
 
-### Static Site Generation
-- `generate_static_site.py` creates a complete SPA in the `dist/` directory
-- Embeds JSON data directly into HTML for offline functionality
-- Copies all images from `Kevin_Summer_Looks_Pages/` to `dist/images/`
-- Mobile-first responsive design with touch-friendly interface
+### Static Site Features
+- **Dual Collection Support**: Tab-based navigation between Summer/Spring
+- **Image Modal**: Click any outfit image for full-screen lightbox view
+- **Categorized Display**: Items grouped by type (Bottoms, Tops, Footwear, etc.)
+- **Search**: Real-time filtering within each collection
+- **Mobile Optimized**: Touch-friendly with responsive grid layouts
 
-### Flask Routes Architecture
-- `/`: Main item directory sorted by frequency
-- `/item/<item_name>`: Show all outfit pages containing specific item
-- `/page/<page_name>`: Show all items on specific outfit page
-- `/images/<filename>`: Serve outfit images
-- `/api/search/<query>`: JSON search endpoint
-
-### Deployment Configuration
-- Netlify builds using `python3 generate_static_site.py`
-- Python 3.9 runtime specified in `netlify.toml`
-- SPA routing handled via `_redirects` file
+### Data Cleaning Workflow
+1. Run OCR extraction: `python3 extract_spring_clothing_improved.py`
+2. Clean artifacts: `python3 clean_ocr_artifacts.py`
+3. Manual review: Edit `page_items_spring.json` if needed
+4. Rebuild index: `python3 rebuild_index.py`
+5. Generate site: `python3 generate_static_site_with_collections.py`
 
 ## Data Structure Notes
 
 ### Image Naming Convention
-- Outfit images: `page_1.png`, `page_2.png`, ..., `page_90.png`
-- Stored in `Kevin_Summer_Looks_Pages/` directory
-- Copied to `dist/images/` during static site generation
+- Summer: `Kevin_Summer_Looks_Pages/page_1.png` through `page_90.png`
+- Spring: `KEVIN_Spring_Looks_Images/page_1.png` through `page_109.png`
+- Static site copies to: `dist/images/` and `dist/spring_images/`
+
+### Spring Collection Categories
+- **Outerwear**: jackets, coats, blazers, trenches
+- **Tops**: shirts, polos, sweaters, cardigans, hoodies
+- **Bottoms**: trousers, jeans, shorts, corduroys
+- **Footwear**: loafers, boots, slippers, sneakers
+- **Accessories**: belts, watches, sunglasses
+- **Other**: items that don't fit standard categories
 
 ### JSON Data Format
-- Page identifiers use format: `"page_1"`, `"page_2"`, etc.
-- Item names include full brand and description: `"Saint Laurent ivory trouser"`
-- Pages arrays are sorted numerically by page number
+**Summer format (simple):**
+```json
+{
+  "page_1": ["Saint Laurent ivory trouser", "The Row brown tassel loafer"]
+}
+```
 
-### Mobile Optimization Strategy
-- CSS Grid/Flexbox for responsive layouts
-- Touch-friendly minimum 44px tap targets
-- Optimized image loading with error fallbacks
-- Single-page application for smooth mobile navigation
+**Spring format (categorized):**
+```json
+{
+  "page_1": [
+    {"name": "Saint Laurent blush sweater", "category": "Tops"},
+    {"name": "The Row brown tassel loafer", "category": "Footwear"}
+  ]
+}
+```
+
+## Common Issues and Solutions
+
+### OCR Artifacts
+- Problem: Items like "i The Row brown tassel loafer" or "eS) Saint Laurent loafer"
+- Solution: Run `python3 clean_ocr_artifacts.py` to automatically clean
+
+### Combined Items
+- Problem: "Caruso camel blazer Drake's ivory corduroy" as single item
+- Solution: Use `extract_spring_clothing_improved.py` which automatically separates
+
+### Duplicate Items
+- Problem: "Loro Piana sandal" and "Loro piana sandal" (capitalization)
+- Solution: Run `python3 merge_duplicates.py` to consolidate
+
+## Testing Checklist
+When making changes, verify:
+1. Images display correctly in both collections
+2. Modal/lightbox opens on image click
+3. Search filters work within each collection
+4. Category groupings display properly (Spring)
+5. Navigation between items and pages works
+6. Mobile responsive layout functions
