@@ -1,4 +1,5 @@
 [build]
+  command = "python3 generate_static_site_all_collections.py"
   publish = "dist"
 
 [[redirects]]

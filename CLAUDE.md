@@ -4,16 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Kevin's Outfit Finder is a mobile-first web application for browsing and discovering clothing combinations from curated wardrobe collections (Summer and Spring). The project uses OCR to extract clothing items from outfit images and provides a visual discovery interface with image modal/lightbox functionality.
+Kevin's Outfit Finder is a mobile-first web application for browsing and discovering clothing combinations from curated seasonal wardrobe collections (Summer, Spring, and Fall/Winter). The project uses OCR to extract clothing items from outfit images and provides a visual discovery interface with image modal/lightbox functionality.
 
 ## Architecture
 
 ### Dual Development Approach
 - **Development Mode**: Flask web application (`app.py`) for local development and testing
-- **Production Mode**: Static site generation (`generate_static_site_with_collections.py`) for Netlify deployment
+- **Production Mode**: Static site generation (`generate_static_site_all_collections.py`) for Netlify deployment
 
 ### Data Architecture
-The application maintains separate datasets for each collection:
+The application maintains separate datasets for each collection with bidirectional mapping:
 
 **Summer Collection:**
 - `clothing_index.json`: Maps clothing items → pages where they appear
@@ -25,6 +25,12 @@ The application maintains separate datasets for each collection:
 - `page_items_spring.json`: Includes category metadata for each item
 - `category_stats_spring.json`: Category statistics
 - Images in `KEVIN_Spring_Looks_Images/` (109 pages)
+
+**Fall/Winter Collection:**
+- `clothing_index_fw.json`: Categorized items for cold weather
+- `page_items_fw.json`: Includes seasonal category metadata
+- `category_stats_fw.json`: Category statistics
+- Images in `Fall_Winter_Looks_Images/` (80 pages)
 
 ## Essential Commands
 
@@ -52,11 +58,11 @@ python3 extract_clothing_items.py
 # Extract Spring collection with improved separation and categorization
 python3 extract_spring_clothing_improved.py
 
+# Extract Fall/Winter collection with seasonal categories
+python3 extract_fall_winter_clothing.py
+
 # Clean OCR artifacts (e.g., "i The Row" → "The Row")
 python3 clean_ocr_artifacts.py
-
-# Merge duplicate items across collections
-python3 merge_duplicates.py
 ```
 
 ### Data Management
@@ -67,67 +73,74 @@ python3 rebuild_index.py
 # Analyze data for cleaning opportunities
 python3 analyze_data.py
 
-# Clean data directly with interactive prompts
-python3 clean_data_directly.py
+# Merge duplicate items
+python3 merge_duplicates.py
+
+# Collection-specific cleaning scripts
+python3 clean_fw_duplicates.py
+python3 merge_loro_piana_blazers.py
+python3 merge_mislabeled_blazer.py
+python3 merge_woolly_trousers.py
+python3 update_coat_to_trench.py
+python3 update_loro_piana_coat.py
 ```
 
 ### Static Site Generation
 ```bash
-# Generate static site with both collections (PREFERRED)
-python3 generate_static_site_with_collections.py
+# Generate static site with ALL three collections (REQUIRED for production)
+python3 generate_static_site_all_collections.py
 
-# Legacy: Generate Summer-only site
-python3 generate_static_site.py
+# Legacy generators (do not use for production)
+python3 generate_static_site_with_collections.py  # Summer + Spring only
+python3 generate_static_site.py                    # Summer only
 ```
 
 ### Deployment
 ```bash
-# After generating static site
+# Netlify will automatically build using the command in netlify.toml
+# Manual deployment if needed:
 netlify deploy --prod --dir=dist
-
-# Or drag and drop the 'dist' folder to Netlify web interface
 ```
 
 ## Key Technical Details
 
 ### OCR Configuration
 - Tesseract path: `/opt/homebrew/bin/tesseract` (macOS Homebrew)
-- Spring extraction (`extract_spring_clothing_improved.py`) includes:
+- Each collection extractor includes:
   - Automatic item separation for combined entries
-  - Category detection (Outerwear, Tops, Bottoms, Footwear, Accessories)
+  - Category detection appropriate to season
   - Brand recognition for 30+ luxury brands
-  - Artifact cleaning (removes OCR noise like leading characters)
+  - Artifact cleaning (removes OCR noise)
 
 ### Static Site Features
-- **Dual Collection Support**: Tab-based navigation between Summer/Spring
+- **Three Collection Support**: Tab navigation (Summer, Spring, Fall/Winter)
 - **Image Modal**: Click any outfit image for full-screen lightbox view
-- **Categorized Display**: Items grouped by type (Bottoms, Tops, Footwear, etc.)
+- **Categorized Display**: Items grouped by type with seasonal categories
 - **Search**: Real-time filtering within each collection
 - **Mobile Optimized**: Touch-friendly with responsive grid layouts
+- **Favicon**: Wardrobe-themed icon for browser tabs
 
-### Data Cleaning Workflow
-1. Run OCR extraction: `python3 extract_spring_clothing_improved.py`
-2. Clean artifacts: `python3 clean_ocr_artifacts.py`
-3. Manual review: Edit `page_items_spring.json` if needed
-4. Rebuild index: `python3 rebuild_index.py`
-5. Generate site: `python3 generate_static_site_with_collections.py`
+### Collection Categories
+**Summer/Spring Categories:**
+- Outerwear, Tops, Bottoms, Footwear, Accessories, Other
+
+**Fall/Winter Categories:**
+- Outerwear, Knitwear, Tops, Bottoms, Footwear, Accessories, Suits, Layering, Other
+
+### Build Configuration
+- **netlify.toml**: Specifies build command `python3 generate_static_site_all_collections.py`
+- **package.json**: Build script points to all collections generator
+- Output directory: `dist/`
 
 ## Data Structure Notes
 
 ### Image Naming Convention
 - Summer: `Kevin_Summer_Looks_Pages/page_1.png` through `page_90.png`
 - Spring: `KEVIN_Spring_Looks_Images/page_1.png` through `page_109.png`
-- Static site copies to: `dist/images/` and `dist/spring_images/`
+- Fall/Winter: `Fall_Winter_Looks_Images/page_1.png` through `page_80.png`
+- Static site copies to: `dist/images/`, `dist/spring_images/`, `dist/fw_images/`
 
-### Spring Collection Categories
-- **Outerwear**: jackets, coats, blazers, trenches
-- **Tops**: shirts, polos, sweaters, cardigans, hoodies
-- **Bottoms**: trousers, jeans, shorts, corduroys
-- **Footwear**: loafers, boots, slippers, sneakers
-- **Accessories**: belts, watches, sunglasses
-- **Other**: items that don't fit standard categories
-
-### JSON Data Format
+### JSON Data Formats
 **Summer format (simple):**
 ```json
 {
@@ -135,7 +148,7 @@ netlify deploy --prod --dir=dist
 }
 ```
 
-**Spring format (categorized):**
+**Spring/Fall-Winter format (categorized):**
 ```json
 {
   "page_1": [
@@ -145,25 +158,24 @@ netlify deploy --prod --dir=dist
 }
 ```
 
-## Common Issues and Solutions
+## Common Data Cleaning Tasks
 
 ### OCR Artifacts
-- Problem: Items like "i The Row brown tassel loafer" or "eS) Saint Laurent loafer"
-- Solution: Run `python3 clean_ocr_artifacts.py` to automatically clean
+- Problem: Items like "i The Row brown tassel loafer" or "of The Row"
+- Solution: Run `python3 clean_ocr_artifacts.py`
 
 ### Combined Items
 - Problem: "Caruso camel blazer Drake's ivory corduroy" as single item
-- Solution: Use `extract_spring_clothing_improved.py` which automatically separates
+- Solution: Use improved extractors that automatically separate
 
-### Duplicate Items
-- Problem: "Loro Piana sandal" and "Loro piana sandal" (capitalization)
-- Solution: Run `python3 merge_duplicates.py` to consolidate
+### Duplicate/Variant Items
+- Problem: Case variations, typos, or mislabeled items
+- Solution: Create specific merge scripts following the pattern of existing ones
 
-## Testing Checklist
-When making changes, verify:
-1. Images display correctly in both collections
-2. Modal/lightbox opens on image click
-3. Search filters work within each collection
-4. Category groupings display properly (Spring)
-5. Navigation between items and pages works
-6. Mobile responsive layout functions
+### Workflow for Data Updates
+1. Extract with OCR: `python3 extract_[collection]_clothing.py`
+2. Clean artifacts if needed: `python3 clean_ocr_artifacts.py`
+3. Manual review: Edit `page_items_[collection].json`
+4. Rebuild index: `python3 rebuild_index.py`
+5. Generate site: `python3 generate_static_site_all_collections.py`
+6. Commit and push (Netlify auto-deploys)
