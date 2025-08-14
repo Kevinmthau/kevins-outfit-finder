@@ -854,18 +854,8 @@ def create_netlify_files_all_collections():
         f.write(html_content)
     print("✅ Generated index.html with all three collections")
     
-    # Create netlify.toml for configuration
-    netlify_config = """[build]
-  publish = "dist"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-"""
-    with open('netlify.toml', 'w') as f:
-        f.write(netlify_config)
-    print("✅ Created netlify.toml")
+    # Note: netlify.toml should be in the root directory, not generated
+    # The root netlify.toml handles the build configuration
     
     # Create _redirects file in dist
     with open(dist_dir / '_redirects', 'w') as f:

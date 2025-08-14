@@ -26,5 +26,5 @@ Thumbs.db
 # Logs
 *.log
 
-# Don't ignore the dist folder since it's our build output
-# dist/
+# Build output - Netlify will generate this fresh each deployment
+dist/

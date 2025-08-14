@@ -1,6 +1,11 @@
 [build]
-  command = "python3 generate_static_site_all_collections.py"
+  # Always generate fresh content on each deployment
+  command = "rm -rf dist && python3 generate_static_site_all_collections.py"
   publish = "dist"
+  
+[build.environment]
+  # Ensure Python 3 is available
+  PYTHON_VERSION = "3.8"
 
 [[redirects]]
   from = "/*"
