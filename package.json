@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A mobile-friendly outfit browser for Kevin's summer wardrobe",
   "scripts": {
-    "build": "python3 generate_static_site.py",
+    "build": "python3 generate_static_site_all_collections.py",
     "start": "python3 app.py"
   },
   "keywords": [
