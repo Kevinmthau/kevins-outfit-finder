@@ -177,6 +177,8 @@ def create_all_collections_html():
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kevin's Outfit Finder - All Seasons</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <style>
         body {{
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -882,6 +884,13 @@ def create_netlify_files_all_collections():
             shutil.copy2(data_file, dist_dir)
     
     print("✅ Copied all data files")
+    
+    # Copy favicon files
+    if Path('favicon.png').exists():
+        shutil.copy2('favicon.png', dist_dir)
+    if Path('favicon.ico').exists():
+        shutil.copy2('favicon.ico', dist_dir)
+    print("✅ Copied favicon files")
     
     print(f"\n🎉 Static site with all three collections ready for deployment!")
     print(f"📁 Files created in: {dist_dir.absolute()}")
