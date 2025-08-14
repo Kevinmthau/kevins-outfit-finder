@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin's Outfit Finder - Summer & Spring Collections</title>
+    <title>Kevin's Outfit Finder - All Seasons</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -47,7 +47,7 @@
             color: #ecf0f1;
             background: none;
             border: none;
-            padding: 15px 30px;
+            padding: 15px 25px;
             cursor: pointer;
             transition: all 0.3s;
             font-size: 1rem;
@@ -304,8 +304,8 @@
                 font-size: 1.8rem;
             }
             .nav button {
-                padding: 12px 20px;
-                font-size: 0.95rem;
+                padding: 12px 15px;
+                font-size: 0.9rem;
             }
             .content {
                 padding: 20px;
@@ -329,11 +329,12 @@
     <div class="container">
         <div class="header">
             <h1 id="page-title">Kevin's Outfit Finder</h1>
-            <p>Explore Summer & Spring Collections</p>
+            <p>Explore All Seasonal Collections</p>
         </div>
         <div class="nav">
-            <button onclick="showCollection('summer')" class="active" id="nav-summer">☀️ Summer Collection</button>
-            <button onclick="showCollection('spring')" id="nav-spring">🌸 Spring Collection</button>
+            <button onclick="showCollection('summer')" class="active" id="nav-summer">☀️ Summer</button>
+            <button onclick="showCollection('spring')" id="nav-spring">🌸 Spring</button>
+            <button onclick="showCollection('fw')" id="nav-fw">❄️ Fall/Winter</button>
         </div>
         <div class="content">
             <!-- Summer Collection View -->
@@ -1472,6 +1473,560 @@
                 </div>
             </div>
 
+            <!-- Fall/Winter Collection View -->
+            <div id="fw-view" class="hidden">
+                <div class="collection-header">
+                    <h2>❄️ Fall/Winter Collection</h2>
+                    <div class="collection-stats">
+                        <strong>80</strong> unique items across <strong>79</strong> outfit pages
+                    </div>
+                </div>
+
+                <div class="search-box">
+                    <input type="text" id="fwSearchInput" placeholder="Search fall/winter items..." onkeyup="filterItems('fw')">
+                </div>
+
+                <div id="fw-items-grid">
+                    
+                    <div class="category-section">
+                        <div class="category-header">
+                            <h2>🧥 Outerwear</h2>
+                            <p class="category-description">11 items in this category</p>
+                        </div>
+                        <div class="item-grid">
+                            <div class="item-card" onclick="showItemDetail('The Row blazer', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row blazer</div>
+                                <div class="item-count">
+                                    Appears on 12 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana precious blazer', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana precious blazer</div>
+                                <div class="item-count">
+                                    Appears on 11 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Saint Laurent blazer', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Saint Laurent blazer</div>
+                                <div class="item-count">
+                                    Appears on 9 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Saint Laurent trench', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Saint Laurent trench</div>
+                                <div class="item-count">
+                                    Appears on 6 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana check blazer', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana check blazer</div>
+                                <div class="item-count">
+                                    Appears on 4 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana DB blazer', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana DB blazer</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana grey coat', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana grey coat</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Hermes brown coat', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Hermes brown coat</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana Navy coat', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana Navy coat</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Hermes coat', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Hermes coat</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loewe grey blazer', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loewe grey blazer</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-section">
+                        <div class="category-header">
+                            <h2>🧶 Knitwear</h2>
+                            <p class="category-description">12 items in this category</p>
+                        </div>
+                        <div class="item-grid">
+                            <div class="item-card" onclick="showItemDetail('Loro Piana brown turtleneck', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana brown turtleneck</div>
+                                <div class="item-count">
+                                    Appears on 5 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Cesare Attolini green crew neck sweater', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Cesare Attolini green crew neck sweater</div>
+                                <div class="item-count">
+                                    Appears on 5 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row green crew neck sweater', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row green crew neck sweater</div>
+                                <div class="item-count">
+                                    Appears on 3 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Boglioli green turtleneck', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Boglioli green turtleneck</div>
+                                <div class="item-count">
+                                    Appears on 3 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Boglioli pink crewneck', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Boglioli pink crewneck</div>
+                                <div class="item-count">
+                                    Appears on 2 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row brushed crew neck sweater', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row brushed crew neck sweater</div>
+                                <div class="item-count">
+                                    Appears on 2 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Hermes navy crew neck sweater', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Hermes navy crew neck sweater</div>
+                                <div class="item-count">
+                                    Appears on 2 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Boglioli pink crewneck Brioni brown cord', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Boglioli pink crewneck Brioni brown cord</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row woolly', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row woolly</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Hermes burgundy sweater', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Hermes burgundy sweater</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Boglioli green crewneck', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Boglioli green crewneck</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Vivienne Westwood cardigan', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Vivienne Westwood cardigan</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-section">
+                        <div class="category-header">
+                            <h2>👔 Tops</h2>
+                            <p class="category-description">19 items in this category</p>
+                        </div>
+                        <div class="item-grid">
+                            <div class="item-card" onclick="showItemDetail('Brioni oyster shirt', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Brioni oyster shirt</div>
+                                <div class="item-count">
+                                    Appears on 8 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Dries pinstripe shirt', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Dries pinstripe shirt</div>
+                                <div class="item-count">
+                                    Appears on 6 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row pink shirt', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row pink shirt</div>
+                                <div class="item-count">
+                                    Appears on 5 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row burgundy polo', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row burgundy polo</div>
+                                <div class="item-count">
+                                    Appears on 5 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Brunello camel polo', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Brunello camel polo</div>
+                                <div class="item-count">
+                                    Appears on 4 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana navy polo', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana navy polo</div>
+                                <div class="item-count">
+                                    Appears on 4 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana green polo', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana green polo</div>
+                                <div class="item-count">
+                                    Appears on 3 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Valentino grey polo', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Valentino grey polo</div>
+                                <div class="item-count">
+                                    Appears on 3 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Boglioli brown stripe shirt', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Boglioli brown stripe shirt</div>
+                                <div class="item-count">
+                                    Appears on 2 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Saint Laurent grey polo', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Saint Laurent grey polo</div>
+                                <div class="item-count">
+                                    Appears on 2 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Boglioli blue shirt', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Boglioli blue shirt</div>
+                                <div class="item-count">
+                                    Appears on 2 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Armory white shirt', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Armory white shirt</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana green polo Brioni brown cord', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana green polo Brioni brown cord</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Brioni brown plaid shirt', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Brioni brown plaid shirt</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row oyster pinstripe shirt', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row oyster pinstripe shirt</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana pale blue shirt', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana pale blue shirt</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Boglioli brown shirt', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Boglioli brown shirt</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana buttonless navy polo', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana buttonless navy polo</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loewe blue shirt', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loewe blue shirt</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-section">
+                        <div class="category-header">
+                            <h2>👖 Bottoms</h2>
+                            <p class="category-description">31 items in this category</p>
+                        </div>
+                        <div class="item-grid">
+                            <div class="item-card" onclick="showItemDetail('Saint Laurent trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Saint Laurent trouser</div>
+                                <div class="item-count">
+                                    Appears on 9 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana herringbone trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana herringbone trouser</div>
+                                <div class="item-count">
+                                    Appears on 7 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row woolly trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row woolly trouser</div>
+                                <div class="item-count">
+                                    Appears on 7 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Saint Laurent light brown trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Saint Laurent light brown trouser</div>
+                                <div class="item-count">
+                                    Appears on 5 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Saint Laurent black trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Saint Laurent black trouser</div>
+                                <div class="item-count">
+                                    Appears on 5 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana red utility trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana red utility trouser</div>
+                                <div class="item-count">
+                                    Appears on 4 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Brioni brown corduroy trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Brioni brown corduroy trouser</div>
+                                <div class="item-count">
+                                    Appears on 4 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana green utility trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana green utility trouser</div>
+                                <div class="item-count">
+                                    Appears on 3 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Hermes trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Hermes trouser</div>
+                                <div class="item-count">
+                                    Appears on 2 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Saint Laurent charcoal trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Saint Laurent charcoal trouser</div>
+                                <div class="item-count">
+                                    Appears on 2 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row corduroy trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row corduroy trouser</div>
+                                <div class="item-count">
+                                    Appears on 2 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Valentino black track pant', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Valentino black track pant</div>
+                                <div class="item-count">
+                                    Appears on 2 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Valentino grey trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Valentino grey trouser</div>
+                                <div class="item-count">
+                                    Appears on 2 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Prada check trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Prada check trouser</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Saint Laurent charcoal gray trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Saint Laurent charcoal gray trouser</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana utility red trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana utility red trouser</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Hermes burgundy crew Brioni brown corduroy', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Hermes burgundy crew Brioni brown corduroy</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row moleskin trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row moleskin trouser</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Brioni corduroy trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Brioni corduroy trouser</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row brushed crew The Frankie Shop corduroy pants', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row brushed crew The Frankie Shop corduroy pants</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Saint Laurent taupe suit trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Saint Laurent taupe suit trouser</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Boglioli green crew Brioni corduroy trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Boglioli green crew Brioni corduroy trouser</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Brioni brown corduroy pant', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Brioni brown corduroy pant</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row black moleskin trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row black moleskin trouser</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row black corduroy trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row black corduroy trouser</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Saint Laurent lurex pinstripe trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Saint Laurent lurex pinstripe trouser</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Saint Laurent pinstripe trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Saint Laurent pinstripe trouser</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Valentino trouser', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Valentino trouser</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Boglioli blue crew 1 Brioni brown corduroy', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Boglioli blue crew 1 Brioni brown corduroy</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row micro cord pant', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row micro cord pant</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('Loro Piana khaki pant', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Loro Piana khaki pant</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-section">
+                        <div class="category-header">
+                            <h2>👞 Footwear</h2>
+                            <p class="category-description">5 items in this category</p>
+                        </div>
+                        <div class="item-grid">
+                            <div class="item-card" onclick="showItemDetail('The Row brown tassel loafer', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row brown tassel loafer</div>
+                                <div class="item-count">
+                                    Appears on 37 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row black tassel loafer', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row black tassel loafer</div>
+                                <div class="item-count">
+                                    Appears on 18 pages
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('The Row brown loafer', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">The Row brown loafer</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('1 The Row brown tassel loafer', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">1 The Row brown tassel loafer</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                            <div class="item-card" onclick="showItemDetail('2 The Row brown tassel loafer', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">2 The Row brown tassel loafer</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-section">
+                        <div class="category-header">
+                            <h2>🤵 Suits</h2>
+                            <p class="category-description">1 items in this category</p>
+                        </div>
+                        <div class="item-grid">
+                            <div class="item-card" onclick="showItemDetail('Saint Laurent Suit', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Saint Laurent Suit</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-section">
+                        <div class="category-header">
+                            <h2>🎩 Accessories</h2>
+                            <p class="category-description">1 items in this category</p>
+                        </div>
+                        <div class="item-grid">
+                            <div class="item-card" onclick="showItemDetail('Green Loro Piana tie Red Loro Piana tie', 'Fall/Winter', 'fw_images')">
+                                <div class="item-name">Green Loro Piana tie Red Loro Piana tie</div>
+                                <div class="item-count">
+                                    Appears on 1 page
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Item Detail View -->
             <div id="item-view" class="hidden">
                 <a onclick="backToCollection()" class="back-link">&larr; Back to collection</a>
@@ -1499,6 +2054,8 @@
         const summerPageItems = {"page_1": ["Iris Von Arnim grey polo", "Boglioli teal polo", "Prada navy polo", "Saint Laurent ivory trouser", "Saint Laurent loafer"], "page_2": ["Boglioli tan polo", "The Row striped shirt", "Saint Laurent blush sweater", "Saint Laurent ivory trouser", "The Row brown tassel loafer"], "page_3": ["Boglioli green polo", "Saint Laurent ivory trouser", "Lardini green blazer", "The Row brown tassel loafer", "Saint Laurent loafer"], "page_4": ["Lardini green polo", "Saint Laurent ivory trouser", "Lardini prince of wales blazer", "Caruso camel blazer", "The Row brown tassel loafer"], "page_5": ["Dries pink polo", "Saint Laurent ivory trouser", "Lardini prince of wales blazer", "The Row brown tassel loafer"], "page_6": ["Zegna blue polo", "Saint Laurent ivory trouser", "Lardini green blazer", "Saint Laurent loafer"], "page_7": ["Brioni taupe shirt", "Saint Laurent ivory trouser", "Lardini prince of wales blazer", "Lardini green blazer", "The Row brown tassel loafer"], "page_8": ["Dries striped polo", "Beams khaki", "The Row brown tassel loafer"], "page_9": ["Boglioli pink pique polo", "Saint Laurent blush sweater", "Prada green sweater", "Saint Laurent floral shirt", "Beams khaki", "Saint Laurent loafer"], "page_10": ["Boglioli green polo", "Beams khaki", "Lardini green blazer", "Saint Laurent loafer"], "page_11": ["Fedeli green shirt", "Beams khaki", "Boglioli ivory blazer", "Saint Laurent loafer"], "page_12": ["Lardini striped shirt", "Beams khaki", "Lardini green blazer", "Saint Laurent loafer"], "page_13": ["Zegna blue polo", "Beams khaki", "Lardini prince of wales blazer", "Saint Laurent loafer", "The Row brown tassel loafer"], "page_14": ["Boglioli tan polo", "Beams khaki", "The Row brown tassel loafer"], "page_15": ["Brioni taupe shirt", "Beams khaki", "Lardini prince of wales blazer", "Lardini green blazer", "The Row brown tassel loafer"], "page_16": ["Dries pink polo", "Beams khaki", "Boglioli ivory blazer", "Saint Laurent loafer"], "page_17": ["Altea olive polo", "Beams khaki", "Saint Laurent loafer"], "page_18": ["Boglioli blue shirt", "Beams khaki", "Lardini prince of wales blazer", "Boglioli ivory blazer", "The Row brown tassel loafer"], "page_19": ["Dries striped shirt", "Beams khaki", "Boglioli ivory blazer", "The Row brown tassel loafer"], "page_20": ["Iris Von Arnim grey polo", "Prada navy trouser", "Loro Piana sandal"], "page_21": ["Loewe striped polo", "Dries burgundy polo", "Prada navy trouser", "Saint Laurent loafer"], "page_22": ["Loro Piana ivory polo", "Prada navy trouser", "Boglioli ivory blazer", "Saint Laurent loafer"], "page_23": ["Boglioli tan pique polo", "Valentino ivory canvas trouser", "Saint Laurent loafer", "Loewe espadrille"], "page_24": ["Altea olive polo", "Valentino ivory canvas trouser", "Saint Laurent loafer", "Loro Piana sandal", "Loewe espadrille"], "page_25": ["Dries striped polo", "Dries pink polo", "Valentino ivory canvas trouser", "The Row brown tassel loafer"], "page_26": ["Zegna blue polo", "Valentino ivory canvas trouser", "Lardini green blazer", "Saint Laurent loafer"], "page_27": ["Boglioli green polo", "Valentino ivory canvas trouser", "Lardini green blazer", "Saint Laurent loafer", "Loro Piana sandal", "Loewe espadrille"], "page_28": ["Boglioli green striped shirt", "Valentino ivory canvas trouser", "Valentino camel cardigan", "Boglioli ivory blazer", "The Row brown tassel loafer", "Saint Laurent loafer"], "page_29": ["Dries striped shirt", "Valentino ivory canvas trouser", "Caruso camel blazer", "The Row brown tassel loafer"], "page_30": ["Prada ivory polo", "Valentino ivory canvas trouser", "Caruso camel blazer", "The Row brown tassel loafer"], "page_31": ["Boglioli green polo", "Lardini green polo", "Valentino ivory canvas trouser", "Caruso camel blazer", "The Row brown tassel loafer"], "page_32": ["Saint Laurent blue striped shirt", "Valentino ivory canvas trouser", "Valentino navy blazer", "The Row brown tassel loafer"], "page_33": ["Loewe striped long sleeve polo", "Valentino ivory canvas trouser", "The Row brown tassel loafer"], "page_34": ["Dries burgundy polo", "Valentino camel trouser", "Boglioli linen blazer", "The Row brown tassel loafer"], "page_35": ["Zegna blue polo", "Valentino camel trouser", "Lardini green blazer", "The Row brown tassel loafer"], "page_36": ["Saint Laurent silk shirt", "Valentino camel trouser", "Valentino camel cardigan", "Saint Laurent blush sweater", "The Row brown tassel loafer"], "page_37": ["The Row striped shirt", "Valentino camel trouser", "Valentino camel cardigan", "Dries striped shirt", "The Row brown tassel loafer"], "page_38": ["Saint Laurent blue striped shirt", "Valentino camel trouser", "Valentino navy blazer", "Valentino burgundy tie", "The Row brown tassel loafer"], "page_39": ["Saint Laurent blue striped shirt", "Valentino navy trouser", "Valentino navy blazer", "Valentino burgundy tie", "The Row brown tassel loafer"], "page_40": ["Lardini green polo", "Saint Laurent olive trouser", "Dries burgundy polo", "Iris Von Arnim grey polo", "The Row brown tassel loafer"], "page_41": ["The Row taupe polo", "Saint Laurent olive trouser", "Lardini prince of wales blazer", "Lardini green blazer", "The Row brown tassel loafer"], "page_42": ["Boglioli tan polo", "Saint Laurent olive trouser", "Lardini prince of wales blazer", "The Row brown tassel loafer"], "page_43": ["Zegna blue polo", "Saint Laurent olive trouser", "Lardini green blazer", "Lardini prince of wales blazer", "The Row brown tassel loafer"], "page_44": ["Dunhill brown polo", "Saint Laurent olive trouser", "Lardini prince of wales blazer", "Caruso camel blazer", "The Row brown tassel loafer"], "page_45": ["Dunhill brown polo", "The Row teal trouser", "Caruso camel blazer", "The Row brown tassel loafer"], "page_46": ["Zegna blue polo", "The Row teal trouser", "The Row brown tassel loafer", "Lardini green blazer"], "page_47": ["Prada blue sweater", "The Row teal trouser", "The Row brown tassel loafer", "Lardini green blazer"], "page_48": ["Brioni taupe shirt", "The Row teal trouser", "The Row brown tassel loafer", "Lardini green blazer"], "page_49": ["Dries pink polo", "Dries striped trouser", "Boglioli ivory blazer", "The Row brown tassel loafer"], "page_50": ["Brioni taupe shirt", "Dries striped trouser", "Lardini green blazer", "The Row brown tassel loafer"], "page_51": ["Zegna blue polo", "Dries striped trouser", "Lardini green blazer", "The Row brown tassel loafer"], "page_52": ["Boglioli green polo", "Dries striped trouser", "Lardini green blazer", "The Row brown tassel loafer"], "page_53": ["Iris Von Arnim grey polo", "Lardini green polo", "Altea olive polo", "APC navy trouser", "Loro Piana sandal"], "page_54": ["Loewe striped polo", "APC navy trouser", "Castaner cream espadrille"], "page_55": ["Prada ivory polo", "APC navy trouser", "Boglioli ivory blazer", "The Row brown tassel loafer"], "page_56": ["Valentino striped shirt", "APC navy trouser", "Boglioli ivory blazer", "The Row brown tassel loafer"], "page_57": ["Iris Von Arnim grey polo", "Beams brown polo", "Dunhill brown polo", "Boglioli pink pique polo", "Beams plaid trouser", "The Row brown tassel loafer"], "page_58": ["Dries pink polo", "Beams plaid trouser", "The Row brown tassel loafer"], "page_59": ["Boglioli green polo", "Beams plaid trouser", "Lardini green blazer", "The Row brown tassel loafer"], "page_60": ["Zegna blue polo", "Beams plaid trouser", "Lardini green blazer", "The Row brown tassel loafer"], "page_61": ["The Row striped shirt", "Beams plaid trouser", "Saint Laurent blush sweater", "The Row brown tassel loafer"], "page_62": ["Boglioli green polo", "Lardini green polo", "Boglioli pink pique polo", "Loro Piana khaki", "Saint Laurent loafer"], "page_63": ["Boglioli tan pique polo", "Prada ivory polo", "Altea navy polo", "Prada navy polo", "Saint Laurent loafer"], "page_64": ["Altea olive polo", "Saint Laurent loafer"], "page_65": ["Boglioli pink pique polo", "Loro Piana tan 5-pocket", "Saint Laurent loafer"], "page_66": ["Boglioli tan pique polo", "Loro Piana tan 5-pocket", "Lardini prince of wales blazer", "Saint Laurent loafer"], "page_67": ["Dries burgundy polo", "Loro Piana tan 5-pocket", "The Row brown tassel loafer", "Saint Laurent loafer"], "page_68": ["Lardini green polo", "Loro Piana tan 5-pocket", "Lardini prince of wales blazer", "The Row brown tassel loafer", "Saint Laurent loafer"], "page_69": ["Boglioli green polo", "Loro Piana tan 5-pocket", "The Row brown tassel loafer", "Saint Laurent loafer"], "page_70": ["Dries pink polo", "Loro Piana tan 5-pocket", "The Row brown tassel loafer"], "page_71": ["Dries pink polo", "Drakes ivory corduroy", "Lardini prince of wales blazer", "The Row brown tassel loafer"], "page_72": ["Iris Von Arnim grey polo", "Boglioli tan pique polo", "Altea navy polo", "Boglioli tan polo", "Drakes ivory corduroy", "The Row brown tassel loafer"], "page_73": ["Boglioli green polo", "Drakes ivory corduroy", "The Row brown tassel loafer"], "page_74": ["Boglioli pink pique polo", "Drakes ivory corduroy", "The Row brown tassel loafer"], "page_75": ["Loewe striped long sleeve polo", "Drakes ivory corduroy", "Saint Laurent loafer"], "page_76": ["Dries pink polo", "APC white jean", "Saint Laurent loafer"], "page_77": ["Lardini grey marl polo", "APC white jean", "Loro Piana sandal"], "page_78": ["Loewe striped long sleeve polo", "APC white jean", "Saint Laurent loafer"], "page_79": ["The Row navy 5-pocket", "Iris Von Arnim grey polo", "The Row brown tassel loafer"], "page_80": ["Ikiji grey tee", "The Row navy 5-pocket", "Loro Piana sandal", "Saint Laurent loafer", "Loewe espadrille"], "page_81": ["Lardini green polo", "Dries pink polo", "Iris Von Arnim grey polo", "Saint Laurent brown corduroy", "Ikiji grey tee", "The Row brown tassel loafer"], "page_82": ["Boglioli green polo", "Lardini green polo", "Boglioli tan pique polo", "Prada silk shirt", "Lardini linen short"], "page_83": ["Saint Laurent floral shirt", "Prada floral shirt", "Saint Laurent loafer", "Lardini linen short", "Castaner cream espadrille"], "page_84": ["Prada floral shirt", "Lardini green polo", "Dries striped polo", "Altea navy polo", "Derek Rose khaki short", "Saint Laurent loafer"], "page_85": ["Saint Laurent floral shirt", "Zegna blue polo", "Derek Rose khaki short", "Saint Laurent loafer"], "page_86": ["Zegna blue polo", "Dries pink polo", "Iris Von Arnim grey polo", "Prada navy polo", "Loro Piana white short", "Saint Laurent loafer"], "page_87": ["Dries pink polo", "Boglioli pink short", "Loro Piana sandal"], "page_88": ["Prada ivory polo", "Dries pink polo", "Zegna blue polo", "Lardini green short", "Loro Piana ivory polo"], "page_89": ["Lardini grey marl polo", "Lardini green short"]};
         const springClothingIndex = {"Saint Laurent blush sweater (Tops)": ["page_1", "page_2", "page_3", "page_12"], "Prada pink sweater (Tops)": ["page_1", "page_2", "page_3"], "Saint Laurent taupe trouser (Bottoms)": ["page_1", "page_2", "page_3", "page_4", "page_5", "page_6", "page_7", "page_8", "page_9"], "The Row brown tassel loafer (Footwear)": ["page_1", "page_2", "page_3", "page_4", "page_5", "page_6", "page_7", "page_8", "page_9", "page_10", "page_11", "page_12", "page_13", "page_14", "page_15", "page_16", "page_17", "page_18", "page_19", "page_20", "page_30", "page_34", "page_37", "page_38", "page_39", "page_57", "page_58", "page_59", "page_60", "page_61", "page_62", "page_63", "page_64", "page_65", "page_71", "page_81", "page_82", "page_83", "page_84", "page_85", "page_86", "page_87", "page_88", "page_89", "page_90", "page_91", "page_92"], "The Row striped shirt (Tops)": ["page_3", "page_10", "page_11", "page_12", "page_84", "page_85"], "Le Kasha green sweater (Tops)": ["page_4", "page_44", "page_48"], "Boglioli green polo (Tops)": ["page_5"], "Boglioli pink pique polo (Tops)": ["page_6", "page_25", "page_32", "page_95"], "Iris Von Arnim grey polo (Tops)": ["page_7", "page_17", "page_50", "page_102"], "The Row taupe polo (Tops)": ["page_8", "page_14"], "The Row brown tee (Tops)": ["page_9", "page_20"], "Prada brown sweater (Tops)": ["page_10"], "Saint Laurent herringbone trouser (Bottoms)": ["page_10", "page_11"], "Prada burgundy sweater (Tops)": ["page_11", "page_84", "page_85"], "Saint Laurent olive trouser (Bottoms)": ["page_12"], "Zegna blue polo (Tops)": ["page_13", "page_55", "page_73", "page_102"], "The Row teal trouser (Bottoms)": ["page_13", "page_14", "page_15", "page_16"], "Prada blue sweater (Tops)": ["page_15", "page_24", "page_45", "page_58", "page_60", "page_108"], "Saint Laurent grey polo (Tops)": ["page_16", "page_34"], "Dries striped trouser (Bottoms)": ["page_17", "page_18", "page_19", "page_20"], "Lardini green polo (Tops)": ["page_18", "page_98", "page_100"], "Dries striped polo (Tops)": ["page_19", "page_99"], "Altea blue sweater (Tops)": ["page_21", "page_24", "page_28", "page_39", "page_49", "page_101"], "Lanvin green trench (Outerwear)": ["page_21", "page_37", "page_38", "page_39", "page_43", "page_45", "page_47", "page_48", "page_49", "page_50", "page_51"], "Saint Laurent olive 5 pocket (Bottoms)": ["page_21", "page_22", "page_23"], "Saint Laurent loafer (Footwear)": ["page_21", "page_22", "page_23", "page_24", "page_25", "page_26", "page_27", "page_28", "page_29", "page_31", "page_32", "page_33", "page_35", "page_36", "page_40", "page_41", "page_42", "page_43", "page_44", "page_45", "page_46", "page_47", "page_48", "page_49", "page_50", "page_51", "page_52", "page_53", "page_54", "page_55", "page_56", "page_66", "page_67", "page_68", "page_69", "page_70", "page_72", "page_76", "page_77", "page_78", "page_95", "page_96", "page_97", "page_98", "page_99", "page_100", "page_101", "page_102", "page_103", "page_104", "page_105", "page_106"], "Boglioli chambray shirt (Tops)": ["page_22", "page_40", "page_44"], "Prada camel cardigan (Tops)": ["page_22"], "Altea navy polo (Tops)": ["page_23", "page_31"], "Drake\u2019s green trouser (Bottoms)": ["page_24", "page_25", "page_26", "page_27"], "Boglioli tan pique polo (Tops)": ["page_26", "page_42", "page_52"], "RRL white tee (Tops)": ["page_27", "page_65", "page_81", "page_82", "page_83"], "Prada grey cardigan (Tops)": ["page_27", "page_75"], "Saint Laurent brown corduroy (Bottoms)": ["page_28", "page_29"], "Altea olive polo (Tops)": ["page_29", "page_56", "page_72", "page_99"], "Boglioli green turtleneck sweater (Tops)": ["page_30", "page_43"], "Officine khaki corduroy (Bottoms)": ["page_30"], "Boglioli teal polo (Tops)": ["page_31", "page_101"], "Loewe khaki cargo trouser (Bottoms)": ["page_31", "page_32", "page_33"], "Dries orange sweatshirt (Tops)": ["page_33", "page_41", "page_66", "page_67"], "Loewe yellow trouser (Bottoms)": ["page_34", "page_35", "page_36"], "Le Kasha blue sweater (Tops)": ["page_35"], "Ikiji grey tee (Tops)": ["page_36", "page_103"], "The Row green sweater (Tops)": ["page_37", "page_51", "page_80", "page_91"], "Boglioli green turtleneck (Tops)": ["page_38"], "Prada green sweater (Tops)": ["page_40", "page_68", "page_79", "page_107"], "Drake\u2019s ivory corduroy (Bottoms)": ["page_41", "page_42", "page_43", "page_44", "page_45", "page_46", "page_47", "page_48", "page_49", "page_50", "page_51", "page_52", "page_53", "page_54"], "Boglioli blue sweater (Tops)": ["page_46"], "Zegna blue long sleeved polo (Tops)": ["page_47"], "Caruso camel blazer (Outerwear)": ["page_52", "page_53", "page_54"], "Prada ivory polo (Tops)": ["page_53", "page_106"], "Dries burgundy polo (Tops)": ["page_54", "page_63", "page_96"], "Prada navy trouser (Bottoms)": ["page_55", "page_56"], "Hermes blue sweater (Tops)": ["page_57", "page_59"], "Valentino blue trouser (Bottoms)": ["page_57", "page_58"], "The Row navy trouser (Bottoms)": ["page_59", "page_60", "page_61"], "Hermes green turtleneck sweater (Tops)": ["page_61", "page_87"], "The Row burgundy polo (Tops)": ["page_62", "page_95"], "Loro Piana brown 5 pocket (Bottoms)": ["page_62", "page_63", "page_64", "page_65"], "The Row brown corduroy (Bottoms)": ["page_62", "page_63", "page_64", "page_65"], "Fedeli green shirt (Tops)": ["page_64"], "Le Kasha brown cardigan (Tops)": ["page_65"], "Loro Piana taupe 5 pocket (Bottoms)": ["page_66"], "The Row light jean (Bottoms)": ["page_67", "page_68", "page_70", "page_71"], "Prada ivory hoodie (Tops)": ["page_69", "page_78"], "Sunspel white tee (Tops)": ["page_69", "page_70", "page_71", "page_74", "page_75", "page_78", "page_92"], "Loewe grey cardigan (Tops)": ["page_70", "page_71", "page_81", "page_92"], "APC white jean (Bottoms)": ["page_72", "page_76"], "Officine corduroy 5 pocket (Bottoms)": ["page_73", "page_74", "page_80", "page_93"], "Barneys desert boot (Footwear)": ["page_73", "page_74"], "Prada blue cardigan (Tops)": ["page_74"], "Frankie Shop grey corduroy (Bottoms)": ["page_75", "page_90", "page_91", "page_92"], "The Row brown slipper (Footwear)": ["page_75", "page_92", "page_107", "page_108"], "Loewe black striped polo (Tops)": ["page_76"], "Loro Piana tan blazer (Outerwear)": ["page_77"], "Loro Piana ivory polo (Tops)": ["page_77"], "Frame white jean (Bottoms)": ["page_77", "page_78"], "The Row blue corduroy (Bottoms)": ["page_79"], "Clarks desert boot (Footwear)": ["page_79", "page_80"], "Saint Laurent jean (Bottoms)": ["page_81", "page_82", "page_83"], "Prada navy cardigan (Tops)": ["page_82"], "The Row green cardigan (Tops)": ["page_83"], "Brioni brown corduroy (Bottoms)": ["page_84"], "Saint Laurent brown trouser (Bottoms)": ["page_85", "page_86", "page_87", "page_89"], "The Row brown polo (Tops)": ["page_86"], "The Row pink shirt (Tops)": ["page_88", "page_89", "page_90"], "The Row fair isle sweater (Tops)": ["page_88", "page_89", "page_90", "page_93"], "Loro Piana brown trouser (Bottoms)": ["page_88"], "The Row navy tee (Tops)": ["page_94"], "The Row black short (Bottoms)": ["page_94"], "The Row black slipper (Footwear)": ["page_94"], "Boglioli pink short (Bottoms)": ["page_95", "page_96"], "Boglioli camel polo (Tops)": ["page_96", "page_98", "page_100"], "Prada silk shirt (Tops)": ["page_97"], "Loro Piana khaki short (Bottoms)": ["page_97", "page_98", "page_99", "page_105", "page_106", "page_107", "page_108"], "Lardini green short (Bottoms)": ["page_100", "page_101", "page_102", "page_103"], "Massimo Alba blue polo (Tops)": ["page_103"], "RRL white tee Hartford blue swim trunk (Tops)": ["page_104"], "or no shoes at all* (Footwear)": ["page_104"], "Prada navy polo (Tops)": ["page_105"]};
         const springPageItems = {"page_1": [{"name": "Saint Laurent blush sweater", "category": "Tops"}, {"name": "Prada pink sweater", "category": "Tops"}, {"name": "Saint Laurent taupe trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_2": [{"name": "Saint Laurent blush sweater", "category": "Tops"}, {"name": "Prada pink sweater", "category": "Tops"}, {"name": "Saint Laurent taupe trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_3": [{"name": "The Row striped shirt", "category": "Tops"}, {"name": "Prada pink sweater", "category": "Tops"}, {"name": "Saint Laurent blush sweater", "category": "Tops"}, {"name": "Saint Laurent taupe trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_4": [{"name": "Le Kasha green sweater", "category": "Tops"}, {"name": "Saint Laurent taupe trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_5": [{"name": "Boglioli green polo", "category": "Tops"}, {"name": "Saint Laurent taupe trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_6": [{"name": "Boglioli pink pique polo", "category": "Tops"}, {"name": "Saint Laurent taupe trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_7": [{"name": "Iris Von Arnim grey polo", "category": "Tops"}, {"name": "Saint Laurent taupe trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_8": [{"name": "The Row taupe polo", "category": "Tops"}, {"name": "Saint Laurent taupe trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_9": [{"name": "The Row brown tee", "category": "Tops"}, {"name": "Saint Laurent taupe trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_10": [{"name": "The Row striped shirt", "category": "Tops"}, {"name": "Prada brown sweater", "category": "Tops"}, {"name": "Saint Laurent herringbone trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_11": [{"name": "The Row striped shirt", "category": "Tops"}, {"name": "Prada burgundy sweater", "category": "Tops"}, {"name": "Saint Laurent herringbone trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_12": [{"name": "The Row striped shirt", "category": "Tops"}, {"name": "Saint Laurent blush sweater", "category": "Tops"}, {"name": "Saint Laurent olive trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_13": [{"name": "Zegna blue polo", "category": "Tops"}, {"name": "The Row teal trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_14": [{"name": "The Row taupe polo", "category": "Tops"}, {"name": "The Row teal trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_15": [{"name": "Prada blue sweater", "category": "Tops"}, {"name": "The Row teal trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_16": [{"name": "Saint Laurent grey polo", "category": "Tops"}, {"name": "The Row teal trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_17": [{"name": "Iris Von Arnim grey polo", "category": "Tops"}, {"name": "Dries striped trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_18": [{"name": "Lardini green polo", "category": "Tops"}, {"name": "Dries striped trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_19": [{"name": "Dries striped polo", "category": "Tops"}, {"name": "Dries striped trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_20": [{"name": "The Row brown tee", "category": "Tops"}, {"name": "Dries striped trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_21": [{"name": "Altea blue sweater", "category": "Tops"}, {"name": "Lanvin green trench", "category": "Outerwear"}, {"name": "Saint Laurent olive 5 pocket", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_22": [{"name": "Boglioli chambray shirt", "category": "Tops"}, {"name": "Prada camel cardigan", "category": "Tops"}, {"name": "Saint Laurent olive 5 pocket", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_23": [{"name": "Altea navy polo", "category": "Tops"}, {"name": "Saint Laurent olive 5 pocket", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_24": [{"name": "Altea blue sweater", "category": "Tops"}, {"name": "Prada blue sweater", "category": "Tops"}, {"name": "Drake\u2019s green trouser", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_25": [{"name": "Boglioli pink pique polo", "category": "Tops"}, {"name": "Drake\u2019s green trouser", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_26": [{"name": "Boglioli tan pique polo", "category": "Tops"}, {"name": "Drake\u2019s green trouser", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_27": [{"name": "RRL white tee", "category": "Tops"}, {"name": "Prada grey cardigan", "category": "Tops"}, {"name": "Drake\u2019s green trouser", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_28": [{"name": "Altea blue sweater", "category": "Tops"}, {"name": "Saint Laurent brown corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_29": [{"name": "Altea olive polo", "category": "Tops"}, {"name": "Saint Laurent brown corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_30": [{"name": "Boglioli green turtleneck sweater", "category": "Tops"}, {"name": "Officine khaki corduroy", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_31": [{"name": "Boglioli teal polo", "category": "Tops"}, {"name": "Altea navy polo", "category": "Tops"}, {"name": "Loewe khaki cargo trouser", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_32": [{"name": "Boglioli pink pique polo", "category": "Tops"}, {"name": "Loewe khaki cargo trouser", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_33": [{"name": "Dries orange sweatshirt", "category": "Tops"}, {"name": "Loewe khaki cargo trouser", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_34": [{"name": "Saint Laurent grey polo", "category": "Tops"}, {"name": "Loewe yellow trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_35": [{"name": "Le Kasha blue sweater", "category": "Tops"}, {"name": "Loewe yellow trouser", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_36": [{"name": "Ikiji grey tee", "category": "Tops"}, {"name": "Loewe yellow trouser", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_37": [{"name": "The Row green sweater", "category": "Tops"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}, {"name": "Lanvin green trench", "category": "Outerwear"}], "page_38": [{"name": "Boglioli green turtleneck", "category": "Tops"}, {"name": "Lanvin green trench", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_39": [{"name": "Altea blue sweater", "category": "Tops"}, {"name": "Lanvin green trench", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_40": [{"name": "Boglioli chambray shirt", "category": "Tops"}, {"name": "Prada green sweater", "category": "Tops"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_41": [{"name": "Dries orange sweatshirt", "category": "Tops"}, {"name": "Drake\u2019s ivory corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_42": [{"name": "Boglioli tan pique polo", "category": "Tops"}, {"name": "Drake\u2019s ivory corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_43": [{"name": "Boglioli green turtleneck sweater", "category": "Tops"}, {"name": "Drake\u2019s ivory corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}, {"name": "Lanvin green trench", "category": "Outerwear"}], "page_44": [{"name": "Boglioli chambray shirt", "category": "Tops"}, {"name": "Le Kasha green sweater", "category": "Tops"}, {"name": "Drake\u2019s ivory corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_45": [{"name": "Prada blue sweater", "category": "Tops"}, {"name": "Lanvin green trench", "category": "Outerwear"}, {"name": "Drake\u2019s ivory corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_46": [{"name": "Boglioli blue sweater", "category": "Tops"}, {"name": "Drake\u2019s ivory corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_47": [{"name": "Zegna blue long sleeved polo", "category": "Tops"}, {"name": "Lanvin green trench", "category": "Outerwear"}, {"name": "Drake\u2019s ivory corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_48": [{"name": "Le Kasha green sweater", "category": "Tops"}, {"name": "Lanvin green trench", "category": "Outerwear"}, {"name": "Drake\u2019s ivory corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_49": [{"name": "Altea blue sweater", "category": "Tops"}, {"name": "Lanvin green trench", "category": "Outerwear"}, {"name": "Drake\u2019s ivory corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_50": [{"name": "Iris Von Arnim grey polo", "category": "Tops"}, {"name": "Lanvin green trench", "category": "Outerwear"}, {"name": "Drake\u2019s ivory corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_51": [{"name": "The Row green sweater", "category": "Tops"}, {"name": "Lanvin green trench", "category": "Outerwear"}, {"name": "Drake\u2019s ivory corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_52": [{"name": "Boglioli tan pique polo", "category": "Tops"}, {"name": "Caruso camel blazer", "category": "Outerwear"}, {"name": "Drake\u2019s ivory corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_53": [{"name": "Prada ivory polo", "category": "Tops"}, {"name": "Caruso camel blazer", "category": "Outerwear"}, {"name": "Drake\u2019s ivory corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_54": [{"name": "Dries burgundy polo", "category": "Tops"}, {"name": "Caruso camel blazer", "category": "Outerwear"}, {"name": "Drake\u2019s ivory corduroy", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_55": [{"name": "Zegna blue polo", "category": "Tops"}, {"name": "Prada navy trouser", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_56": [{"name": "Altea olive polo", "category": "Tops"}, {"name": "Prada navy trouser", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_57": [{"name": "Hermes blue sweater", "category": "Tops"}, {"name": "Valentino blue trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_58": [{"name": "Prada blue sweater", "category": "Tops"}, {"name": "Valentino blue trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_59": [{"name": "Hermes blue sweater", "category": "Tops"}, {"name": "The Row navy trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_60": [{"name": "Prada blue sweater", "category": "Tops"}, {"name": "The Row navy trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_61": [{"name": "Hermes green turtleneck sweater", "category": "Tops"}, {"name": "The Row navy trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_62": [{"name": "The Row burgundy polo", "category": "Tops"}, {"name": "Loro Piana brown 5 pocket", "category": "Bottoms"}, {"name": "The Row brown corduroy", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_63": [{"name": "Dries burgundy polo", "category": "Tops"}, {"name": "Loro Piana brown 5 pocket", "category": "Bottoms"}, {"name": "The Row brown corduroy", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_64": [{"name": "Fedeli green shirt", "category": "Tops"}, {"name": "Loro Piana brown 5 pocket", "category": "Bottoms"}, {"name": "The Row brown corduroy", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_65": [{"name": "Le Kasha brown cardigan", "category": "Tops"}, {"name": "RRL white tee", "category": "Tops"}, {"name": "Loro Piana brown 5 pocket", "category": "Bottoms"}, {"name": "The Row brown corduroy", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_66": [{"name": "Dries orange sweatshirt", "category": "Tops"}, {"name": "Loro Piana taupe 5 pocket", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_67": [{"name": "Dries orange sweatshirt", "category": "Tops"}, {"name": "The Row light jean", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_68": [{"name": "Prada green sweater", "category": "Tops"}, {"name": "The Row light jean", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_69": [{"name": "Prada ivory hoodie", "category": "Tops"}, {"name": "Sunspel white tee", "category": "Tops"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_70": [{"name": "Loewe grey cardigan", "category": "Tops"}, {"name": "Sunspel white tee", "category": "Tops"}, {"name": "The Row light jean", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_71": [{"name": "Loewe grey cardigan", "category": "Tops"}, {"name": "Sunspel white tee", "category": "Tops"}, {"name": "The Row light jean", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_72": [{"name": "Altea olive polo", "category": "Tops"}, {"name": "APC white jean", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_73": [{"name": "Zegna blue polo", "category": "Tops"}, {"name": "Officine corduroy 5 pocket", "category": "Bottoms"}, {"name": "Barneys desert boot", "category": "Footwear"}], "page_74": [{"name": "Prada blue cardigan", "category": "Tops"}, {"name": "Sunspel white tee", "category": "Tops"}, {"name": "Officine corduroy 5 pocket", "category": "Bottoms"}, {"name": "Barneys desert boot", "category": "Footwear"}], "page_75": [{"name": "Prada grey cardigan", "category": "Tops"}, {"name": "Sunspel white tee", "category": "Tops"}, {"name": "Frankie Shop grey corduroy", "category": "Bottoms"}, {"name": "The Row brown slipper", "category": "Footwear"}], "page_76": [{"name": "Loewe black striped polo", "category": "Tops"}, {"name": "APC white jean", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_77": [{"name": "Loro Piana tan blazer", "category": "Outerwear"}, {"name": "Loro Piana ivory polo", "category": "Tops"}, {"name": "Frame white jean", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_78": [{"name": "Prada ivory hoodie", "category": "Tops"}, {"name": "Sunspel white tee", "category": "Tops"}, {"name": "Frame white jean", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_79": [{"name": "Prada green sweater", "category": "Tops"}, {"name": "The Row blue corduroy", "category": "Bottoms"}, {"name": "Clarks desert boot", "category": "Footwear"}], "page_80": [{"name": "The Row green sweater", "category": "Tops"}, {"name": "Officine corduroy 5 pocket", "category": "Bottoms"}, {"name": "Clarks desert boot", "category": "Footwear"}], "page_81": [{"name": "RRL white tee", "category": "Tops"}, {"name": "Loewe grey cardigan", "category": "Tops"}, {"name": "Saint Laurent jean", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_82": [{"name": "RRL white tee", "category": "Tops"}, {"name": "Prada navy cardigan", "category": "Tops"}, {"name": "Saint Laurent jean", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_83": [{"name": "RRL white tee", "category": "Tops"}, {"name": "The Row green cardigan", "category": "Tops"}, {"name": "Saint Laurent jean", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_84": [{"name": "The Row striped shirt", "category": "Tops"}, {"name": "Prada burgundy sweater", "category": "Tops"}, {"name": "Brioni brown corduroy", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_85": [{"name": "The Row striped shirt", "category": "Tops"}, {"name": "Prada burgundy sweater", "category": "Tops"}, {"name": "Saint Laurent brown trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_86": [{"name": "The Row brown polo", "category": "Tops"}, {"name": "Saint Laurent brown trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_87": [{"name": "Hermes green turtleneck sweater", "category": "Tops"}, {"name": "Saint Laurent brown trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_88": [{"name": "The Row pink shirt", "category": "Tops"}, {"name": "The Row fair isle sweater", "category": "Tops"}, {"name": "Loro Piana brown trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_89": [{"name": "The Row pink shirt", "category": "Tops"}, {"name": "The Row fair isle sweater", "category": "Tops"}, {"name": "Saint Laurent brown trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_90": [{"name": "The Row pink shirt", "category": "Tops"}, {"name": "The Row fair isle sweater", "category": "Tops"}, {"name": "Frankie Shop grey corduroy", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_91": [{"name": "The Row green sweater", "category": "Tops"}, {"name": "Frankie Shop grey corduroy", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_92": [{"name": "Loewe grey cardigan", "category": "Tops"}, {"name": "Sunspel white tee", "category": "Tops"}, {"name": "Frankie Shop grey corduroy", "category": "Bottoms"}, {"name": "The Row brown slipper", "category": "Footwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_93": [{"name": "The Row fair isle sweater", "category": "Tops"}, {"name": "Officine corduroy 5 pocket", "category": "Bottoms"}], "page_94": [{"name": "The Row navy tee", "category": "Tops"}, {"name": "The Row black short", "category": "Bottoms"}, {"name": "The Row black slipper", "category": "Footwear"}], "page_95": [{"name": "The Row burgundy polo", "category": "Tops"}, {"name": "Boglioli pink pique polo", "category": "Tops"}, {"name": "Boglioli pink short", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_96": [{"name": "Dries burgundy polo", "category": "Tops"}, {"name": "Boglioli camel polo", "category": "Tops"}, {"name": "Boglioli pink short", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_97": [{"name": "Prada silk shirt", "category": "Tops"}, {"name": "Loro Piana khaki short", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_98": [{"name": "Boglioli camel polo", "category": "Tops"}, {"name": "Lardini green polo", "category": "Tops"}, {"name": "Loro Piana khaki short", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_99": [{"name": "Dries striped polo", "category": "Tops"}, {"name": "Altea olive polo", "category": "Tops"}, {"name": "Loro Piana khaki short", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_100": [{"name": "Lardini green polo", "category": "Tops"}, {"name": "Boglioli camel polo", "category": "Tops"}, {"name": "Lardini green short", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_101": [{"name": "Boglioli teal polo", "category": "Tops"}, {"name": "Altea blue sweater", "category": "Tops"}, {"name": "Lardini green short", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_102": [{"name": "Iris Von Arnim grey polo", "category": "Tops"}, {"name": "Zegna blue polo", "category": "Tops"}, {"name": "Lardini green short", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_103": [{"name": "Ikiji grey tee", "category": "Tops"}, {"name": "Massimo Alba blue polo", "category": "Tops"}, {"name": "Lardini green short", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_104": [{"name": "RRL white tee Hartford blue swim trunk", "category": "Tops"}, {"name": "Saint Laurent loafer", "category": "Footwear"}, {"name": "or no shoes at all*", "category": "Footwear"}], "page_105": [{"name": "Prada navy polo", "category": "Tops"}, {"name": "Loro Piana khaki short", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_106": [{"name": "Prada ivory polo", "category": "Tops"}, {"name": "Loro Piana khaki short", "category": "Bottoms"}, {"name": "Saint Laurent loafer", "category": "Footwear"}], "page_107": [{"name": "Prada green sweater", "category": "Tops"}, {"name": "Loro Piana khaki short", "category": "Bottoms"}, {"name": "The Row brown slipper", "category": "Footwear"}], "page_108": [{"name": "Prada blue sweater", "category": "Tops"}, {"name": "Loro Piana khaki short", "category": "Bottoms"}, {"name": "The Row brown slipper", "category": "Footwear"}]};
+        const fwClothingIndex = {"Armory white shirt (Tops)": ["page_1"], "Saint Laurent Suit (Suits)": ["page_1"], "The Row brown tassel loafer (Footwear)": ["page_1", "page_6", "page_10", "page_15", "page_16", "page_30", "page_31", "page_32", "page_33", "page_34", "page_35", "page_36", "page_37", "page_38", "page_39", "page_40", "page_41", "page_42", "page_43", "page_44", "page_45", "page_46", "page_47", "page_48", "page_49", "page_50", "page_51", "page_52", "page_53", "page_58", "page_59", "page_60", "page_75", "page_76", "page_77", "page_78", "page_79"], "Green Loro Piana tie Red Loro Piana tie (Accessories)": ["page_1"], "Brioni oyster shirt (Tops)": ["page_2", "page_3", "page_4", "page_6", "page_7", "page_8", "page_53", "page_54"], "Hermes trouser (Bottoms)": ["page_2", "page_26"], "Saint Laurent trouser (Bottoms)": ["page_3", "page_8", "page_10", "page_11", "page_18", "page_33", "page_39", "page_47", "page_74"], "Saint Laurent blazer (Outerwear)": ["page_3", "page_8", "page_10", "page_11", "page_18", "page_33", "page_39", "page_47", "page_48"], "The Row blazer (Outerwear)": ["page_4", "page_6", "page_7", "page_12", "page_13", "page_23", "page_30", "page_31", "page_32", "page_35", "page_40", "page_41"], "Boglioli pink crewneck Brioni brown cord (Knitwear)": ["page_5"], "Loro Piana herringbone trouser (Bottoms)": ["page_6", "page_21", "page_25", "page_29", "page_38", "page_51", "page_78"], "Boglioli pink crewneck (Knitwear)": ["page_8", "page_10"], "The Row brown loafer (Footwear)": ["page_8"], "Dries pinstripe shirt (Tops)": ["page_9", "page_10", "page_43", "page_44", "page_45", "page_47"], "1 The Row brown tassel loafer (Footwear)": ["page_9"], "Loro Piana green polo (Tops)": ["page_11", "page_12", "page_14"], "Loro Piana green polo Brioni brown cord (Tops)": ["page_13"], "Loro Piana check blazer (Outerwear)": ["page_13", "page_58", "page_59", "page_60"], "Loro Piana DB blazer (Outerwear)": ["page_13"], "Saint Laurent light brown trouser (Bottoms)": ["page_14", "page_20", "page_22", "page_36", "page_42"], "Prada check trouser (Bottoms)": ["page_15"], "Saint Laurent trench (Outerwear)": ["page_15", "page_16", "page_17", "page_40", "page_44", "page_56"], "Saint Laurent charcoal gray trouser (Bottoms)": ["page_16"], "Loro Piana utility red trouser (Bottoms)": ["page_17"], "Loro Piana precious blazer (Outerwear)": ["page_17", "page_24", "page_27", "page_29", "page_30", "page_32", "page_34", "page_38", "page_40", "page_45", "page_77"], "The Row pink shirt (Tops)": ["page_22", "page_23", "page_24", "page_25", "page_26"], "The Row woolly (Knitwear)": ["page_23"], "Hermes burgundy crew Brioni brown corduroy (Bottoms)": ["page_27"], "Hermes burgundy sweater (Knitwear)": ["page_28"], "The Row moleskin trouser (Bottoms)": ["page_28"], "The Row black tassel loafer (Footwear)": ["page_28", "page_55", "page_56", "page_57", "page_61", "page_62", "page_63", "page_64", "page_65", "page_66", "page_67", "page_68", "page_69", "page_70", "page_71", "page_72", "page_73", "page_74"], "Brunello camel polo (Tops)": ["page_29", "page_30", "page_31", "page_32"], "Loro Piana red utility trouser (Bottoms)": ["page_30", "page_34", "page_40", "page_45"], "Brioni corduroy trouser (Bottoms)": ["page_32"], "The Row burgundy polo (Tops)": ["page_33", "page_34", "page_35", "page_36", "page_37"], "Saint Laurent charcoal trouser (Bottoms)": ["page_37", "page_70"], "Loro Piana brown turtleneck (Knitwear)": ["page_38", "page_39", "page_40", "page_41", "page_42"], "The Row brushed crew The Frankie Shop corduroy pants (Bottoms)": ["page_43"], "Saint Laurent taupe suit trouser (Bottoms)": ["page_44"], "The Row brushed crew neck sweater (Knitwear)": ["page_45", "page_46"], "Brioni brown plaid shirt (Tops)": ["page_46"], "The Row corduroy trouser (Bottoms)": ["page_46", "page_56"], "Boglioli green crewneck (Knitwear)": ["page_47"], "The Row oyster pinstripe shirt (Tops)": ["page_48"], "Loro Piana green utility trouser (Bottoms)": ["page_48", "page_52", "page_60"], "Boglioli green crew Brioni corduroy trouser (Bottoms)": ["page_49"], "The Row green crew neck sweater (Knitwear)": ["page_50", "page_53", "page_54"], "Brioni brown corduroy pant (Bottoms)": ["page_50"], "Loro Piana pale blue shirt (Tops)": ["page_55"], "Saint Laurent black trouser (Bottoms)": ["page_55", "page_63", "page_64", "page_66", "page_71"], "Loro Piana grey coat (Outerwear)": ["page_55"], "Hermes brown coat (Outerwear)": ["page_55"], "Loro Piana Navy coat (Outerwear)": ["page_55"], "Boglioli brown shirt (Tops)": ["page_56"], "Cesare Attolini green crew neck sweater (Knitwear)": ["page_56", "page_57", "page_58", "page_59", "page_60"], "Boglioli brown stripe shirt (Tops)": ["page_57", "page_58"], "The Row black moleskin trouser (Bottoms)": ["page_57"], "Brioni brown corduroy trouser (Bottoms)": ["page_58", "page_59", "page_77", "page_79"], "Valentino grey polo (Tops)": ["page_61", "page_62", "page_63"], "The Row black corduroy trouser (Bottoms)": ["page_61"], "Saint Laurent lurex pinstripe trouser (Bottoms)": ["page_62"], "Saint Laurent grey polo (Tops)": ["page_64", "page_65"], "Saint Laurent pinstripe trouser (Bottoms)": ["page_65"], "Hermes navy crew neck sweater (Knitwear)": ["page_66", "page_67"], "Valentino black track pant (Bottoms)": ["page_67", "page_68"], "Loro Piana navy polo (Tops)": ["page_69", "page_70", "page_71", "page_72"], "Valentino trouser (Bottoms)": ["page_69"], "Valentino grey trouser (Bottoms)": ["page_72", "page_73"], "Loro Piana buttonless navy polo (Tops)": ["page_73"], "Loewe blue shirt (Tops)": ["page_74"], "Vivienne Westwood cardigan (Knitwear)": ["page_74"], "Boglioli blue shirt (Tops)": ["page_75", "page_77"], "Boglioli blue crew 1 Brioni brown corduroy (Bottoms)": ["page_75"], "The Row micro cord pant (Bottoms)": ["page_76"], "Boglioli green turtleneck (Knitwear)": ["page_78", "page_79", "page_80"], "Hermes coat (Outerwear)": ["page_78"], "Loewe grey blazer (Outerwear)": ["page_79"], "Loro Piana khaki pant (Bottoms)": ["page_80"], "2 The Row brown tassel loafer (Footwear)": ["page_80"], "The Row woolly trouser (Bottoms)": ["page_4", "page_7", "page_12", "page_31", "page_35", "page_41", "page_53"]};
+        const fwPageItems = {"page_1": [{"name": "Armory white shirt", "category": "Tops"}, {"name": "Saint Laurent Suit", "category": "Suits"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}, {"name": "Green Loro Piana tie Red Loro Piana tie", "category": "Accessories"}], "page_2": [{"name": "Brioni oyster shirt", "category": "Tops"}, {"name": "Hermes trouser", "category": "Bottoms"}], "page_3": [{"name": "Brioni oyster shirt", "category": "Tops"}, {"name": "Saint Laurent trouser", "category": "Bottoms"}, {"name": "Saint Laurent blazer", "category": "Outerwear"}], "page_4": [{"name": "Brioni oyster shirt", "category": "Tops"}, {"name": "The Row woolly trouser", "category": "Bottoms"}, {"name": "The Row blazer", "category": "Outerwear"}], "page_5": [{"name": "Boglioli pink crewneck Brioni brown cord", "category": "Knitwear"}], "page_6": [{"name": "Brioni oyster shirt", "category": "Tops"}, {"name": "Loro Piana herringbone trouser", "category": "Bottoms"}, {"name": "The Row blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_7": [{"name": "Brioni oyster shirt", "category": "Tops"}, {"name": "The Row woolly trouser", "category": "Bottoms"}, {"name": "The Row blazer", "category": "Outerwear"}], "page_8": [{"name": "Brioni oyster shirt", "category": "Tops"}, {"name": "Boglioli pink crewneck", "category": "Knitwear"}, {"name": "Saint Laurent trouser", "category": "Bottoms"}, {"name": "Saint Laurent blazer", "category": "Outerwear"}, {"name": "The Row brown loafer", "category": "Footwear"}], "page_9": [{"name": "Dries pinstripe shirt", "category": "Tops"}, {"name": "1 The Row brown tassel loafer", "category": "Footwear"}], "page_10": [{"name": "Dries pinstripe shirt", "category": "Tops"}, {"name": "Boglioli pink crewneck", "category": "Knitwear"}, {"name": "Saint Laurent trouser", "category": "Bottoms"}, {"name": "Saint Laurent blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_11": [{"name": "Loro Piana green polo", "category": "Tops"}, {"name": "Saint Laurent trouser", "category": "Bottoms"}, {"name": "Saint Laurent blazer", "category": "Outerwear"}], "page_12": [{"name": "Loro Piana green polo", "category": "Tops"}, {"name": "The Row woolly trouser", "category": "Bottoms"}, {"name": "The Row blazer", "category": "Outerwear"}], "page_13": [{"name": "Loro Piana green polo Brioni brown cord", "category": "Tops"}, {"name": "The Row blazer", "category": "Outerwear"}, {"name": "Loro Piana check blazer", "category": "Outerwear"}, {"name": "Loro Piana DB blazer", "category": "Outerwear"}], "page_14": [{"name": "Loro Piana green polo", "category": "Tops"}, {"name": "Saint Laurent light brown trouser", "category": "Bottoms"}], "page_15": [{"name": "Prada check trouser", "category": "Bottoms"}, {"name": "Saint Laurent trench", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_16": [{"name": "Saint Laurent charcoal gray trouser", "category": "Bottoms"}, {"name": "Saint Laurent trench", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_17": [{"name": "Loro Piana utility red trouser", "category": "Bottoms"}, {"name": "Loro Piana precious blazer", "category": "Outerwear"}, {"name": "Saint Laurent trench", "category": "Outerwear"}], "page_18": [{"name": "Saint Laurent trouser", "category": "Bottoms"}, {"name": "Saint Laurent blazer", "category": "Outerwear"}], "page_20": [{"name": "Saint Laurent light brown trouser", "category": "Bottoms"}], "page_21": [{"name": "Loro Piana herringbone trouser", "category": "Bottoms"}], "page_22": [{"name": "The Row pink shirt", "category": "Tops"}, {"name": "Saint Laurent light brown trouser", "category": "Bottoms"}], "page_23": [{"name": "The Row pink shirt", "category": "Tops"}, {"name": "The Row woolly trouser", "category": "Bottoms"}, {"name": "The Row blazer", "category": "Outerwear"}], "page_24": [{"name": "The Row pink shirt", "category": "Tops"}, {"name": "Loro Piana precious blazer", "category": "Outerwear"}], "page_25": [{"name": "The Row pink shirt", "category": "Tops"}, {"name": "Loro Piana herringbone trouser", "category": "Bottoms"}], "page_26": [{"name": "The Row pink shirt", "category": "Tops"}, {"name": "Hermes trouser", "category": "Bottoms"}], "page_27": [{"name": "Hermes burgundy crew Brioni brown corduroy", "category": "Bottoms"}, {"name": "Loro Piana precious blazer", "category": "Outerwear"}], "page_28": [{"name": "Hermes burgundy sweater", "category": "Knitwear"}, {"name": "The Row moleskin trouser", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_29": [{"name": "Brunello camel polo", "category": "Tops"}, {"name": "Loro Piana herringbone trouser", "category": "Bottoms"}, {"name": "Loro Piana precious blazer", "category": "Outerwear"}], "page_30": [{"name": "Brunello camel polo", "category": "Tops"}, {"name": "Loro Piana red utility trouser", "category": "Bottoms"}, {"name": "Loro Piana precious blazer", "category": "Outerwear"}, {"name": "The Row blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_31": [{"name": "Brunello camel polo", "category": "Tops"}, {"name": "The Row woolly trouser", "category": "Bottoms"}, {"name": "The Row blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_32": [{"name": "Brunello camel polo", "category": "Tops"}, {"name": "Brioni corduroy trouser", "category": "Bottoms"}, {"name": "The Row blazer", "category": "Outerwear"}, {"name": "Loro Piana precious blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_33": [{"name": "The Row burgundy polo", "category": "Tops"}, {"name": "Saint Laurent trouser", "category": "Bottoms"}, {"name": "Saint Laurent blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_34": [{"name": "The Row burgundy polo", "category": "Tops"}, {"name": "Loro Piana red utility trouser", "category": "Bottoms"}, {"name": "Loro Piana precious blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_35": [{"name": "The Row burgundy polo", "category": "Tops"}, {"name": "The Row woolly trouser", "category": "Bottoms"}, {"name": "The Row blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_36": [{"name": "The Row burgundy polo", "category": "Tops"}, {"name": "Saint Laurent light brown trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_37": [{"name": "The Row burgundy polo", "category": "Tops"}, {"name": "Saint Laurent charcoal trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_38": [{"name": "Loro Piana brown turtleneck", "category": "Knitwear"}, {"name": "Loro Piana herringbone trouser", "category": "Bottoms"}, {"name": "Loro Piana precious blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_39": [{"name": "Loro Piana brown turtleneck", "category": "Knitwear"}, {"name": "Saint Laurent trouser", "category": "Bottoms"}, {"name": "Saint Laurent blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_40": [{"name": "Loro Piana brown turtleneck", "category": "Knitwear"}, {"name": "Loro Piana red utility trouser", "category": "Bottoms"}, {"name": "The Row blazer", "category": "Outerwear"}, {"name": "Loro Piana precious blazer", "category": "Outerwear"}, {"name": "Saint Laurent trench", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_41": [{"name": "Loro Piana brown turtleneck", "category": "Knitwear"}, {"name": "The Row woolly trouser", "category": "Bottoms"}, {"name": "The Row blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_42": [{"name": "Loro Piana brown turtleneck", "category": "Knitwear"}, {"name": "Saint Laurent light brown trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_43": [{"name": "Dries pinstripe shirt", "category": "Tops"}, {"name": "The Row brushed crew The Frankie Shop corduroy pants", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_44": [{"name": "Dries pinstripe shirt", "category": "Tops"}, {"name": "Saint Laurent taupe suit trouser", "category": "Bottoms"}, {"name": "Saint Laurent trench", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_45": [{"name": "Dries pinstripe shirt", "category": "Tops"}, {"name": "The Row brushed crew neck sweater", "category": "Knitwear"}, {"name": "Loro Piana red utility trouser", "category": "Bottoms"}, {"name": "Loro Piana precious blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_46": [{"name": "Brioni brown plaid shirt", "category": "Tops"}, {"name": "The Row brushed crew neck sweater", "category": "Knitwear"}, {"name": "The Row corduroy trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_47": [{"name": "Dries pinstripe shirt", "category": "Tops"}, {"name": "Boglioli green crewneck", "category": "Knitwear"}, {"name": "Saint Laurent trouser", "category": "Bottoms"}, {"name": "Saint Laurent blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_48": [{"name": "The Row oyster pinstripe shirt", "category": "Tops"}, {"name": "Loro Piana green utility trouser", "category": "Bottoms"}, {"name": "Saint Laurent blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_49": [{"name": "Boglioli green crew Brioni corduroy trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_50": [{"name": "The Row green crew neck sweater", "category": "Knitwear"}, {"name": "Brioni brown corduroy pant", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_51": [{"name": "Loro Piana herringbone trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_52": [{"name": "Loro Piana green utility trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_53": [{"name": "Brioni oyster shirt", "category": "Tops"}, {"name": "The Row green crew neck sweater", "category": "Knitwear"}, {"name": "The Row woolly trouser", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_54": [{"name": "Brioni oyster shirt", "category": "Tops"}, {"name": "The Row green crew neck sweater", "category": "Knitwear"}], "page_55": [{"name": "Loro Piana pale blue shirt", "category": "Tops"}, {"name": "Saint Laurent black trouser", "category": "Bottoms"}, {"name": "Loro Piana grey coat", "category": "Outerwear"}, {"name": "Hermes brown coat", "category": "Outerwear"}, {"name": "Loro Piana Navy coat", "category": "Outerwear"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_56": [{"name": "Boglioli brown shirt", "category": "Tops"}, {"name": "Cesare Attolini green crew neck sweater", "category": "Knitwear"}, {"name": "The Row corduroy trouser", "category": "Bottoms"}, {"name": "Saint Laurent trench", "category": "Outerwear"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_57": [{"name": "Boglioli brown stripe shirt", "category": "Tops"}, {"name": "Cesare Attolini green crew neck sweater", "category": "Knitwear"}, {"name": "The Row black moleskin trouser", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_58": [{"name": "Boglioli brown stripe shirt", "category": "Tops"}, {"name": "Cesare Attolini green crew neck sweater", "category": "Knitwear"}, {"name": "Brioni brown corduroy trouser", "category": "Bottoms"}, {"name": "Loro Piana check blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_59": [{"name": "Cesare Attolini green crew neck sweater", "category": "Knitwear"}, {"name": "Brioni brown corduroy trouser", "category": "Bottoms"}, {"name": "Loro Piana check blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_60": [{"name": "Cesare Attolini green crew neck sweater", "category": "Knitwear"}, {"name": "Loro Piana green utility trouser", "category": "Bottoms"}, {"name": "Loro Piana check blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_61": [{"name": "Valentino grey polo", "category": "Tops"}, {"name": "The Row black corduroy trouser", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_62": [{"name": "Valentino grey polo", "category": "Tops"}, {"name": "Saint Laurent lurex pinstripe trouser", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_63": [{"name": "Valentino grey polo", "category": "Tops"}, {"name": "Saint Laurent black trouser", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_64": [{"name": "Saint Laurent grey polo", "category": "Tops"}, {"name": "Saint Laurent black trouser", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_65": [{"name": "Saint Laurent grey polo", "category": "Tops"}, {"name": "Saint Laurent pinstripe trouser", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_66": [{"name": "Hermes navy crew neck sweater", "category": "Knitwear"}, {"name": "Saint Laurent black trouser", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_67": [{"name": "Hermes navy crew neck sweater", "category": "Knitwear"}, {"name": "Valentino black track pant", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_68": [{"name": "Valentino black track pant", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_69": [{"name": "Loro Piana navy polo", "category": "Tops"}, {"name": "Valentino trouser", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_70": [{"name": "Loro Piana navy polo", "category": "Tops"}, {"name": "Saint Laurent charcoal trouser", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_71": [{"name": "Loro Piana navy polo", "category": "Tops"}, {"name": "Saint Laurent black trouser", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_72": [{"name": "Loro Piana navy polo", "category": "Tops"}, {"name": "Valentino grey trouser", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_73": [{"name": "Loro Piana buttonless navy polo", "category": "Tops"}, {"name": "Valentino grey trouser", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_74": [{"name": "Loewe blue shirt", "category": "Tops"}, {"name": "Vivienne Westwood cardigan", "category": "Knitwear"}, {"name": "Saint Laurent trouser", "category": "Bottoms"}, {"name": "The Row black tassel loafer", "category": "Footwear"}], "page_75": [{"name": "Boglioli blue shirt", "category": "Tops"}, {"name": "Boglioli blue crew 1 Brioni brown corduroy", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_76": [{"name": "The Row micro cord pant", "category": "Bottoms"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_77": [{"name": "Boglioli blue shirt", "category": "Tops"}, {"name": "Brioni brown corduroy trouser", "category": "Bottoms"}, {"name": "Loro Piana precious blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_78": [{"name": "Boglioli green turtleneck", "category": "Knitwear"}, {"name": "Loro Piana herringbone trouser", "category": "Bottoms"}, {"name": "Hermes coat", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_79": [{"name": "Boglioli green turtleneck", "category": "Knitwear"}, {"name": "Brioni brown corduroy trouser", "category": "Bottoms"}, {"name": "Loewe grey blazer", "category": "Outerwear"}, {"name": "The Row brown tassel loafer", "category": "Footwear"}], "page_80": [{"name": "Boglioli green turtleneck", "category": "Knitwear"}, {"name": "Loro Piana khaki pant", "category": "Bottoms"}, {"name": "2 The Row brown tassel loafer", "category": "Footwear"}]};
         
         let currentCollection = 'summer';
         let currentClothingIndex = summerClothingIndex;
@@ -1532,7 +2089,7 @@
         function closeModal() {
             document.getElementById('imageModal').style.display = 'none';
         }
-        
+
         // Navigation
         function showCollection(collection) {
             currentCollection = collection;
@@ -1540,6 +2097,7 @@
             // Hide all views
             document.getElementById('summer-view').classList.add('hidden');
             document.getElementById('spring-view').classList.add('hidden');
+            document.getElementById('fw-view').classList.add('hidden');
             document.getElementById('item-view').classList.add('hidden');
             document.getElementById('page-view').classList.add('hidden');
             
@@ -1554,9 +2112,12 @@
             if (collection === 'summer') {
                 currentClothingIndex = summerClothingIndex;
                 currentPageItems = summerPageItems;
-            } else {
+            } else if (collection === 'spring') {
                 currentClothingIndex = springClothingIndex;
                 currentPageItems = springPageItems;
+            } else {
+                currentClothingIndex = fwClothingIndex;
+                currentPageItems = fwPageItems;
             }
         }
 
@@ -1578,9 +2139,18 @@
 
         // Show item detail
         function showItemDetail(itemName, collection, imageFolder) {
-            // Find the item in the correct index
-            let clothingIndex = collection === 'Summer' ? summerClothingIndex : springClothingIndex;
-            let pageItems = collection === 'Summer' ? summerPageItems : springPageItems;
+            // Determine which index to use based on collection name
+            let clothingIndex, pageItems;
+            if (collection === 'Summer') {
+                clothingIndex = summerClothingIndex;
+                pageItems = summerPageItems;
+            } else if (collection === 'Spring') {
+                clothingIndex = springClothingIndex;
+                pageItems = springPageItems;
+            } else {
+                clothingIndex = fwClothingIndex;
+                pageItems = fwPageItems;
+            }
             
             // Try to find the item with or without category suffix
             let pages = null;
@@ -1596,6 +2166,7 @@
             // Hide other views
             document.getElementById('summer-view').classList.add('hidden');
             document.getElementById('spring-view').classList.add('hidden');
+            document.getElementById('fw-view').classList.add('hidden');
             document.getElementById('page-view').classList.add('hidden');
             document.getElementById('item-view').classList.remove('hidden');
             
@@ -1628,7 +2199,14 @@
 
         // Show page detail
         function showPageDetail(pageName, collection, imageFolder) {
-            let pageItems = collection === 'Summer' ? summerPageItems : springPageItems;
+            let pageItems;
+            if (collection === 'Summer') {
+                pageItems = summerPageItems;
+            } else if (collection === 'Spring') {
+                pageItems = springPageItems;
+            } else {
+                pageItems = fwPageItems;
+            }
             
             if (!pageItems[pageName]) return;
             
@@ -1637,6 +2215,7 @@
             // Hide other views
             document.getElementById('summer-view').classList.add('hidden');
             document.getElementById('spring-view').classList.add('hidden');
+            document.getElementById('fw-view').classList.add('hidden');
             document.getElementById('item-view').classList.add('hidden');
             document.getElementById('page-view').classList.remove('hidden');
             
@@ -1647,19 +2226,21 @@
             // Handle different data formats
             let itemsList = '';
             if (Array.isArray(items)) {
-                // Summer format (simple array)
-                itemsList = items.map(item => `
-                    <a onclick="showItemDetail('${item.replace(/'/g, "\'")}', '${collection}', '${imageFolder}')" class="item-link">
-                        ${item}
-                    </a>
-                `).join('');
-            } else if (items && items.length > 0 && typeof items[0] === 'object') {
-                // Spring format (array of objects with name and category)
-                itemsList = items.map(item => `
-                    <a onclick="showItemDetail('${item.name.replace(/'/g, "\'")}', '${collection}', '${imageFolder}')" class="item-link">
-                        ${item.name} <span style="color: #7f8c8d; font-size: 0.9em;">[${item.category}]</span>
-                    </a>
-                `).join('');
+                if (items.length > 0 && typeof items[0] === 'object') {
+                    // Spring/FW format (array of objects with name and category)
+                    itemsList = items.map(item => `
+                        <a onclick="showItemDetail('${item.name.replace(/'/g, "\'")}', '${collection}', '${imageFolder}')" class="item-link">
+                            ${item.name} <span style="color: #7f8c8d; font-size: 0.9em;">[${item.category}]</span>
+                        </a>
+                    `).join('');
+                } else {
+                    // Summer format (simple array)
+                    itemsList = items.map(item => `
+                        <a onclick="showItemDetail('${item.replace(/'/g, "\'")}', '${collection}', '${imageFolder}')" class="item-link">
+                            ${item}
+                        </a>
+                    `).join('');
+                }
             }
             
             content.innerHTML = `
