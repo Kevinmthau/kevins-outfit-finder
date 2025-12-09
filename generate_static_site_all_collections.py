@@ -268,6 +268,22 @@ def create_all_collections_html() -> str:
         .content {{
             padding: 30px;
         }}
+        .collection-header {{
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 8px;
+        }}
+        .collection-header h2 {{
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 2rem;
+        }}
+        .collection-stats {{
+            color: #5a6c7d;
+            font-size: 1.1rem;
+        }}
         .search-box {{
             margin-bottom: 30px;
             text-align: center;
@@ -670,8 +686,8 @@ def create_all_collections_html() -> str:
                 currentPageItems = fwPageItems;
             }}
 
-            // Reset page title
-            document.getElementById('page-title').textContent = "Kevin's Outfit Finder";
+            // Update browser title
+            document.title = "Kevin's Outfit Finder";
         }}
 
         function backToCollection() {{
@@ -715,6 +731,8 @@ def create_all_collections_html() -> str:
 
         // Show item detail
         function showItemDetail(itemName, collection, imageFolder) {{
+            console.log('showItemDetail called:', itemName, collection, imageFolder);
+
             // Determine which index to use based on collection name
             let clothingIndex, pageItems;
             if (collection === 'Summer') {{
@@ -728,16 +746,25 @@ def create_all_collections_html() -> str:
                 pageItems = fwPageItems;
             }}
 
+            console.log('Using index with', Object.keys(clothingIndex).length, 'items');
+
             // Try to find the item with or without category suffix
             let pages = null;
             for (let key in clothingIndex) {{
                 if (key.startsWith(itemName)) {{
+                    console.log('Found match:', key);
                     pages = clothingIndex[key];
                     break;
                 }}
             }}
 
-            if (!pages) return;
+            console.log('Pages found:', pages);
+
+            if (!pages) {{
+                console.log('No pages found for:', itemName);
+                console.log('Available keys sample:', Object.keys(clothingIndex).slice(0, 5));
+                return;
+            }}
 
             // Hide other views
             document.getElementById('summer-view').classList.add('hidden');
@@ -746,7 +773,7 @@ def create_all_collections_html() -> str:
             document.getElementById('page-view').classList.add('hidden');
             document.getElementById('item-view').classList.remove('hidden');
 
-            document.getElementById('page-title').textContent = itemName + ' - ' + collection + ' Collection';
+            document.title = itemName + ' - ' + collection + ' Collection';
 
             const content = document.getElementById('item-detail-content');
             content.innerHTML = `
@@ -796,7 +823,7 @@ def create_all_collections_html() -> str:
             document.getElementById('item-view').classList.add('hidden');
             document.getElementById('page-view').classList.remove('hidden');
 
-            document.getElementById('page-title').textContent = pageName.replace('page_', 'Page ') + ' - ' + collection + ' Collection';
+            document.title = pageName.replace('page_', 'Page ') + ' - ' + collection + ' Collection';
 
             const content = document.getElementById('page-detail-content');
 
