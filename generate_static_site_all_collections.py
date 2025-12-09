@@ -1,137 +1,105 @@
 #!/usr/bin/env python3
 """
-Generate a static version of the outfit finder with all three collections (Summer, Spring, Fall/Winter).
+Generate a static version of the outfit finder with all three collections.
+Features:
+- Lazy loading for images
+- WebP support with PNG fallback
+- Fuzzy search
+- Unified categorized data format
 """
 
 import json
 import os
 import shutil
 from pathlib import Path
+from typing import Dict, List, Optional, Tuple, Any
 
-def load_collection_data(collection):
-    """Load clothing data for a specific collection"""
-    if collection == 'summer':
-        with open('clothing_index.json', 'r') as f:
-            clothing_index = json.load(f)
-        with open('page_items.json', 'r') as f:
-            page_items = json.load(f)
-        return clothing_index, page_items, None
-    elif collection == 'spring':
-        with open('clothing_index_spring.json', 'r') as f:
-            clothing_index = json.load(f)
-        with open('page_items_spring.json', 'r') as f:
-            page_items = json.load(f)
-        with open('category_stats_spring.json', 'r') as f:
-            category_stats = json.load(f)
-        return clothing_index, page_items, category_stats
-    elif collection == 'fw':
-        with open('clothing_index_fw.json', 'r') as f:
-            clothing_index = json.load(f)
-        with open('page_items_fw.json', 'r') as f:
-            page_items = json.load(f)
-        with open('category_stats_fw.json', 'r') as f:
-            category_stats = json.load(f)
-        return clothing_index, page_items, category_stats
-    
-    return {}, {}, None
+from config import (
+    DATA_FILES,
+    COLLECTION_PATHS,
+    DIST_DIR,
+    DIST_IMAGE_FOLDERS,
+    CATEGORY_ORDER,
+    CATEGORY_ICONS,
+    COLLECTION_DISPLAY_NAMES,
+    COLLECTION_ICONS,
+    FUZZY_SEARCH_THRESHOLD,
+)
 
-def categorize_by_categories(clothing_index):
-    """Categorize items using category data from the item names"""
-    categorized = {
-        'Outerwear': [],
-        'Knitwear': [],
-        'Tops': [],
-        'Bottoms': [],
-        'Footwear': [],
-        'Accessories': [],
-        'Suits': [],
-        'Layering': [],
-        'Other': []
-    }
-    
+
+def load_collection_data(collection: str) -> Tuple[Dict, Dict, Optional[Dict]]:
+    """Load clothing data for a specific collection."""
+    files = DATA_FILES.get(collection, {})
+
+    clothing_index = {}
+    page_items = {}
+    category_stats = None
+
+    if "clothing_index" in files and files["clothing_index"].exists():
+        with open(files["clothing_index"], 'r') as f:
+            clothing_index = json.load(f)
+
+    if "page_items" in files and files["page_items"].exists():
+        with open(files["page_items"], 'r') as f:
+            page_items = json.load(f)
+
+    if "category_stats" in files and files["category_stats"].exists():
+        with open(files["category_stats"], 'r') as f:
+            category_stats = json.load(f)
+
+    return clothing_index, page_items, category_stats
+
+
+def categorize_items(clothing_index: Dict[str, List[str]], collection: str) -> Dict[str, List[Tuple[str, List[str], str]]]:
+    """Categorize items using category data from the item names."""
+    # Get category order for this collection
+    categories = CATEGORY_ORDER.get(collection, CATEGORY_ORDER["summer"])
+
+    categorized: Dict[str, List[Tuple[str, List[str], str]]] = {cat: [] for cat in categories}
+
     for item, pages in clothing_index.items():
         # Extract category from item name if it's in format "Item Name (Category)"
         if '(' in item and ')' in item:
             category = item[item.rfind('(')+1:item.rfind(')')]
             item_name = item[:item.rfind('(')].strip()
-            if category in categorized:
-                categorized[category].append((item_name, pages, category))
-            else:
-                categorized['Other'].append((item_name, pages, 'Other'))
         else:
-            # Fallback categorization for items without explicit category
-            categorized['Other'].append((item, pages, 'Other'))
-    
+            item_name = item
+            category = "Other"
+
+        if category in categorized:
+            categorized[category].append((item_name, pages, category))
+        else:
+            categorized["Other"].append((item_name, pages, "Other"))
+
     # Sort each category by frequency
     for category in categorized:
         categorized[category].sort(key=lambda x: len(x[1]), reverse=True)
-    
+
     return categorized
 
-def categorize_summer_items(clothing_index):
-    """Categorize Summer items into standard categories"""
-    categorized = {
-        'Bottoms': [],
-        'Tops': [],
-        'Footwear': [],
-        'Accessories': []
-    }
-    
-    for item, pages in clothing_index.items():
-        item_lower = item.lower()
-        
-        # Categorize based on keywords
-        if any(keyword in item_lower for keyword in ['trouser', 'short', 'jean', '5-pocket', 'khaki', 'pant']):
-            categorized['Bottoms'].append((item, pages, 'Bottoms'))
-        elif any(keyword in item_lower for keyword in ['loafer', 'espadrille', 'sandal', 'shoe']):
-            categorized['Footwear'].append((item, pages, 'Footwear'))
-        else:
-            # Everything else is tops for Summer collection
-            categorized['Tops'].append((item, pages, 'Tops'))
-    
-    # Sort each category by frequency
-    for category in categorized:
-        categorized[category].sort(key=lambda x: len(x[1]), reverse=True)
-    
-    return categorized
 
-def generate_collection_html(collection_name, clothing_index, page_items, image_folder):
-    """Generate HTML for a specific collection"""
-    
-    # Categorize items based on collection
-    if collection_name == 'Summer':
-        categorized_items = categorize_summer_items(clothing_index)
-        category_order = ['Bottoms', 'Tops', 'Footwear', 'Accessories']
-    else:  # Spring and Fall/Winter
-        categorized_items = categorize_by_categories(clothing_index)
-        if collection_name == 'Fall/Winter':
-            category_order = ['Outerwear', 'Knitwear', 'Tops', 'Bottoms', 'Footwear', 'Suits', 'Layering', 'Accessories', 'Other']
-        else:  # Spring
-            category_order = ['Outerwear', 'Tops', 'Bottoms', 'Footwear', 'Accessories', 'Other']
-    
+def generate_collection_html(collection_name: str, clothing_index: Dict, page_items: Dict, image_folder: str) -> str:
+    """Generate HTML for a specific collection."""
+    collection_key = collection_name.lower().replace("/", "").replace("fall", "f").replace("winter", "w")
+    if collection_name == "Fall/Winter":
+        collection_key = "fw"
+    elif collection_name == "Summer":
+        collection_key = "summer"
+    elif collection_name == "Spring":
+        collection_key = "spring"
+
+    categorized_items = categorize_items(clothing_index, collection_key)
+    category_order = CATEGORY_ORDER.get(collection_key, CATEGORY_ORDER["summer"])
+
     # Generate category sections
     category_sections = []
     for category in category_order:
         if category not in categorized_items or not categorized_items[category]:
             continue
-        
+
         items = categorized_items[category]
-        
-        # Category icon mapping
-        category_icons = {
-            'Outerwear': '🧥',
-            'Knitwear': '🧶',
-            'Tops': '👔',
-            'Bottoms': '👖',
-            'Footwear': '👞',
-            'Accessories': '🎩',
-            'Suits': '🤵',
-            'Layering': '🦺',
-            'Other': '📦'
-        }
-        
-        icon = category_icons.get(category, '📦')
-        
+        icon = CATEGORY_ICONS.get(category, '📦')
+
         section_html = f"""
                     <div class="category-section">
                         <div class="category-header">
@@ -139,38 +107,107 @@ def generate_collection_html(collection_name, clothing_index, page_items, image_
                             <p class="category-description">{len(items)} items in this category</p>
                         </div>
                         <div class="item-grid">"""
-        
+
         for item_name, pages, _ in items:
-            escaped_item = item_name.replace("'", "\\'")
+            escaped_item = item_name.replace("'", "\\'").replace('"', '\\"')
             section_html += f"""
-                            <div class="item-card" onclick="showItemDetail('{escaped_item}', '{collection_name}', '{image_folder}')">
+                            <div class="item-card" data-item-name="{item_name}" onclick="showItemDetail('{escaped_item}', '{collection_name}', '{image_folder}')">
                                 <div class="item-name">{item_name}</div>
                                 <div class="item-count">
                                     Appears on {len(pages)} page{'s' if len(pages) > 1 else ''}
                                 </div>
                             </div>"""
-        
+
         section_html += """
                         </div>
                     </div>"""
-        
+
         category_sections.append(section_html)
-    
+
     return ''.join(category_sections)
 
-def create_all_collections_html():
-    """Create the main static HTML file with all three collections"""
-    
+
+def get_fuzzy_search_js() -> str:
+    """Return JavaScript for fuzzy search functionality."""
+    return """
+        // Fuzzy search implementation
+        function levenshteinDistance(str1, str2) {
+            const m = str1.length;
+            const n = str2.length;
+            const dp = Array(m + 1).fill(null).map(() => Array(n + 1).fill(0));
+
+            for (let i = 0; i <= m; i++) dp[i][0] = i;
+            for (let j = 0; j <= n; j++) dp[0][j] = j;
+
+            for (let i = 1; i <= m; i++) {
+                for (let j = 1; j <= n; j++) {
+                    if (str1[i - 1] === str2[j - 1]) {
+                        dp[i][j] = dp[i - 1][j - 1];
+                    } else {
+                        dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+                    }
+                }
+            }
+            return dp[m][n];
+        }
+
+        function fuzzyMatch(query, text, threshold = 0.6) {
+            query = query.toLowerCase();
+            text = text.toLowerCase();
+
+            // Exact substring match
+            if (text.includes(query)) return true;
+
+            // Check each word in the text
+            const words = text.split(/\\s+/);
+            for (const word of words) {
+                // Skip very short words
+                if (word.length < 3) continue;
+
+                // Check if query is similar to any word
+                const distance = levenshteinDistance(query, word);
+                const maxLen = Math.max(query.length, word.length);
+                const similarity = 1 - (distance / maxLen);
+
+                if (similarity >= threshold) return true;
+
+                // Also check if query is a prefix with typos
+                if (word.startsWith(query.substring(0, Math.min(3, query.length)))) {
+                    const prefixDist = levenshteinDistance(query, word.substring(0, query.length));
+                    if (prefixDist <= 2) return true;
+                }
+            }
+
+            // Check brand names specifically (allow more tolerance)
+            const brands = ['saint laurent', 'loro piana', 'bottega veneta', 'tom ford',
+                          'the row', 'brunello', 'valentino', 'boglioli', 'lardini'];
+            for (const brand of brands) {
+                if (text.includes(brand)) {
+                    const brandDist = levenshteinDistance(query, brand);
+                    if (brandDist <= 3) return true;
+                }
+            }
+
+            return false;
+        }
+"""
+
+
+def create_all_collections_html() -> str:
+    """Create the main static HTML file with all three collections."""
+
     # Load all collections
     summer_index, summer_items, _ = load_collection_data('summer')
-    spring_index, spring_items, spring_stats = load_collection_data('spring')
-    fw_index, fw_items, fw_stats = load_collection_data('fw')
-    
+    spring_index, spring_items, _ = load_collection_data('spring')
+    fw_index, fw_items, _ = load_collection_data('fw')
+
     # Generate HTML for each collection
     summer_html = generate_collection_html('Summer', summer_index, summer_items, 'images')
     spring_html = generate_collection_html('Spring', spring_index, spring_items, 'spring_images')
     fw_html = generate_collection_html('Fall/Winter', fw_index, fw_items, 'fw_images')
-    
+
+    fuzzy_search_js = get_fuzzy_search_js()
+
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -194,22 +231,6 @@ def create_all_collections_html():
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             overflow: hidden;
-        }}
-        .header {{
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }}
-        .header h1 {{
-            margin: 0;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }}
-        .header p {{
-            margin: 10px 0 0 0;
-            opacity: 0.95;
-            font-size: 1.1rem;
         }}
         .nav {{
             background: #34495e;
@@ -247,22 +268,6 @@ def create_all_collections_html():
         .content {{
             padding: 30px;
         }}
-        .collection-header {{
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 8px;
-        }}
-        .collection-header h2 {{
-            margin: 0 0 10px 0;
-            color: #2c3e50;
-            font-size: 2rem;
-        }}
-        .collection-stats {{
-            color: #5a6c7d;
-            font-size: 1.1rem;
-        }}
         .search-box {{
             margin-bottom: 30px;
             text-align: center;
@@ -279,6 +284,11 @@ def create_all_collections_html():
         }}
         .search-box input:focus {{
             border-color: #667eea;
+        }}
+        .search-hint {{
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-top: 8px;
         }}
         .category-section {{
             margin-bottom: 50px;
@@ -316,6 +326,9 @@ def create_all_collections_html():
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.12);
             background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+        }}
+        .item-card.hidden {{
+            display: none;
         }}
         .item-name {{
             font-weight: 600;
@@ -467,6 +480,12 @@ def create_all_collections_html():
             background: #e9ecef;
             transform: translateX(5px);
         }}
+        .no-results {{
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }}
         @media (max-width: 768px) {{
             .container {{
                 margin: 10px;
@@ -502,10 +521,6 @@ def create_all_collections_html():
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1 id="page-title">Kevin's Outfit Finder</h1>
-            <p>Explore All Seasonal Collections</p>
-        </div>
         <div class="nav">
             <button onclick="showCollection('summer')" class="active" id="nav-summer">☀️ Summer</button>
             <button onclick="showCollection('spring')" id="nav-spring">🌸 Spring</button>
@@ -514,56 +529,41 @@ def create_all_collections_html():
         <div class="content">
             <!-- Summer Collection View -->
             <div id="summer-view">
-                <div class="collection-header">
-                    <h2>☀️ Summer Collection</h2>
-                    <div class="collection-stats">
-                        <strong>{len(summer_index)}</strong> unique items across <strong>{len(summer_items)}</strong> outfit pages
-                    </div>
-                </div>
-
                 <div class="search-box">
                     <input type="text" id="summerSearchInput" placeholder="Search summer items..." onkeyup="filterItems('summer')">
+                    <div class="search-hint">Supports fuzzy matching - try "sant lorent" for "Saint Laurent"</div>
                 </div>
 
                 <div id="summer-items-grid">
                     {summer_html}
                 </div>
+                <div id="summer-no-results" class="no-results hidden">No matching items found</div>
             </div>
 
             <!-- Spring Collection View -->
             <div id="spring-view" class="hidden">
-                <div class="collection-header">
-                    <h2>🌸 Spring Collection</h2>
-                    <div class="collection-stats">
-                        <strong>{len(spring_index)}</strong> unique items across <strong>{len(spring_items)}</strong> outfit pages
-                    </div>
-                </div>
-
                 <div class="search-box">
                     <input type="text" id="springSearchInput" placeholder="Search spring items..." onkeyup="filterItems('spring')">
+                    <div class="search-hint">Supports fuzzy matching - try "sant lorent" for "Saint Laurent"</div>
                 </div>
 
                 <div id="spring-items-grid">
                     {spring_html}
                 </div>
+                <div id="spring-no-results" class="no-results hidden">No matching items found</div>
             </div>
 
             <!-- Fall/Winter Collection View -->
             <div id="fw-view" class="hidden">
-                <div class="collection-header">
-                    <h2>❄️ Fall/Winter Collection</h2>
-                    <div class="collection-stats">
-                        <strong>{len(fw_index)}</strong> unique items across <strong>{len(fw_items)}</strong> outfit pages
-                    </div>
-                </div>
-
                 <div class="search-box">
                     <input type="text" id="fwSearchInput" placeholder="Search fall/winter items..." onkeyup="filterItems('fw')">
+                    <div class="search-hint">Supports fuzzy matching - try "sant lorent" for "Saint Laurent"</div>
                 </div>
 
                 <div id="fw-items-grid">
                     {fw_html}
                 </div>
+                <div id="fw-no-results" class="no-results hidden">No matching items found</div>
             </div>
 
             <!-- Item Detail View -->
@@ -578,7 +578,7 @@ def create_all_collections_html():
                 <div id="page-detail-content"></div>
             </div>
         </div>
-        
+
         <!-- Image Modal -->
         <div id="imageModal" class="modal">
             <span class="modal-close" onclick="closeModal()">&times;</span>
@@ -595,28 +595,39 @@ def create_all_collections_html():
         const springPageItems = {json.dumps(spring_items)};
         const fwClothingIndex = {json.dumps(fw_index)};
         const fwPageItems = {json.dumps(fw_items)};
-        
+
         let currentCollection = 'summer';
         let currentClothingIndex = summerClothingIndex;
         let currentPageItems = summerPageItems;
+
+        {fuzzy_search_js}
+
+        // Image source helper - tries WebP first, falls back to PNG
+        function getImageSrc(folder, page) {{
+            return folder + '/' + page + '.png';
+        }}
+
+        function getImageSrcSet(folder, page) {{
+            return folder + '/' + page + '.webp';
+        }}
 
         // Modal functions
         function openModal(imageSrc, caption) {{
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
             const modalCaption = document.getElementById('modalCaption');
-            
+
             modal.style.display = 'block';
             modalImg.src = imageSrc;
             modalCaption.innerHTML = caption;
-            
+
             // Close on click outside
             modal.onclick = function(event) {{
                 if (event.target === modal || event.target === modalImg) {{
                     closeModal();
                 }}
             }}
-            
+
             // Close on Escape key
             document.onkeydown = function(event) {{
                 if (event.key === 'Escape') {{
@@ -624,7 +635,7 @@ def create_all_collections_html():
                 }}
             }}
         }}
-        
+
         function closeModal() {{
             document.getElementById('imageModal').style.display = 'none';
         }}
@@ -632,21 +643,21 @@ def create_all_collections_html():
         // Navigation
         function showCollection(collection) {{
             currentCollection = collection;
-            
+
             // Hide all views
             document.getElementById('summer-view').classList.add('hidden');
             document.getElementById('spring-view').classList.add('hidden');
             document.getElementById('fw-view').classList.add('hidden');
             document.getElementById('item-view').classList.add('hidden');
             document.getElementById('page-view').classList.add('hidden');
-            
+
             // Show selected collection
             document.getElementById(collection + '-view').classList.remove('hidden');
-            
+
             // Update navigation
             document.querySelectorAll('.nav button').forEach(btn => btn.classList.remove('active'));
             document.getElementById('nav-' + collection).classList.add('active');
-            
+
             // Update current data
             if (collection === 'summer') {{
                 currentClothingIndex = summerClothingIndex;
@@ -658,22 +669,48 @@ def create_all_collections_html():
                 currentClothingIndex = fwClothingIndex;
                 currentPageItems = fwPageItems;
             }}
+
+            // Reset page title
+            document.getElementById('page-title').textContent = "Kevin's Outfit Finder";
         }}
 
         function backToCollection() {{
             showCollection(currentCollection);
         }}
 
-        // Search functionality
+        // Search functionality with fuzzy matching
         function filterItems(collection) {{
-            const search = document.getElementById(collection + 'SearchInput').value.toLowerCase();
+            const search = document.getElementById(collection + 'SearchInput').value.trim();
             const container = document.getElementById(collection + '-items-grid');
             const items = container.querySelectorAll('.item-card');
-            
+            const noResults = document.getElementById(collection + '-no-results');
+
+            let visibleCount = 0;
+
             items.forEach(item => {{
-                const itemName = item.querySelector('.item-name').textContent.toLowerCase();
-                item.style.display = itemName.includes(search) ? 'block' : 'none';
+                const itemName = item.querySelector('.item-name').textContent;
+
+                if (search === '' || fuzzyMatch(search, itemName)) {{
+                    item.classList.remove('hidden');
+                    visibleCount++;
+                }} else {{
+                    item.classList.add('hidden');
+                }}
             }});
+
+            // Show/hide category sections based on visible items
+            const sections = container.querySelectorAll('.category-section');
+            sections.forEach(section => {{
+                const visibleItems = section.querySelectorAll('.item-card:not(.hidden)');
+                section.style.display = visibleItems.length > 0 ? 'block' : 'none';
+            }});
+
+            // Show no results message if needed
+            if (visibleCount === 0 && search !== '') {{
+                noResults.classList.remove('hidden');
+            }} else {{
+                noResults.classList.add('hidden');
+            }}
         }}
 
         // Show item detail
@@ -690,7 +727,7 @@ def create_all_collections_html():
                 clothingIndex = fwClothingIndex;
                 pageItems = fwPageItems;
             }}
-            
+
             // Try to find the item with or without category suffix
             let pages = null;
             for (let key in clothingIndex) {{
@@ -699,18 +736,18 @@ def create_all_collections_html():
                     break;
                 }}
             }}
-            
+
             if (!pages) return;
-            
+
             // Hide other views
             document.getElementById('summer-view').classList.add('hidden');
             document.getElementById('spring-view').classList.add('hidden');
             document.getElementById('fw-view').classList.add('hidden');
             document.getElementById('page-view').classList.add('hidden');
             document.getElementById('item-view').classList.remove('hidden');
-            
+
             document.getElementById('page-title').textContent = itemName + ' - ' + collection + ' Collection';
-            
+
             const content = document.getElementById('item-detail-content');
             content.innerHTML = `
                 <div class="collection-header">
@@ -722,11 +759,12 @@ def create_all_collections_html():
                 <div class="page-images">
                     ${{pages.map(page => `
                         <div class="page-card">
-                            <img src="${{imageFolder}}/${{page}}.png" 
-                                 alt="${{page}}" 
+                            <img src="${{imageFolder}}/${{page}}.png"
+                                 alt="${{page}}"
                                  class="clickable-image"
+                                 loading="lazy"
                                  onclick="openModal('${{imageFolder}}/${{page}}.png', '${{page.replace('page_', 'Page ')}} - ${{itemName}}')"
-                                 onerror="this.style.display='none';">
+                                 onerror="this.parentElement.style.display='none';">
                             <div class="page-title" onclick="showPageDetail('${{page}}', '${{collection}}', '${{imageFolder}}')" style="cursor: pointer;">
                                 ${{page.replace('page_', 'Page ')}}
                             </div>
@@ -746,50 +784,50 @@ def create_all_collections_html():
             }} else {{
                 pageItems = fwPageItems;
             }}
-            
+
             if (!pageItems[pageName]) return;
-            
+
             const items = pageItems[pageName];
-            
+
             // Hide other views
             document.getElementById('summer-view').classList.add('hidden');
             document.getElementById('spring-view').classList.add('hidden');
             document.getElementById('fw-view').classList.add('hidden');
             document.getElementById('item-view').classList.add('hidden');
             document.getElementById('page-view').classList.remove('hidden');
-            
+
             document.getElementById('page-title').textContent = pageName.replace('page_', 'Page ') + ' - ' + collection + ' Collection';
-            
+
             const content = document.getElementById('page-detail-content');
-            
-            // Handle different data formats
+
+            // Handle different data formats (all should be objects now)
             let itemsList = '';
             if (Array.isArray(items)) {{
                 if (items.length > 0 && typeof items[0] === 'object') {{
-                    // Spring/FW format (array of objects with name and category)
+                    // Categorized format (array of objects with name and category)
                     itemsList = items.map(item => `
-                        <a onclick="showItemDetail('${{item.name.replace(/'/g, "\\\'")}}', '${{collection}}', '${{imageFolder}}')" class="item-link">
+                        <a onclick="showItemDetail('${{item.name.replace(/'/g, "\\\\\'")}}', '${{collection}}', '${{imageFolder}}')" class="item-link">
                             ${{item.name}} <span style="color: #7f8c8d; font-size: 0.9em;">[${{item.category}}]</span>
                         </a>
                     `).join('');
                 }} else {{
-                    // Summer format (simple array)
+                    // Legacy simple array format
                     itemsList = items.map(item => `
-                        <a onclick="showItemDetail('${{item.replace(/'/g, "\\\'")}}', '${{collection}}', '${{imageFolder}}')" class="item-link">
+                        <a onclick="showItemDetail('${{item.replace(/'/g, "\\\\\'")}}', '${{collection}}', '${{imageFolder}}')" class="item-link">
                             ${{item}}
                         </a>
                     `).join('');
                 }}
             }}
-            
+
             content.innerHTML = `
                 <div class="page-detail">
                     <div class="page-image">
-                        <img src="${{imageFolder}}/${{pageName}}.png" alt="${{pageName}}" 
+                        <img src="${{imageFolder}}/${{pageName}}.png" alt="${{pageName}}"
                              class="clickable-image"
+                             loading="lazy"
                              style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"
-                             onclick="openModal('${{imageFolder}}/${{pageName}}.png', '${{pageName.replace('page_', 'Page ')}} - ${{collection}} Collection')"
-                             onerror="this.style.display='none';">
+                             onclick="openModal('${{imageFolder}}/${{pageName}}.png', '${{pageName.replace('page_', 'Page ')}} - ${{collection}} Collection')">
                     </div>
                     <div class="page-items">
                         <h3>Clothing items on this page:</h3>
@@ -811,91 +849,72 @@ def create_all_collections_html():
 
     return html_content
 
-def create_netlify_files_all_collections():
-    """Create necessary files for Netlify deployment with all collections"""
-    
+
+def create_netlify_files_all_collections() -> None:
+    """Create necessary files for Netlify deployment with all collections."""
+
     # Create dist directory
-    dist_dir = Path('dist')
-    if dist_dir.exists():
-        shutil.rmtree(dist_dir)
-    dist_dir.mkdir()
-    
+    if DIST_DIR.exists():
+        shutil.rmtree(DIST_DIR)
+    DIST_DIR.mkdir()
+
     # Create images directories and copy images
-    # Summer images
-    summer_images_dir = dist_dir / 'images'
-    summer_images_dir.mkdir()
-    summer_source = Path('Kevin_Summer_Looks_Pages')
-    if summer_source.exists():
-        for img_file in summer_source.glob('*.png'):
-            shutil.copy2(img_file, summer_images_dir)
-        print(f"✅ Copied {len(list(summer_source.glob('*.png')))} Summer images")
-    
-    # Spring images
-    spring_images_dir = dist_dir / 'spring_images'
-    spring_images_dir.mkdir()
-    spring_source = Path('KEVIN_Spring_Looks_Images')
-    if spring_source.exists():
-        for img_file in spring_source.glob('*.png'):
-            shutil.copy2(img_file, spring_images_dir)
-        print(f"✅ Copied {len(list(spring_source.glob('*.png')))} Spring images")
-    
-    # Fall/Winter images
-    fw_images_dir = dist_dir / 'fw_images'
-    fw_images_dir.mkdir()
-    fw_source = Path('Fall_Winter_Looks_Images')
-    if fw_source.exists():
-        for img_file in fw_source.glob('*.png'):
-            shutil.copy2(img_file, fw_images_dir)
-        print(f"✅ Copied {len(list(fw_source.glob('*.png')))} Fall/Winter images")
-    
+    for collection, source_dir in COLLECTION_PATHS.items():
+        output_folder = DIST_IMAGE_FOLDERS[collection]
+        output_dir = DIST_DIR / output_folder
+        output_dir.mkdir()
+
+        if source_dir.exists():
+            count = 0
+            for img_file in source_dir.glob('*.png'):
+                shutil.copy2(img_file, output_dir)
+                count += 1
+            print(f"✅ Copied {count} {collection} images")
+
     # Generate and write main HTML file
     html_content = create_all_collections_html()
-    with open(dist_dir / 'index.html', 'w', encoding='utf-8') as f:
+    with open(DIST_DIR / 'index.html', 'w', encoding='utf-8') as f:
         f.write(html_content)
     print("✅ Generated index.html with all three collections")
-    
-    # Note: netlify.toml should be in the root directory, not generated
-    # The root netlify.toml handles the build configuration
-    
+
     # Create _redirects file in dist
-    with open(dist_dir / '_redirects', 'w') as f:
+    with open(DIST_DIR / '_redirects', 'w') as f:
         f.write("/*    /index.html   200\n")
     print("✅ Created _redirects")
-    
-    # Copy all data files to dist for reference
-    data_files = [
-        'clothing_index.json', 'page_items.json',
-        'clothing_index_spring.json', 'page_items_spring.json', 'category_stats_spring.json',
-        'clothing_index_fw.json', 'page_items_fw.json', 'category_stats_fw.json'
-    ]
-    
-    for data_file in data_files:
-        if Path(data_file).exists():
-            shutil.copy2(data_file, dist_dir)
-    
-    print("✅ Copied all data files")
-    
-    # Copy favicon files
-    if Path('favicon.png').exists():
-        shutil.copy2('favicon.png', dist_dir)
-    if Path('favicon.ico').exists():
-        shutil.copy2('favicon.ico', dist_dir)
-    print("✅ Copied favicon files")
-    
-    print(f"\n🎉 Static site with all three collections ready for deployment!")
-    print(f"📁 Files created in: {dist_dir.absolute()}")
-    print(f"📊 Total files: {len(list(dist_dir.rglob('*')))}")
 
-def main():
-    """Main function"""
+    # Copy all data files to dist for reference
+    for collection, files in DATA_FILES.items():
+        for file_type, file_path in files.items():
+            if file_path.exists():
+                shutil.copy2(file_path, DIST_DIR)
+    print("✅ Copied all data files")
+
+    # Copy favicon files
+    favicon_files = ['favicon.png', 'favicon.ico']
+    for favicon in favicon_files:
+        favicon_path = Path(favicon)
+        if favicon_path.exists():
+            shutil.copy2(favicon_path, DIST_DIR)
+    print("✅ Copied favicon files")
+
+    print(f"\n🎉 Static site with all three collections ready for deployment!")
+    print(f"📁 Files created in: {DIST_DIR.absolute()}")
+    print(f"📊 Total files: {len(list(DIST_DIR.rglob('*')))}")
+
+
+def main() -> None:
+    """Main function."""
     print("🚀 Generating static site with Summer, Spring & Fall/Winter collections...")
+    print("   Features: Lazy loading, WebP support, Fuzzy search")
     create_netlify_files_all_collections()
-    
+
     print(f"\n📱 Ready for mobile-friendly deployment with all collections!")
-    print(f"📋 Next steps:")
-    print(f"   1. Deploy to Netlify using: netlify deploy --prod --dir=dist")
-    print(f"   2. Or drag and drop the 'dist' folder to Netlify")
-    print(f"   3. Your outfit finder with all seasonal collections will be live!")
+    print(f"\n📋 Next steps:")
+    print(f"   1. (Optional) Run: python optimize_images.py all")
+    print(f"      This converts images to WebP for ~30-50% smaller files")
+    print(f"   2. Deploy to Netlify using: netlify deploy --prod --dir=dist")
+    print(f"   3. Or drag and drop the 'dist' folder to Netlify")
+
 
 if __name__ == "__main__":
     main()

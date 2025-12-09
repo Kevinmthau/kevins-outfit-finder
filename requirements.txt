@@ -1,2 +1,9 @@
-# No special requirements needed for static site generation
-# All dependencies are Python standard library
+# Core dependencies for static site generation
+# (standard library only - no external deps needed)
+
+# OCR processing (only needed for extracting items from images)
+Pillow>=9.0.0
+pytesseract>=0.3.10
+
+# Data validation (for type-safe data models)
+pydantic>=2.0.0

@@ -1,5 +1,5 @@
 {
-  "Iris Von Arnim grey polo": [
+  "Iris Von Arnim grey polo (Tops)": [
     "page_1",
     "page_20",
     "page_40",
@@ -10,15 +10,15 @@
     "page_81",
     "page_86"
   ],
-  "Boglioli teal polo": [
+  "Boglioli teal polo (Tops)": [
     "page_1"
   ],
-  "Prada navy polo": [
+  "Prada navy polo (Tops)": [
     "page_1",
     "page_63",
     "page_86"
   ],
-  "Saint Laurent ivory trouser": [
+  "Saint Laurent ivory trouser (Bottoms)": [
     "page_1",
     "page_2",
     "page_3",
@@ -27,7 +27,7 @@
     "page_6",
     "page_7"
   ],
-  "Saint Laurent loafer": [
+  "Saint Laurent loafer (Footwear)": [
     "page_1",
     "page_3",
     "page_6",
@@ -62,24 +62,24 @@
     "page_85",
     "page_86"
   ],
-  "Boglioli tan polo": [
+  "Boglioli tan polo (Tops)": [
     "page_2",
     "page_14",
     "page_42",
     "page_72"
   ],
-  "The Row striped shirt": [
+  "The Row striped shirt (Tops)": [
     "page_2",
     "page_37",
     "page_61"
   ],
-  "Saint Laurent blush sweater": [
+  "Saint Laurent blush sweater (Tops)": [
     "page_2",
     "page_9",
     "page_36",
     "page_61"
   ],
-  "The Row brown tassel loafer": [
+  "The Row brown tassel loafer (Footwear)": [
     "page_2",
     "page_3",
     "page_4",
@@ -135,7 +135,7 @@
     "page_79",
     "page_81"
   ],
-  "Boglioli green polo": [
+  "Boglioli green polo (Tops)": [
     "page_3",
     "page_10",
     "page_27",
@@ -147,7 +147,7 @@
     "page_73",
     "page_82"
   ],
-  "Lardini green blazer": [
+  "Lardini green blazer (Outerwear)": [
     "page_3",
     "page_6",
     "page_7",
@@ -168,7 +168,7 @@
     "page_59",
     "page_60"
   ],
-  "Lardini green polo": [
+  "Lardini green polo (Tops)": [
     "page_4",
     "page_31",
     "page_40",
@@ -179,7 +179,7 @@
     "page_82",
     "page_84"
   ],
-  "Lardini prince of wales blazer": [
+  "Lardini prince of wales blazer (Outerwear)": [
     "page_4",
     "page_5",
     "page_7",
@@ -194,7 +194,7 @@
     "page_68",
     "page_71"
   ],
-  "Caruso camel blazer": [
+  "Caruso camel blazer (Outerwear)": [
     "page_4",
     "page_29",
     "page_30",
@@ -202,7 +202,7 @@
     "page_44",
     "page_45"
   ],
-  "Dries pink polo": [
+  "Dries pink polo (Tops)": [
     "page_5",
     "page_16",
     "page_25",
@@ -216,7 +216,7 @@
     "page_87",
     "page_88"
   ],
-  "Zegna blue polo": [
+  "Zegna blue polo (Tops)": [
     "page_6",
     "page_13",
     "page_26",
@@ -229,18 +229,18 @@
     "page_86",
     "page_88"
   ],
-  "Brioni taupe shirt": [
+  "Brioni taupe shirt (Tops)": [
     "page_7",
     "page_15",
     "page_48",
     "page_50"
   ],
-  "Dries striped polo": [
+  "Dries striped polo (Tops)": [
     "page_8",
     "page_25",
     "page_84"
   ],
-  "Beams khaki": [
+  "Beams khaki (Bottoms)": [
     "page_8",
     "page_9",
     "page_10",
@@ -254,25 +254,25 @@
     "page_18",
     "page_19"
   ],
-  "Boglioli pink pique polo": [
+  "Boglioli pink pique polo (Tops)": [
     "page_9",
     "page_57",
     "page_62",
     "page_65",
     "page_74"
   ],
-  "Prada green sweater": [
+  "Prada green sweater (Tops)": [
     "page_9"
   ],
-  "Saint Laurent floral shirt": [
+  "Saint Laurent floral shirt (Tops)": [
     "page_9",
     "page_83",
     "page_85"
   ],
-  "Fedeli green shirt": [
+  "Fedeli green shirt (Tops)": [
     "page_11"
   ],
-  "Boglioli ivory blazer": [
+  "Boglioli ivory blazer (Outerwear)": [
     "page_11",
     "page_16",
     "page_18",
@@ -283,29 +283,29 @@
     "page_55",
     "page_56"
   ],
-  "Lardini striped shirt": [
+  "Lardini striped shirt (Tops)": [
     "page_12"
   ],
-  "Altea olive polo": [
+  "Altea olive polo (Tops)": [
     "page_17",
     "page_24",
     "page_53",
     "page_64"
   ],
-  "Boglioli blue shirt": [
+  "Boglioli blue shirt (Tops)": [
     "page_18"
   ],
-  "Dries striped shirt": [
+  "Dries striped shirt (Tops)": [
     "page_19",
     "page_29",
     "page_37"
   ],
-  "Prada navy trouser": [
+  "Prada navy trouser (Bottoms)": [
     "page_20",
     "page_21",
     "page_22"
   ],
-  "Loro Piana sandal": [
+  "Loro Piana sandal (Footwear)": [
     "page_20",
     "page_24",
     "page_27",
@@ -314,28 +314,28 @@
     "page_80",
     "page_87"
   ],
-  "Loewe striped polo": [
+  "Loewe striped polo (Tops)": [
     "page_21",
     "page_54"
   ],
-  "Dries burgundy polo": [
+  "Dries burgundy polo (Tops)": [
     "page_21",
     "page_34",
     "page_40",
     "page_67"
   ],
-  "Loro Piana ivory polo": [
+  "Loro Piana ivory polo (Tops)": [
     "page_22",
     "page_88"
   ],
-  "Boglioli tan pique polo": [
+  "Boglioli tan pique polo (Tops)": [
     "page_23",
     "page_63",
     "page_66",
     "page_72",
     "page_82"
   ],
-  "Valentino ivory canvas trouser": [
+  "Valentino ivory canvas trouser (Bottoms)": [
     "page_23",
     "page_24",
     "page_25",
@@ -348,123 +348,123 @@
     "page_32",
     "page_33"
   ],
-  "Loewe espadrille": [
+  "Loewe espadrille (Footwear)": [
     "page_23",
     "page_24",
     "page_27",
     "page_80"
   ],
-  "Boglioli green striped shirt": [
+  "Boglioli green striped shirt (Tops)": [
     "page_28"
   ],
-  "Valentino camel cardigan": [
+  "Valentino camel cardigan (Outerwear)": [
     "page_28",
     "page_36",
     "page_37"
   ],
-  "Prada ivory polo": [
+  "Prada ivory polo (Tops)": [
     "page_30",
     "page_55",
     "page_63",
     "page_88"
   ],
-  "Saint Laurent blue striped shirt": [
+  "Saint Laurent blue striped shirt (Tops)": [
     "page_32",
     "page_38",
     "page_39"
   ],
-  "Valentino navy blazer": [
+  "Valentino navy blazer (Outerwear)": [
     "page_32",
     "page_38",
     "page_39"
   ],
-  "Loewe striped long sleeve polo": [
+  "Loewe striped long sleeve polo (Tops)": [
     "page_33",
     "page_75",
     "page_78"
   ],
-  "Valentino camel trouser": [
+  "Valentino camel trouser (Bottoms)": [
     "page_34",
     "page_35",
     "page_36",
     "page_37",
     "page_38"
   ],
-  "Boglioli linen blazer": [
+  "Boglioli linen blazer (Outerwear)": [
     "page_34"
   ],
-  "Saint Laurent silk shirt": [
+  "Saint Laurent silk shirt (Tops)": [
     "page_36"
   ],
-  "Valentino burgundy tie": [
+  "Valentino burgundy tie (Accessories)": [
     "page_38",
     "page_39"
   ],
-  "Valentino navy trouser": [
+  "Valentino navy trouser (Bottoms)": [
     "page_39"
   ],
-  "Saint Laurent olive trouser": [
+  "Saint Laurent olive trouser (Bottoms)": [
     "page_40",
     "page_41",
     "page_42",
     "page_43",
     "page_44"
   ],
-  "The Row taupe polo": [
+  "The Row taupe polo (Tops)": [
     "page_41"
   ],
-  "Dunhill brown polo": [
+  "Dunhill brown polo (Tops)": [
     "page_44",
     "page_45",
     "page_57"
   ],
-  "The Row teal trouser": [
+  "The Row teal trouser (Bottoms)": [
     "page_45",
     "page_46",
     "page_47",
     "page_48"
   ],
-  "Prada blue sweater": [
+  "Prada blue sweater (Tops)": [
     "page_47"
   ],
-  "Dries striped trouser": [
+  "Dries striped trouser (Bottoms)": [
     "page_49",
     "page_50",
     "page_51",
     "page_52"
   ],
-  "APC navy trouser": [
+  "APC navy trouser (Bottoms)": [
     "page_53",
     "page_54",
     "page_55",
     "page_56"
   ],
-  "Castaner cream espadrille": [
+  "Castaner cream espadrille (Footwear)": [
     "page_54",
     "page_83"
   ],
-  "Valentino striped shirt": [
+  "Valentino striped shirt (Tops)": [
     "page_56"
   ],
-  "Beams brown polo": [
+  "Beams brown polo (Tops)": [
     "page_57"
   ],
-  "Beams plaid trouser": [
+  "Beams plaid trouser (Bottoms)": [
     "page_57",
     "page_58",
     "page_59",
     "page_60",
     "page_61"
   ],
-  "Loro Piana khaki": [
+  "Loro Piana khaki (Bottoms)": [
     "page_62"
   ],
-  "Altea navy polo": [
+  "Altea navy polo (Tops)": [
     "page_63",
     "page_72",
     "page_84"
   ],
-  "Loro Piana tan 5-pocket": [
+  "Loro Piana tan 5-pocket (Bottoms)": [
     "page_65",
     "page_66",
     "page_67",
@@ -472,55 +472,55 @@
     "page_69",
     "page_70"
   ],
-  "Drakes ivory corduroy": [
+  "Drakes ivory corduroy (Bottoms)": [
     "page_71",
     "page_72",
     "page_73",
     "page_74",
     "page_75"
   ],
-  "APC white jean": [
+  "APC white jean (Bottoms)": [
     "page_76",
     "page_77",
     "page_78"
   ],
-  "Lardini grey marl polo": [
+  "Lardini grey marl polo (Tops)": [
     "page_77",
     "page_89"
   ],
-  "The Row navy 5-pocket": [
+  "The Row navy 5-pocket (Bottoms)": [
     "page_79",
     "page_80"
   ],
-  "Ikiji grey tee": [
+  "Ikiji grey tee (Tops)": [
     "page_80",
     "page_81"
   ],
-  "Saint Laurent brown corduroy": [
+  "Saint Laurent brown corduroy (Bottoms)": [
     "page_81"
   ],
-  "Prada silk shirt": [
+  "Prada silk shirt (Tops)": [
     "page_82"
   ],
-  "Lardini linen short": [
+  "Lardini linen short (Bottoms)": [
     "page_82",
     "page_83"
   ],
-  "Prada floral shirt": [
+  "Prada floral shirt (Tops)": [
     "page_83",
     "page_84"
   ],
-  "Derek Rose khaki short": [
+  "Derek Rose khaki short (Bottoms)": [
     "page_84",
     "page_85"
   ],
-  "Loro Piana white short": [
+  "Loro Piana white short (Bottoms)": [
     "page_86"
   ],
-  "Boglioli pink short": [
+  "Boglioli pink short (Bottoms)": [
     "page_87"
   ],
-  "Lardini green short": [
+  "Lardini green short (Bottoms)": [
     "page_88",
     "page_89"
   ]
