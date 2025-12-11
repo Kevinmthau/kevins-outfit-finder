@@ -2,3981 +2,4423 @@
   "page_1": [
     {
       "name": "Armory white shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent Suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     },
     {
       "name": "Green Loro Piana tie Red Loro Piana tie",
-      "category": "Accessories"
-    }
-  ],
-  "page_2": [
-    {
-      "name": "Brioni oyster shirt",
-      "category": "Tops"
-    },
-    {
-      "name": "Hermes trouser",
-      "category": "Bottoms"
+      "category": "Accessories",
+      "season": "Winter"
     }
   ],
   "page_3": [
     {
       "name": "Brioni oyster shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     }
   ],
   "page_4": [
     {
       "name": "Brioni oyster shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "The Row woolly trouser",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "The Row blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     }
   ],
   "page_5": [
     {
       "name": "Boglioli pink crewneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     }
   ],
   "page_6": [
     {
       "name": "Brioni oyster shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana herringbone trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_7": [
     {
       "name": "Brioni oyster shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "The Row woolly trouser",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "The Row blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     }
   ],
   "page_8": [
     {
       "name": "Brioni oyster shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Boglioli pink crewneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_9": [
     {
       "name": "Dries pinstripe shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_10": [
     {
       "name": "Dries pinstripe shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Boglioli pink crewneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_11": [
     {
       "name": "Loro Piana green polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     }
   ],
   "page_12": [
     {
       "name": "Loro Piana green polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "The Row woolly trouser",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "The Row blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     }
   ],
   "page_13": [
     {
       "name": "Loro Piana green polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "The Row blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana check blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana DB blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     }
   ],
   "page_14": [
     {
       "name": "Loro Piana green polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent light brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     }
   ],
   "page_15": [
     {
       "name": "Prada check trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent coat",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_16": [
     {
       "name": "Saint Laurent charcoal gray trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent coat",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_17": [
     {
       "name": "Loro Piana utility red trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana precious blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent coat",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     }
   ],
   "page_18": [
     {
       "name": "Saint Laurent trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     }
   ],
   "page_20": [
     {
       "name": "Saint Laurent light brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     }
   ],
   "page_21": [
     {
       "name": "Loro Piana herringbone trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     }
   ],
   "page_22": [
     {
       "name": "The Row pink shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent light brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     }
   ],
   "page_23": [
     {
       "name": "The Row pink shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "The Row woolly",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     }
   ],
   "page_24": [
     {
       "name": "The Row pink shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana precious blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     }
   ],
   "page_25": [
     {
       "name": "The Row pink shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana herringbone trouser",
-      "category": "Bottoms"
-    }
-  ],
-  "page_26": [
-    {
-      "name": "The Row pink shirt",
-      "category": "Tops"
-    },
-    {
-      "name": "Hermes trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     }
   ],
   "page_27": [
     {
       "name": "Brioni brown corduroy",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana precious blazer",
-      "category": "Outerwear"
-    }
-  ],
-  "page_28": [
-    {
-      "name": "Hermes burgundy sweater",
-      "category": "Knitwear"
-    },
-    {
-      "name": "The Row moleskin trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "The Row black tassel loafer",
-      "category": "Footwear"
+      "category": "Outerwear",
+      "season": "Winter"
     }
   ],
   "page_29": [
     {
       "name": "Brunello camel polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana herringbone trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana precious blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     }
   ],
   "page_30": [
     {
       "name": "Brunello camel polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana red utility trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana precious blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_31": [
     {
       "name": "Brunello camel polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "The Row woolly grey trouser",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "The Row blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_32": [
     {
       "name": "Brunello camel polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Brioni corduroy trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana precious blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_33": [
     {
       "name": "The Row burgundy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_34": [
     {
       "name": "The Row burgundy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana red utility trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana precious blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_35": [
     {
       "name": "The Row burgundy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "The Row grey woolly trouser",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "The Row blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_36": [
     {
       "name": "The Row burgundy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent light brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_37": [
     {
       "name": "The Row burgundy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_38": [
-    {
-      "name": "Loro Piana brown turtleneck",
-      "category": "Knitwear"
-    },
-    {
-      "name": "Loro Piana herringbone trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "Loro Piana precious blazer",
-      "category": "Outerwear"
-    },
-    {
-      "name": "The Row brown tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_39": [
-    {
-      "name": "Loro Piana brown turtleneck",
-      "category": "Knitwear"
-    },
-    {
-      "name": "Saint Laurent trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "Saint Laurent blazer",
-      "category": "Outerwear"
-    },
-    {
-      "name": "The Row brown tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_40": [
-    {
-      "name": "Loro Piana brown turtleneck",
-      "category": "Knitwear"
-    },
-    {
-      "name": "Loro Piana red utility trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "The Row blazer",
-      "category": "Outerwear"
-    },
-    {
-      "name": "Loro Piana precious blazer",
-      "category": "Outerwear"
-    },
-    {
-      "name": "Saint Laurent coat",
-      "category": "Outerwear"
-    },
-    {
-      "name": "The Row brown tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_41": [
-    {
-      "name": "Loro Piana brown turtleneck",
-      "category": "Knitwear"
-    },
-    {
-      "name": "The Row grey woolly trouser",
-      "category": "Knitwear"
-    },
-    {
-      "name": "The Row blazer",
-      "category": "Outerwear"
-    },
-    {
-      "name": "The Row brown tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_42": [
-    {
-      "name": "Loro Piana brown turtleneck",
-      "category": "Knitwear"
-    },
-    {
-      "name": "Saint Laurent light brown trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_43": [
     {
       "name": "Dries pinstripe shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "The Frankie Shop corduroy pants",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_44": [
     {
       "name": "Dries pinstripe shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent taupe suit trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent coat",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_45": [
     {
       "name": "Dries pinstripe shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "The Row brushed crew neck sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana red utility trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_46": [
     {
       "name": "Brioni brown plaid shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "The Row brushed crew neck sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "The Row corduroy trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_47": [
     {
       "name": "Dries pinstripe shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Boglioli green crewneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_48": [
     {
       "name": "The Row oyster pinstripe shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana green utility trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_49": [
     {
       "name": "Brioni corduroy trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_50": [
     {
       "name": "The Row green crew neck sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Brioni brown corduroy pant",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_51": [
     {
       "name": "Loro Piana herringbone trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_52": [
     {
       "name": "Loro Piana green utility trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_53": [
     {
       "name": "Brioni oyster shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "The Row green crew neck sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "The Row grey woolly trouser",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_54": [
     {
       "name": "Brioni oyster shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "The Row green crew neck sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     }
   ],
   "page_55": [
     {
       "name": "Loro Piana pale blue shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent black trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana grey coat",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "Hermes brown coat",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana Coat",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row black tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_56": [
     {
       "name": "Boglioli brown shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Cesare Attolini green crew neck sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "The Row corduroy trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent coat",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row black tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_57": [
     {
       "name": "Boglioli brown stripe shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Cesare Attolini green crew neck sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "The Row black moleskin trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row black tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_58": [
     {
       "name": "Boglioli brown stripe shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Cesare Attolini green crew neck sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Brioni brown corduroy trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana check blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_59": [
-    {
-      "name": "Cesare Attolini green crew neck sweater",
-      "category": "Knitwear"
-    },
-    {
-      "name": "Brioni brown corduroy trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "Loro Piana check blazer",
-      "category": "Outerwear"
-    },
-    {
-      "name": "The Row brown tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_60": [
-    {
-      "name": "Cesare Attolini green crew neck sweater",
-      "category": "Knitwear"
-    },
-    {
-      "name": "Loro Piana green utility trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "Loro Piana check blazer",
-      "category": "Outerwear"
-    },
-    {
-      "name": "The Row brown tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_61": [
-    {
-      "name": "Valentino grey polo",
-      "category": "Tops"
-    },
-    {
-      "name": "The Row black corduroy trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "The Row black tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_62": [
-    {
-      "name": "Valentino grey polo",
-      "category": "Tops"
-    },
-    {
-      "name": "Saint Laurent lurex pinstripe trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "The Row black tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_63": [
-    {
-      "name": "Valentino grey polo",
-      "category": "Tops"
-    },
-    {
-      "name": "Saint Laurent black trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "The Row black tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_64": [
-    {
-      "name": "Saint Laurent grey polo",
-      "category": "Tops"
-    },
-    {
-      "name": "Saint Laurent black trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "The Row black tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_65": [
-    {
-      "name": "Saint Laurent grey polo",
-      "category": "Tops"
-    },
-    {
-      "name": "Saint Laurent pinstripe trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "The Row black tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_66": [
     {
       "name": "Hermes navy crew neck sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent black trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row black tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_67": [
     {
       "name": "Hermes navy crew neck sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Valentino black track pant",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row black tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_68": [
     {
       "name": "Valentino black track pant",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row black tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_69": [
-    {
-      "name": "Loro Piana navy polo",
-      "category": "Tops"
-    },
-    {
-      "name": "Valentino trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "The Row black tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_70": [
     {
       "name": "Loro Piana navy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "The Row black tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_71": [
     {
       "name": "Loro Piana navy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent black trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "The Row black tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_72": [
-    {
-      "name": "Loro Piana navy polo",
-      "category": "Tops"
-    },
-    {
-      "name": "Valentino grey trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "The Row black tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_73": [
-    {
-      "name": "Loro Piana buttonless navy polo",
-      "category": "Tops"
-    },
-    {
-      "name": "Valentino grey trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "The Row black tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_74": [
-    {
-      "name": "Loewe blue shirt",
-      "category": "Tops"
-    },
-    {
-      "name": "Vivienne Westwood cardigan",
-      "category": "Knitwear"
-    },
-    {
-      "name": "Saint Laurent trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "The Row black tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_75": [
     {
       "name": "Boglioli blue shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "1 Brioni brown corduroy",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_76": [
-    {
-      "name": "The Row micro cord pant",
-      "category": "Bottoms"
-    },
-    {
-      "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_77": [
     {
       "name": "Boglioli blue shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Brioni brown corduroy trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana brown precious blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_78": [
     {
       "name": "Boglioli green turtleneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana herringbone trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Hermes coat",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_79": [
     {
       "name": "Boglioli green turtleneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Brioni brown corduroy trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Loewe grey blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_80": [
     {
       "name": "Boglioli green turtleneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana khaki pant",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_82": [
     {
       "name": "Prada periwinkle shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Valentino salt & pepper tweed suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Winter"
     },
     {
       "name": "Canali navy polka dot tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Winter"
     },
     {
       "name": "The Row black tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_83": [
     {
       "name": "Luca Museo blue shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Valentino tweed suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Winter"
     },
     {
       "name": "The Row black tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_84": [
     {
       "name": "Luca Museo blue shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo navy suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Canali navy polka dot tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_85": [
     {
       "name": "Canali Mr. P The Armoury navy striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo navy suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Mr P houndstooth tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Canali navy polka dot tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_86": [
     {
       "name": "The Armoury navy striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo navy suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Dunhill navy camel tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_87": [
     {
       "name": "The Armoury navy striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo navy suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Dunhill navy burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_88": [
     {
       "name": "De Petrillo The Armoury navy striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo navy suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_89": [
     {
       "name": "The Armoury navy striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Umit Benan navy suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Winter"
     },
     {
       "name": "Tom Ford brown polka dot tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Winter"
     },
     {
       "name": "Tom Ford brown knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Dunhill navy brown pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_90": [
     {
       "name": "Brunello Cucinelli The Armoury navy striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Umit Benan navy suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Mr P houndstooth tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Brunello blue pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_91": [
     {
       "name": "Prada periwinkle shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Prada olive suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Lardini brown/navy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer Latdini",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_92": [
     {
       "name": "Saint Laurent brown striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent olive suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Isaia olive floral tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_93": [
     {
       "name": "De Petrillo The Armoury navy striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Umit Benan navy suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Canali navy polka dot tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo yellow pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_94": [
     {
       "name": "De Petrillo The Armoury navy striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Umit Benan navy suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Dunhill navy burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_95": [
     {
       "name": "Luca Museo blue shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo grey suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Lardini brown/navy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer Latdini",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_96": [
     {
       "name": "The Armoury navy striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo grey suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Canali navy polka dot tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_97": [
     {
       "name": "Altea burgundy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Caruso mushroom suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_98": [
     {
       "name": "Brioni taupe shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Caruso mushroom suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Isaia olive floral tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "NO pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_99": [
     {
       "name": "Brioni taupe shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Caruso mushroom suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Isaia olive floral tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Tom Ford brown knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Rubinacci burgundy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Brioni brown blue knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_100": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Caruso mushroom suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_101": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Caruso mushroom suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Rubinacci burgundy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_102": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Caruso mushroom suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_103": [
     {
       "name": "Caruso taupe crewneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Caruso mushroom suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent burgundy scarf",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_104": [
     {
       "name": "Saint Laurent brown striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Caruso mushroom suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_105": [
     {
       "name": "Luca Museo blue shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Brioni taupe suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Isaia olive floral tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo yellow pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_106": [
     {
       "name": "Luca Museo blue shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Brioni taupe suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo yellow pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     }
   ],
   "page_107": [
     {
       "name": "Luca Museo blue shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Brioni taupe suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Tom Ford brown knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Brioni brown blue knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "J Mueser brown knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     }
   ],
   "page_108": [
     {
       "name": "Saint Laurent brown striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Brioni taupe suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_109": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Brioni taupe suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_110": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Brioni taupe suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Rubinacci burgundy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "J Mueser brown knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Tom Ford brown knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_111": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent blush sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Brioni taupe suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_112": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Umit Benan ivory suit",
-      "category": "Suits"
+      "category": "Suits",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_113": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent green sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent plaid scarf",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     }
   ],
   "page_114": [
     {
       "name": "Altea burgundy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana brown tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_115": [
     {
       "name": "Dunhill brown polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Lardini camel blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_116": [
     {
       "name": "Lardini cream oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Lardini brown check blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Dunhill navy yellow pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_117": [
     {
       "name": "Lardini cream oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana brown tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Tom Ford brown knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Kenji Kaga brown tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "J Mueser brown knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Rubinacci burgundy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_118": [
     {
       "name": "Saint Laurent brown striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Lardini camel blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_119": [
-    {
-      "name": "Altea burgundy polo",
-      "category": "Tops"
-    },
-    {
-      "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "Lardini camel blazer",
-      "category": "Outerwear"
-    },
-    {
-      "name": "The Row brown tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_120": [
-    {
-      "name": "Lardini cream oxford",
-      "category": "Tops"
-    },
-    {
-      "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "Lardini camel blazer",
-      "category": "Outerwear"
-    },
-    {
-      "name": "Valentino burgundy tie",
-      "category": "Accessories"
-    },
-    {
-      "name": "Saint Laurent burgundy tie",
-      "category": "Accessories"
-    },
-    {
-      "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_121": [
     {
       "name": "Saint Laurent navy silk shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Lardini camel blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "NO pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
-    }
-  ],
-  "page_122": [
-    {
-      "name": "Altea brown crewneck",
-      "category": "Knitwear"
-    },
-    {
-      "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
-    },
-    {
-      "name": "Lardini camel blazer",
-      "category": "Outerwear"
-    },
-    {
-      "name": "Valentino yellow scarf",
-      "category": "Accessories"
-    },
-    {
-      "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_123": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent blush sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "De Petrillo brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_124": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana camel sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "De Petrillo brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_125": [
     {
       "name": "Dries striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Dunhill herringbone blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_126": [
     {
       "name": "Caruso taupe crewneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent burgundy scarf",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_127": [
     {
       "name": "Boglioli brown shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent jean",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana brown tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_128": [
     {
       "name": "Saint Laurent brown striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Barena olive sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana olive trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana brown tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_129": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent green sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Loro Piana olive trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent plaid scarf",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Winter"
     }
   ],
   "page_130": [
     {
       "name": "Lardini cream oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana olive trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana brown tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_131": [
     {
       "name": "Lardini cream oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana olive trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana brown tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "J Mueser brown knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Rubinacci burgundy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_132": [
     {
       "name": "Lardini cream oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Barena olive chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo green blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_133": [
     {
       "name": "Boglioli chambray shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Barena olive chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana blue tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_134": [
     {
       "name": "Boglioli chambray shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Barena olive chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo green blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_135": [
     {
       "name": "Saint Laurent brown striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Altea brown crewneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana green utility trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Lardini camel blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_136": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent green sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana green utility trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_137": [
     {
       "name": "The Row brown striped silk shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent green sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "The Row mushroom trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_138": [
     {
       "name": "The Row mushroom polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "The Row mushroom trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent plaid scarf",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     }
   ],
   "page_139": [
     {
       "name": "Saint Laurent brown striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent green sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Prada brown multi trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_140": [
     {
       "name": "Lardini cream oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_141": [
     {
       "name": "Lardini cream oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Dunhill navy yellow pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_142": [
     {
       "name": "Mr. P (navy knit)",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Brunello Cucinelli The Armoury navy striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Lardini brown check blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Mr P navy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Brunello navy pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_143": [
     {
       "name": "Altea brown crewneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Valentino yellow scarf",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_144": [
     {
       "name": "Saint Laurent blue oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Sid Mashburn glen plaid blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_145": [
     {
       "name": "De Petrillo Luca Museo blue shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Lardini brown check blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_146": [
     {
       "name": "De Petrillo The Armoury navy striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Canali navy polka dot tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo yellow pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_147": [
     {
       "name": "The Row pink shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_148": [
     {
       "name": "The Row burgundy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Lardini brown check blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_149": [
     {
       "name": "The Row pink shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Lardini brown check blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_150": [
     {
       "name": "Saint Laurent blue striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Lardini brown check blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "J Mueser navy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Mr P navy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Dunhill navy yellow pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_151": [
     {
       "name": "De Petrillo The Armoury navy striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Canali navy polka dot tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo yellow pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_152": [
     {
       "name": "The Armoury navy striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Lardini brown check blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Mr P navy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Dunhill navy brown pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     },
     {
       "name": "Mr. P (navy knit)",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     }
   ],
   "page_153": [
     {
       "name": "Saint Laurent blue striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Canali navy polka dot tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Brunello navy pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_154": [
     {
       "name": "Lardini cream oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_155": [
     {
       "name": "Lardini cream oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo charcoal trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Dunhill navy yellow pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_156": [
     {
       "name": "Saint Laurent blue oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo light grey trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Lardini camel blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Rubinacci green tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Dunhill navy camel tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_157": [
     {
       "name": "Lardini blue knit shirt",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Luca Museo light grey trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_158": [
     {
       "name": "Saint Laurent grey polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent grey trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "The Row black tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_159": [
     {
       "name": "Saint Laurent navy silk shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent black trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "The Row black tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_160": [
     {
       "name": "Lardini cream oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo navy trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo green blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Rubinacci green tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_161": [
     {
       "name": "Luca Museo blue shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo navy trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo green blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Rubinacci green tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_162": [
     {
       "name": "Loro Piana green polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Luca Museo navy trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana blue tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_163": [
     {
       "name": "Saint Laurent brown striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Barena olive sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Prada brown corduroy",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_164": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent green sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Prada brown corduroy",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent plaid scarf",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Winter"
     }
   ],
   "page_165": [
     {
       "name": "The Row mushroom polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Prada brown corduroy",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent plaid scarf",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     }
   ],
   "page_166": [
     {
       "name": "Boglioli green corduroy shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Prada brown corduroy",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent jean",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana blue tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_167": [
     {
       "name": "Boglioli green corduroy shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Prada brown corduroy",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent jean",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana brown tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_168": [
     {
       "name": "Loro Piana green polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Prada brown corduroy",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana brown tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_169": [
     {
       "name": "Loro Piana green polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Prada brown corduroy",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana blue tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_170": [
     {
       "name": "Saint Laurent brown striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Altea brown crewneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Prada brown corduroy",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ],
   "page_171": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Brioni brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Dunhill herringbone blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_172": [
     {
       "name": "Saint Laurent brown striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Brioni brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Brioni dark sand blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Tom Ford brown knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_173": [
     {
       "name": "Saint Laurent brown striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Brioni brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Brioni dark sand blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Rubinacci burgundy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Tom Ford brown knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_174": [
     {
       "name": "Altea brown crewneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Brioni brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Brioni dark sand blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Valentino yellow scarf",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_175": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Brioni brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Brioni dark sand blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_176": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Brioni brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Brioni dark sand blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Rubinacci burgundy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Tom Ford brown knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_177": [
     {
       "name": "Altea burgundy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Brioni brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Brioni dark sand blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_178": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Brioni brown trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Dunhill herringbone blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_179": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent green sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent light brown corduroy",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent plaid scarf",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Winter"
     }
   ],
   "page_180": [
     {
       "name": "Lardini blue knit shirt",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Drake\u2019s ivory corduroy",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_181": [
     {
       "name": "Saint Laurent navy silk shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent camel trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_182": [
     {
       "name": "Saint Laurent burgundy silk shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent camel trouser",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo brown blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent burgundy scarf",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_183": [
     {
       "name": "The Row brown striped silk shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent green sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "The Row dark sand chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent dark brown loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent plaid scarf",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Winter"
     }
   ],
   "page_184": [
     {
       "name": "The Row brown striped silk shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Barena olive sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "The Row dark sand chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent dark brown loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent plaid scarf",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     }
   ],
   "page_185": [
     {
       "name": "Saint Laurent brown striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Barena olive sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "The Row dark sand chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent dark brown loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_186": [
     {
       "name": "Saint Laurent brown striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Barena olive sweater",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "The Row dark sand chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana brown tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent dark brown loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_187": [
     {
       "name": "Altea burgundy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "The Row dark sand chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "hal Rea Saint Laurent dark brown loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_188": [
     {
       "name": "Altea burgundy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "The Row dark sand chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent dark brown loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_189": [
     {
       "name": "Altea burgundy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "The Row dark sand chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Dunhill herringbone blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent dark brown loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_190": [
     {
       "name": "Altea brown crewneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "The Row dark sand chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Dunhill herringbone blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Valentino yellow scarf",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent dark brown loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_191": [
     {
       "name": "Lardini cream oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "The Row dark sand chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana brown tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Rubinacci burgundy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_192": [
     {
       "name": "The Row brown striped silk shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Altea brown crewneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "The Row dark sand chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent dark brown loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_193": [
     {
       "name": "Saint Laurent blue striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "The Row dark sand chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_194": [
     {
       "name": "Lardini white button down shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "The Row dark sand chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Dunhill herringbone blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Rubinacci green tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_195": [
     {
       "name": "Dunhill brown polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "The Row dark sand chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Dunhill herringbone blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_196": [
     {
       "name": "Lardini cream oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "The Row dark sand chino",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo green blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Rubinacci green tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_197": [
     {
       "name": "Saint Laurent blue oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Beams khaki Sid Mashburn glen plaid blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Tom Ford brown polka dot tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_198": [
     {
       "name": "Saint Laurent blue oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Beams khaki Sid Mashburn glen plaid blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Mr P navy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent dark brown loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo Me. P (navy knit)",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     }
   ],
   "page_199": [
     {
       "name": "Saint Laurent blue oxford",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Beams khaki Sid Mashburn glen plaid blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_200": [
     {
       "name": "Boglioli chambray shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Beams khaki Sid Mashburn glen plaid blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "Mr P navy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "The Armoury navy knit tie",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Fall"
     },
     {
       "name": "Mr. P \u2018The Armoury The Row brown tassel loafer m E",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_201": [
     {
       "name": "De Petrillo The Armoury navy striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Beams khaki Umit Benan navy blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Canali navy polka dot tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo yellow pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_202": [
     {
       "name": "Dries blush striped shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Dunhill herringbone blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Valentino burgundy tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer De Petzillo",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_203": [
     {
       "name": "Altea burgundy polo",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Dunhill herringbone blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo pink pocket square",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer De Pertillo",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_204": [
     {
       "name": "Boglioli brown shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Loro Piana brown tattersall blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent jean",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_205": [
     {
       "name": "Boglioli brown shirt",
-      "category": "Tops"
+      "category": "Tops",
+      "season": "Fall"
     },
     {
       "name": "Saint Laurent jean",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Fall"
     },
     {
       "name": "De Petrillo green blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Fall"
     },
     {
       "name": "Mr P olive striped tie",
-      "category": "Accessories"
+      "category": "Accessories",
+      "season": "Fall"
     },
     {
       "name": "The Row brown tassel loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Fall"
     }
   ],
   "page_206": [
     {
       "name": "Boglioli green turtleneck",
-      "category": "Knitwear"
+      "category": "Knitwear",
+      "season": "Winter"
     },
     {
       "name": "Frame jean",
-      "category": "Bottoms"
+      "category": "Bottoms",
+      "season": "Winter"
     },
     {
       "name": "Brioni dark sand blazer",
-      "category": "Outerwear"
+      "category": "Outerwear",
+      "season": "Winter"
     },
     {
       "name": "Saint Laurent loafer",
-      "category": "Footwear"
+      "category": "Footwear",
+      "season": "Winter"
     }
   ]
 }
