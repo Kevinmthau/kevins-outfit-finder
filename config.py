@@ -41,7 +41,22 @@ DATA_FILES: Dict[str, Dict[str, Path]] = {
         "page_items": BASE_DIR / "page_items_fw.json",
         "category_stats": BASE_DIR / "category_stats_fw.json",
     },
+    "fall": {
+        "clothing_index": BASE_DIR / "clothing_index_fw.json",
+        "page_items": BASE_DIR / "page_items_fw.json",
+        "category_stats": BASE_DIR / "category_stats_fw.json",
+        "page_seasons": BASE_DIR / "page_seasons_fw.json",
+    },
+    "winter": {
+        "clothing_index": BASE_DIR / "clothing_index_fw.json",
+        "page_items": BASE_DIR / "page_items_fw.json",
+        "category_stats": BASE_DIR / "category_stats_fw.json",
+        "page_seasons": BASE_DIR / "page_seasons_fw.json",
+    },
 }
+
+# Page seasons file (for Fall/Winter split)
+PAGE_SEASONS_FILE = BASE_DIR / "page_seasons_fw.json"
 
 # Static site output
 DIST_DIR = BASE_DIR / "dist"
@@ -49,6 +64,8 @@ DIST_IMAGE_FOLDERS: Dict[str, str] = {
     "summer": "images",
     "spring": "spring_images",
     "fw": "fw_images",
+    "fall": "fw_images",
+    "winter": "fw_images",
 }
 
 # =============================================================================
@@ -92,6 +109,8 @@ CATEGORY_ORDER: Dict[str, List[str]] = {
     "summer": ["Bottoms", "Tops", "Footwear", "Outerwear", "Accessories", "Other"],
     "spring": ["Bottoms", "Tops", "Footwear", "Outerwear", "Accessories", "Suits", "Activewear", "Other"],
     "fw": ["Bottoms", "Tops", "Footwear", "Outerwear", "Knitwear", "Suits", "Layering", "Accessories", "Other"],
+    "fall": ["Bottoms", "Tops", "Footwear", "Outerwear", "Knitwear", "Suits", "Layering", "Accessories", "Other"],
+    "winter": ["Bottoms", "Tops", "Footwear", "Outerwear", "Knitwear", "Suits", "Layering", "Accessories", "Other"],
 }
 
 # Category icons for display
@@ -269,6 +288,8 @@ COLLECTION_DISPLAY_NAMES: Dict[str, str] = {
     "summer": "Summer",
     "spring": "Spring",
     "fw": "Fall/Winter",
+    "fall": "Fall",
+    "winter": "Winter",
 }
 
 # Collection icons
@@ -276,6 +297,8 @@ COLLECTION_ICONS: Dict[str, str] = {
     "summer": "☀️",
     "spring": "🌸",
     "fw": "❄️",
+    "fall": "🍂",
+    "winter": "❄️",
 }
 
 # Default collection to show

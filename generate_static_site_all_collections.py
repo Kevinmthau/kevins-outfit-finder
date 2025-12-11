@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
 """
-Generate a static version of the outfit finder with all three collections.
+Generate a static version of the outfit finder with four collections.
 Features:
 - Lazy loading for images
 - WebP support with PNG fallback
 - Fuzzy search
 - Unified categorized data format
+- Separate Fall and Winter tabs (using page_seasons_fw.json)
 """
 
 import json
 import os
 import shutil
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Any
+from typing import Dict, List, Optional, Tuple, Any, Set
 
 from config import (
     DATA_FILES,
@@ -24,7 +25,16 @@ from config import (
     COLLECTION_DISPLAY_NAMES,
     COLLECTION_ICONS,
     FUZZY_SEARCH_THRESHOLD,
+    PAGE_SEASONS_FILE,
 )
+
+
+def load_page_seasons() -> Dict[str, str]:
+    """Load the page seasons mapping (page -> 'fall' or 'winter')."""
+    if PAGE_SEASONS_FILE.exists():
+        with open(PAGE_SEASONS_FILE, 'r') as f:
+            return json.load(f)
+    return {}
 
 
 def load_collection_data(collection: str) -> Tuple[Dict, Dict, Optional[Dict]]:
@@ -48,6 +58,30 @@ def load_collection_data(collection: str) -> Tuple[Dict, Dict, Optional[Dict]]:
             category_stats = json.load(f)
 
     return clothing_index, page_items, category_stats
+
+
+def filter_by_season(clothing_index: Dict, page_items: Dict, season: str, page_seasons: Dict[str, str]) -> Tuple[Dict, Dict]:
+    """Filter clothing index and page items to only include pages for the given season."""
+    # Get set of pages for this season
+    season_pages: Set[str] = set()
+    for page, page_season in page_seasons.items():
+        if page_season == season:
+            season_pages.add(page)
+
+    # Filter page_items
+    filtered_page_items = {
+        page: items for page, items in page_items.items()
+        if page in season_pages
+    }
+
+    # Rebuild clothing index for filtered pages
+    filtered_clothing_index = {}
+    for item, pages in clothing_index.items():
+        filtered_pages = [p for p in pages if p in season_pages]
+        if filtered_pages:
+            filtered_clothing_index[item] = filtered_pages
+
+    return filtered_clothing_index, filtered_page_items
 
 
 def categorize_items(clothing_index: Dict[str, List[str]], collection: str) -> Dict[str, List[Tuple[str, List[str], str]]]:
@@ -80,13 +114,9 @@ def categorize_items(clothing_index: Dict[str, List[str]], collection: str) -> D
 
 def generate_collection_html(collection_name: str, clothing_index: Dict, page_items: Dict, image_folder: str) -> str:
     """Generate HTML for a specific collection."""
-    collection_key = collection_name.lower().replace("/", "").replace("fall", "f").replace("winter", "w")
-    if collection_name == "Fall/Winter":
+    collection_key = collection_name.lower().replace("/", "")
+    if collection_key == "fallwinter":
         collection_key = "fw"
-    elif collection_name == "Summer":
-        collection_key = "summer"
-    elif collection_name == "Spring":
-        collection_key = "spring"
 
     categorized_items = categorize_items(clothing_index, collection_key)
     category_order = CATEGORY_ORDER.get(collection_key, CATEGORY_ORDER["summer"])
@@ -194,17 +224,23 @@ def get_fuzzy_search_js() -> str:
 
 
 def create_all_collections_html() -> str:
-    """Create the main static HTML file with all three collections."""
+    """Create the main static HTML file with four collections."""
 
     # Load all collections
     summer_index, summer_items, _ = load_collection_data('summer')
     spring_index, spring_items, _ = load_collection_data('spring')
     fw_index, fw_items, _ = load_collection_data('fw')
 
+    # Load page seasons and filter Fall/Winter into separate collections
+    page_seasons = load_page_seasons()
+    fall_index, fall_items = filter_by_season(fw_index, fw_items, 'fall', page_seasons)
+    winter_index, winter_items = filter_by_season(fw_index, fw_items, 'winter', page_seasons)
+
     # Generate HTML for each collection
     summer_html = generate_collection_html('Summer', summer_index, summer_items, 'images')
     spring_html = generate_collection_html('Spring', spring_index, spring_items, 'spring_images')
-    fw_html = generate_collection_html('Fall/Winter', fw_index, fw_items, 'fw_images')
+    fall_html = generate_collection_html('Fall', fall_index, fall_items, 'fw_images')
+    winter_html = generate_collection_html('Winter', winter_index, winter_items, 'fw_images')
 
     fuzzy_search_js = get_fuzzy_search_js()
 
@@ -358,7 +394,7 @@ def create_all_collections_html() -> str:
         }}
         .page-images {{
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }}
@@ -503,34 +539,113 @@ def create_all_collections_html() -> str:
             font-size: 1.1rem;
         }}
         @media (max-width: 768px) {{
+            body {{
+                padding: 0;
+            }}
             .container {{
-                margin: 10px;
-                border-radius: 4px;
-            }}
-            .header {{
-                padding: 20px;
-            }}
-            .header h1 {{
-                font-size: 1.8rem;
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
             }}
             .nav button {{
-                padding: 12px 15px;
-                font-size: 0.9rem;
+                padding: 12px 10px;
+                font-size: 0.85rem;
             }}
             .content {{
-                padding: 20px;
+                padding: 12px;
+            }}
+            .search-box {{
+                margin-bottom: 16px;
             }}
             .search-box input {{
                 width: 100%;
+                padding: 10px 16px;
+            }}
+            .search-hint {{
+                font-size: 0.75rem;
+                margin-top: 6px;
+            }}
+            .category-section {{
+                margin-bottom: 24px;
+            }}
+            .category-header {{
+                margin-bottom: 12px;
+                padding-bottom: 10px;
+            }}
+            .category-header h2 {{
+                font-size: 1.3rem;
+            }}
+            .category-description {{
+                font-size: 0.85rem;
             }}
             .item-grid {{
                 grid-template-columns: 1fr;
+                gap: 10px;
+            }}
+            .item-card {{
+                padding: 14px;
+            }}
+            .item-name {{
+                font-size: 1rem;
+            }}
+            .item-count {{
+                font-size: 0.8rem;
             }}
             .page-images {{
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }}
+            .page-card {{
+                padding: 8px;
+            }}
+            .page-title {{
+                margin-top: 6px;
+                font-size: 0.85rem;
             }}
             .page-detail {{
                 flex-direction: column;
+                gap: 16px;
+            }}
+            .page-image {{
+                min-width: unset;
+            }}
+            .page-items {{
+                min-width: unset;
+            }}
+            .page-items h3 {{
+                margin-bottom: 12px;
+                font-size: 1rem;
+            }}
+            .item-link {{
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }}
+            .item-list {{
+                gap: 8px;
+            }}
+            .collection-header {{
+                padding: 12px;
+                margin-bottom: 16px;
+            }}
+            .collection-header h2 {{
+                font-size: 1.4rem;
+                margin-bottom: 6px;
+            }}
+            .collection-stats {{
+                font-size: 0.9rem;
+            }}
+            .back-link {{
+                margin-bottom: 12px;
+                font-size: 0.9rem;
+            }}
+            .no-results {{
+                padding: 24px;
+                font-size: 1rem;
+            }}
+            .modal-close {{
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
             }}
         }}
     </style>
@@ -540,7 +655,8 @@ def create_all_collections_html() -> str:
         <div class="nav">
             <button onclick="showCollection('summer')" class="active" id="nav-summer">☀️ Summer</button>
             <button onclick="showCollection('spring')" id="nav-spring">🌸 Spring</button>
-            <button onclick="showCollection('fw')" id="nav-fw">❄️ Fall/Winter</button>
+            <button onclick="showCollection('fall')" id="nav-fall">🍂 Fall</button>
+            <button onclick="showCollection('winter')" id="nav-winter">❄️ Winter</button>
         </div>
         <div class="content">
             <!-- Summer Collection View -->
@@ -569,17 +685,30 @@ def create_all_collections_html() -> str:
                 <div id="spring-no-results" class="no-results hidden">No matching items found</div>
             </div>
 
-            <!-- Fall/Winter Collection View -->
-            <div id="fw-view" class="hidden">
+            <!-- Fall Collection View -->
+            <div id="fall-view" class="hidden">
                 <div class="search-box">
-                    <input type="text" id="fwSearchInput" placeholder="Search fall/winter items..." onkeyup="filterItems('fw')">
+                    <input type="text" id="fallSearchInput" placeholder="Search fall items..." onkeyup="filterItems('fall')">
                     <div class="search-hint">Supports fuzzy matching - try "sant lorent" for "Saint Laurent"</div>
                 </div>
 
-                <div id="fw-items-grid">
-                    {fw_html}
+                <div id="fall-items-grid">
+                    {fall_html}
                 </div>
-                <div id="fw-no-results" class="no-results hidden">No matching items found</div>
+                <div id="fall-no-results" class="no-results hidden">No matching items found</div>
+            </div>
+
+            <!-- Winter Collection View -->
+            <div id="winter-view" class="hidden">
+                <div class="search-box">
+                    <input type="text" id="winterSearchInput" placeholder="Search winter items..." onkeyup="filterItems('winter')">
+                    <div class="search-hint">Supports fuzzy matching - try "sant lorent" for "Saint Laurent"</div>
+                </div>
+
+                <div id="winter-items-grid">
+                    {winter_html}
+                </div>
+                <div id="winter-no-results" class="no-results hidden">No matching items found</div>
             </div>
 
             <!-- Item Detail View -->
@@ -609,8 +738,10 @@ def create_all_collections_html() -> str:
         const summerPageItems = {json.dumps(summer_items)};
         const springClothingIndex = {json.dumps(spring_index)};
         const springPageItems = {json.dumps(spring_items)};
-        const fwClothingIndex = {json.dumps(fw_index)};
-        const fwPageItems = {json.dumps(fw_items)};
+        const fallClothingIndex = {json.dumps(fall_index)};
+        const fallPageItems = {json.dumps(fall_items)};
+        const winterClothingIndex = {json.dumps(winter_index)};
+        const winterPageItems = {json.dumps(winter_items)};
 
         let currentCollection = 'summer';
         let currentClothingIndex = summerClothingIndex;
@@ -663,7 +794,8 @@ def create_all_collections_html() -> str:
             // Hide all views
             document.getElementById('summer-view').classList.add('hidden');
             document.getElementById('spring-view').classList.add('hidden');
-            document.getElementById('fw-view').classList.add('hidden');
+            document.getElementById('fall-view').classList.add('hidden');
+            document.getElementById('winter-view').classList.add('hidden');
             document.getElementById('item-view').classList.add('hidden');
             document.getElementById('page-view').classList.add('hidden');
 
@@ -681,9 +813,12 @@ def create_all_collections_html() -> str:
             }} else if (collection === 'spring') {{
                 currentClothingIndex = springClothingIndex;
                 currentPageItems = springPageItems;
-            }} else {{
-                currentClothingIndex = fwClothingIndex;
-                currentPageItems = fwPageItems;
+            }} else if (collection === 'fall') {{
+                currentClothingIndex = fallClothingIndex;
+                currentPageItems = fallPageItems;
+            }} else if (collection === 'winter') {{
+                currentClothingIndex = winterClothingIndex;
+                currentPageItems = winterPageItems;
             }}
 
             // Update browser title
@@ -741,9 +876,12 @@ def create_all_collections_html() -> str:
             }} else if (collection === 'Spring') {{
                 clothingIndex = springClothingIndex;
                 pageItems = springPageItems;
-            }} else {{
-                clothingIndex = fwClothingIndex;
-                pageItems = fwPageItems;
+            }} else if (collection === 'Fall') {{
+                clothingIndex = fallClothingIndex;
+                pageItems = fallPageItems;
+            }} else if (collection === 'Winter') {{
+                clothingIndex = winterClothingIndex;
+                pageItems = winterPageItems;
             }}
 
             console.log('Using index with', Object.keys(clothingIndex).length, 'items');
@@ -769,7 +907,8 @@ def create_all_collections_html() -> str:
             // Hide other views
             document.getElementById('summer-view').classList.add('hidden');
             document.getElementById('spring-view').classList.add('hidden');
-            document.getElementById('fw-view').classList.add('hidden');
+            document.getElementById('fall-view').classList.add('hidden');
+            document.getElementById('winter-view').classList.add('hidden');
             document.getElementById('page-view').classList.add('hidden');
             document.getElementById('item-view').classList.remove('hidden');
 
@@ -777,12 +916,6 @@ def create_all_collections_html() -> str:
 
             const content = document.getElementById('item-detail-content');
             content.innerHTML = `
-                <div class="collection-header">
-                    <h2>${{itemName}}</h2>
-                    <div class="collection-stats">
-                        This item appears on <strong>${{pages.length}}</strong> page${{pages.length > 1 ? 's' : ''}} in the ${{collection}} collection
-                    </div>
-                </div>
                 <div class="page-images">
                     ${{pages.map(page => `
                         <div class="page-card">
@@ -808,8 +941,10 @@ def create_all_collections_html() -> str:
                 pageItems = summerPageItems;
             }} else if (collection === 'Spring') {{
                 pageItems = springPageItems;
-            }} else {{
-                pageItems = fwPageItems;
+            }} else if (collection === 'Fall') {{
+                pageItems = fallPageItems;
+            }} else if (collection === 'Winter') {{
+                pageItems = winterPageItems;
             }}
 
             if (!pageItems[pageName]) return;
@@ -819,7 +954,8 @@ def create_all_collections_html() -> str:
             // Hide other views
             document.getElementById('summer-view').classList.add('hidden');
             document.getElementById('spring-view').classList.add('hidden');
-            document.getElementById('fw-view').classList.add('hidden');
+            document.getElementById('fall-view').classList.add('hidden');
+            document.getElementById('winter-view').classList.add('hidden');
             document.getElementById('item-view').classList.add('hidden');
             document.getElementById('page-view').classList.remove('hidden');
 
