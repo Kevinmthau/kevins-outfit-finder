@@ -75,25 +75,38 @@ def filter_by_season(clothing_index: Dict, page_items: Dict, season: str, page_s
     }
 
     # Rebuild clothing index for filtered pages
+    # Note: clothing_index uses integers, season_pages uses "page_X" strings
     filtered_clothing_index = {}
     for item, pages in clothing_index.items():
-        filtered_pages = [p for p in pages if p in season_pages]
+        filtered_pages = [p for p in pages if f"page_{p}" in season_pages]
         if filtered_pages:
             filtered_clothing_index[item] = filtered_pages
 
     return filtered_clothing_index, filtered_page_items
 
 
-def categorize_items(clothing_index: Dict[str, List[str]], collection: str) -> Dict[str, List[Tuple[str, List[str], str]]]:
-    """Categorize items using category data from the item names."""
+def categorize_items(clothing_index: Dict[str, List[str]], collection: str, page_items: Dict = None) -> Dict[str, List[Tuple[str, List[str], str]]]:
+    """Categorize items using category data from the item names or page_items."""
     # Get category order for this collection
     categories = CATEGORY_ORDER.get(collection, CATEGORY_ORDER["summer"])
 
     categorized: Dict[str, List[Tuple[str, List[str], str]]] = {cat: [] for cat in categories}
 
+    # Build item->category lookup from page_items if available
+    item_category_lookup = {}
+    if page_items:
+        for page, items in page_items.items():
+            for item_data in items:
+                if isinstance(item_data, dict) and 'name' in item_data and 'category' in item_data:
+                    item_category_lookup[item_data['name']] = item_data['category']
+
     for item, pages in clothing_index.items():
-        # Extract category from item name if it's in format "Item Name (Category)"
-        if '(' in item and ')' in item:
+        # First try lookup from page_items
+        if item in item_category_lookup:
+            item_name = item
+            category = item_category_lookup[item]
+        # Then try format "Item Name (Category)"
+        elif '(' in item and ')' in item:
             category = item[item.rfind('(')+1:item.rfind(')')]
             item_name = item[:item.rfind('(')].strip()
         else:
@@ -118,7 +131,7 @@ def generate_collection_html(collection_name: str, clothing_index: Dict, page_it
     if collection_key == "fallwinter":
         collection_key = "fw"
 
-    categorized_items = categorize_items(clothing_index, collection_key)
+    categorized_items = categorize_items(clothing_index, collection_key, page_items)
     category_order = CATEGORY_ORDER.get(collection_key, CATEGORY_ORDER["summer"])
 
     # Generate category sections
@@ -301,6 +314,31 @@ def create_all_collections_html() -> str:
             height: 3px;
             background: #3498db;
         }}
+        .category-tabs {{
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background-color: #ecf0f1;
+            flex-wrap: wrap;
+        }}
+        .category-tabs button {{
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            background-color: #bdc3c7;
+            color: #2c3e50;
+            transition: all 0.2s;
+        }}
+        .category-tabs button:hover {{
+            background-color: #95a5a6;
+        }}
+        .category-tabs button.active {{
+            background-color: #3498db;
+            color: white;
+        }}
         .content {{
             padding: 30px;
         }}
@@ -331,6 +369,7 @@ def create_all_collections_html() -> str:
             border-radius: 25px;
             width: 400px;
             max-width: 100%;
+            box-sizing: border-box;
             outline: none;
             transition: border-color 0.3s;
         }}
@@ -551,6 +590,14 @@ def create_all_collections_html() -> str:
                 padding: 12px 10px;
                 font-size: 0.85rem;
             }}
+            .category-tabs {{
+                padding: 8px 10px;
+                gap: 6px;
+            }}
+            .category-tabs button {{
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }}
             .content {{
                 padding: 12px;
             }}
@@ -560,6 +607,7 @@ def create_all_collections_html() -> str:
             .search-box input {{
                 width: 100%;
                 padding: 10px 16px;
+                box-sizing: border-box;
             }}
             .search-hint {{
                 font-size: 0.75rem;
@@ -658,6 +706,14 @@ def create_all_collections_html() -> str:
             <button onclick="showCollection('fall')" id="nav-fall">🍂 Fall</button>
             <button onclick="showCollection('winter')" id="nav-winter">❄️ Winter</button>
         </div>
+        <div class="category-tabs">
+            <button onclick="filterByCategory('all')" class="active" id="cat-all">All</button>
+            <button onclick="filterByCategory('Bottoms')" id="cat-Bottoms">👖 Bottoms</button>
+            <button onclick="filterByCategory('Tops')" id="cat-Tops">👔 Tops</button>
+            <button onclick="filterByCategory('Footwear')" id="cat-Footwear">👞 Shoes</button>
+            <button onclick="filterByCategory('Outerwear')" id="cat-Outerwear">🧥 Jackets</button>
+            <button onclick="filterByCategory('Accessories')" id="cat-Accessories">👔 Ties</button>
+        </div>
         <div class="content">
             <!-- Summer Collection View -->
             <div id="summer-view">
@@ -746,6 +802,7 @@ def create_all_collections_html() -> str:
         let currentCollection = 'summer';
         let currentClothingIndex = summerClothingIndex;
         let currentPageItems = summerPageItems;
+        let currentCategory = 'all';
 
         {fuzzy_search_js}
 
@@ -827,6 +884,37 @@ def create_all_collections_html() -> str:
 
         function backToCollection() {{
             showCollection(currentCollection);
+        }}
+
+        // Category filter functionality
+        function filterByCategory(category) {{
+            currentCategory = category;
+
+            // Update active tab
+            document.querySelectorAll('.category-tabs button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('cat-' + category).classList.add('active');
+
+            // Filter all collection views
+            ['summer', 'spring', 'fall', 'winter'].forEach(collection => {{
+                const container = document.getElementById(collection + '-items-grid');
+                if (!container) return;
+
+                const sections = container.querySelectorAll('.category-section');
+                sections.forEach(section => {{
+                    const header = section.querySelector('.category-header h2');
+                    if (!header) return;
+
+                    const sectionCategory = header.textContent.split(' ').slice(1).join(' ');
+
+                    if (category === 'all') {{
+                        section.classList.remove('hidden');
+                    }} else if (sectionCategory === category) {{
+                        section.classList.remove('hidden');
+                    }} else {{
+                        section.classList.add('hidden');
+                    }}
+                }});
+            }});
         }}
 
         // Search functionality with fuzzy matching
