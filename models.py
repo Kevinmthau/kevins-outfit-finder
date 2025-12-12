@@ -36,7 +36,8 @@ class PageItems(BaseModel):
 
 class ClothingIndex(BaseModel):
     """Index mapping item names to pages where they appear."""
-    items: Dict[str, List[str]] = Field(default_factory=dict)
+    # Pages can be strings ("page_1") or integers (1)
+    items: Dict[str, List] = Field(default_factory=dict)
 
     def add_item(self, item_key: str, page_id: str) -> None:
         """Add a page reference for an item."""
@@ -53,7 +54,8 @@ class ClothingIndex(BaseModel):
 class CollectionData(BaseModel):
     """Complete data for a clothing collection."""
     name: str = Field(..., description="Collection name: summer, spring, or fw")
-    clothing_index: Dict[str, List[str]] = Field(default_factory=dict)
+    # clothing_index pages can be strings or integers
+    clothing_index: Dict[str, List] = Field(default_factory=dict)
     page_items: Dict[str, List[ClothingItem]] = Field(default_factory=dict)
     category_stats: Optional[Dict[str, int]] = None
 

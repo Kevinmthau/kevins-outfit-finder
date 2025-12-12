@@ -7,13 +7,13 @@ Features:
 - Fuzzy search
 - Unified categorized data format
 - Separate Fall and Winter tabs (using page_seasons_fw.json)
+- Templates loaded from external files
 """
 
 import json
-import os
 import shutil
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Any, Set
+from typing import Dict, List, Optional, Tuple, Set
 
 from config import (
     DATA_FILES,
@@ -22,11 +22,19 @@ from config import (
     DIST_IMAGE_FOLDERS,
     CATEGORY_ORDER,
     CATEGORY_ICONS,
-    COLLECTION_DISPLAY_NAMES,
-    COLLECTION_ICONS,
-    FUZZY_SEARCH_THRESHOLD,
     PAGE_SEASONS_FILE,
 )
+
+# Template directory
+TEMPLATE_DIR = Path(__file__).parent / "templates"
+
+
+def load_template(name: str) -> str:
+    """Load a template file."""
+    template_path = TEMPLATE_DIR / name
+    if template_path.exists():
+        return template_path.read_text(encoding='utf-8')
+    raise FileNotFoundError(f"Template not found: {template_path}")
 
 
 def load_page_seasons() -> Dict[str, str]:
@@ -62,35 +70,31 @@ def load_collection_data(collection: str) -> Tuple[Dict, Dict, Optional[Dict]]:
 
 def filter_by_season(clothing_index: Dict, page_items: Dict, season: str, page_seasons: Dict[str, str]) -> Tuple[Dict, Dict]:
     """Filter clothing index and page items to only include pages for the given season."""
-    # Get set of pages for this season
     season_pages: Set[str] = set()
     for page, page_season in page_seasons.items():
         if page_season == season:
             season_pages.add(page)
 
-    # Filter page_items
     filtered_page_items = {
         page: items for page, items in page_items.items()
         if page in season_pages
     }
 
-    # Rebuild clothing index for filtered pages
-    # Note: clothing_index uses integers, season_pages uses "page_X" strings
+    # clothing_index uses integers, season_pages uses "page_X" strings
+    # Convert integers to "page_X" format for consistency with image naming
     filtered_clothing_index = {}
     for item, pages in clothing_index.items():
-        filtered_pages = [p for p in pages if f"page_{p}" in season_pages]
+        filtered_pages = [f"page_{p}" for p in pages if f"page_{p}" in season_pages]
         if filtered_pages:
             filtered_clothing_index[item] = filtered_pages
 
     return filtered_clothing_index, filtered_page_items
 
 
-def categorize_items(clothing_index: Dict[str, List[str]], collection: str, page_items: Dict = None) -> Dict[str, List[Tuple[str, List[str], str]]]:
+def categorize_items(clothing_index: Dict[str, List], collection: str, page_items: Dict = None) -> Dict[str, List[Tuple[str, List, str]]]:
     """Categorize items using category data from the item names or page_items."""
-    # Get category order for this collection
     categories = CATEGORY_ORDER.get(collection, CATEGORY_ORDER["summer"])
-
-    categorized: Dict[str, List[Tuple[str, List[str], str]]] = {cat: [] for cat in categories}
+    categorized: Dict[str, List[Tuple[str, List, str]]] = {cat: [] for cat in categories}
 
     # Build item->category lookup from page_items if available
     item_category_lookup = {}
@@ -101,11 +105,9 @@ def categorize_items(clothing_index: Dict[str, List[str]], collection: str, page
                     item_category_lookup[item_data['name']] = item_data['category']
 
     for item, pages in clothing_index.items():
-        # First try lookup from page_items
         if item in item_category_lookup:
             item_name = item
             category = item_category_lookup[item]
-        # Then try format "Item Name (Category)"
         elif '(' in item and ')' in item:
             category = item[item.rfind('(')+1:item.rfind(')')]
             item_name = item[:item.rfind('(')].strip()
@@ -118,7 +120,6 @@ def categorize_items(clothing_index: Dict[str, List[str]], collection: str, page
         else:
             categorized["Other"].append((item_name, pages, "Other"))
 
-    # Sort each category by frequency
     for category in categorized:
         categorized[category].sort(key=lambda x: len(x[1]), reverse=True)
 
@@ -134,7 +135,6 @@ def generate_collection_html(collection_name: str, clothing_index: Dict, page_it
     categorized_items = categorize_items(clothing_index, collection_key, page_items)
     category_order = CATEGORY_ORDER.get(collection_key, CATEGORY_ORDER["summer"])
 
-    # Generate category sections
     category_sections = []
     for category in category_order:
         if category not in categorized_items or not categorized_items[category]:
@@ -170,72 +170,6 @@ def generate_collection_html(collection_name: str, clothing_index: Dict, page_it
     return ''.join(category_sections)
 
 
-def get_fuzzy_search_js() -> str:
-    """Return JavaScript for fuzzy search functionality."""
-    return """
-        // Fuzzy search implementation
-        function levenshteinDistance(str1, str2) {
-            const m = str1.length;
-            const n = str2.length;
-            const dp = Array(m + 1).fill(null).map(() => Array(n + 1).fill(0));
-
-            for (let i = 0; i <= m; i++) dp[i][0] = i;
-            for (let j = 0; j <= n; j++) dp[0][j] = j;
-
-            for (let i = 1; i <= m; i++) {
-                for (let j = 1; j <= n; j++) {
-                    if (str1[i - 1] === str2[j - 1]) {
-                        dp[i][j] = dp[i - 1][j - 1];
-                    } else {
-                        dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
-                    }
-                }
-            }
-            return dp[m][n];
-        }
-
-        function fuzzyMatch(query, text, threshold = 0.6) {
-            query = query.toLowerCase();
-            text = text.toLowerCase();
-
-            // Exact substring match
-            if (text.includes(query)) return true;
-
-            // Check each word in the text
-            const words = text.split(/\\s+/);
-            for (const word of words) {
-                // Skip very short words
-                if (word.length < 3) continue;
-
-                // Check if query is similar to any word
-                const distance = levenshteinDistance(query, word);
-                const maxLen = Math.max(query.length, word.length);
-                const similarity = 1 - (distance / maxLen);
-
-                if (similarity >= threshold) return true;
-
-                // Also check if query is a prefix with typos
-                if (word.startsWith(query.substring(0, Math.min(3, query.length)))) {
-                    const prefixDist = levenshteinDistance(query, word.substring(0, query.length));
-                    if (prefixDist <= 2) return true;
-                }
-            }
-
-            // Check brand names specifically (allow more tolerance)
-            const brands = ['saint laurent', 'loro piana', 'bottega veneta', 'tom ford',
-                          'the row', 'brunello', 'valentino', 'boglioli', 'lardini'];
-            for (const brand of brands) {
-                if (text.includes(brand)) {
-                    const brandDist = levenshteinDistance(query, brand);
-                    if (brandDist <= 3) return true;
-                }
-            }
-
-            return false;
-        }
-"""
-
-
 def create_all_collections_html() -> str:
     """Create the main static HTML file with four collections."""
 
@@ -255,848 +189,27 @@ def create_all_collections_html() -> str:
     fall_html = generate_collection_html('Fall', fall_index, fall_items, 'fw_images')
     winter_html = generate_collection_html('Winter', winter_index, winter_items, 'fw_images')
 
-    fuzzy_search_js = get_fuzzy_search_js()
+    # Load templates
+    css_content = load_template("css/styles.css")
+    js_content = load_template("js/app.js")
+    html_template = load_template("index.html")
 
-    html_content = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin's Outfit Finder - All Seasons</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <style>
-        body {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f8f9fa;
-            line-height: 1.6;
-        }}
-        .container {{
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }}
-        .nav {{
-            background: #34495e;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }}
-        .nav button {{
-            color: #ecf0f1;
-            background: none;
-            border: none;
-            padding: 15px 25px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1rem;
-            font-weight: 500;
-            position: relative;
-        }}
-        .nav button:hover {{
-            background-color: #2c3e50;
-        }}
-        .nav button.active {{
-            background-color: #2c3e50;
-        }}
-        .nav button.active::after {{
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: #3498db;
-        }}
-        .category-tabs {{
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 20px;
-            background-color: #ecf0f1;
-            flex-wrap: wrap;
-        }}
-        .category-tabs button {{
-            padding: 8px 16px;
-            font-size: 0.9rem;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            background-color: #bdc3c7;
-            color: #2c3e50;
-            transition: all 0.2s;
-        }}
-        .category-tabs button:hover {{
-            background-color: #95a5a6;
-        }}
-        .category-tabs button.active {{
-            background-color: #3498db;
-            color: white;
-        }}
-        .content {{
-            padding: 30px;
-        }}
-        .collection-header {{
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 8px;
-        }}
-        .collection-header h2 {{
-            margin: 0 0 10px 0;
-            color: #2c3e50;
-            font-size: 2rem;
-        }}
-        .collection-stats {{
-            color: #5a6c7d;
-            font-size: 1.1rem;
-        }}
-        .search-box {{
-            margin-bottom: 30px;
-            text-align: center;
-        }}
-        .search-box input {{
-            padding: 12px 20px;
-            font-size: 16px;
-            border: 2px solid #ddd;
-            border-radius: 25px;
-            width: 400px;
-            max-width: 100%;
-            box-sizing: border-box;
-            outline: none;
-            transition: border-color 0.3s;
-        }}
-        .search-box input:focus {{
-            border-color: #667eea;
-        }}
-        .search-hint {{
-            font-size: 0.85rem;
-            color: #7f8c8d;
-            margin-top: 8px;
-        }}
-        .category-section {{
-            margin-bottom: 50px;
-        }}
-        .category-header {{
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #e9ecef;
-        }}
-        .category-header h2 {{
-            margin: 0 0 8px 0;
-            font-size: 1.8rem;
-            color: #2c3e50;
-        }}
-        .category-description {{
-            margin: 0;
-            color: #7f8c8d;
-            font-size: 1rem;
-        }}
-        .item-grid {{
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }}
-        .item-card {{
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border: 1px solid #dee2e6;
-            border-radius: 10px;
-            padding: 20px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }}
-        .item-card:hover {{
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
-        }}
-        .item-card.hidden {{
-            display: none;
-        }}
-        .item-name {{
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }}
-        .item-count {{
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }}
-        .page-images {{
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }}
-        .page-card {{
-            text-align: center;
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            border: 1px solid #e9ecef;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }}
-        .page-card:hover {{
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }}
-        .page-card img {{
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }}
-        .page-title {{
-            margin-top: 10px;
-            font-weight: 600;
-            color: #2c3e50;
-        }}
-        .back-link {{
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-            cursor: pointer;
-        }}
-        .back-link:hover {{
-            text-decoration: underline;
-        }}
-        .hidden {{
-            display: none;
-        }}
-        .modal {{
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.9);
-            animation: fadeIn 0.3s;
-        }}
-        @keyframes fadeIn {{
-            from {{ opacity: 0; }}
-            to {{ opacity: 1; }}
-        }}
-        .modal-content {{
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 90vh;
-            margin-top: 5vh;
-            animation: zoomIn 0.3s;
-            cursor: zoom-out;
-        }}
-        @keyframes zoomIn {{
-            from {{ transform: scale(0.8); }}
-            to {{ transform: scale(1); }}
-        }}
-        .modal-close {{
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s;
-            z-index: 1001;
-        }}
-        .modal-close:hover {{
-            color: #bbb;
-        }}
-        .modal-caption {{
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-            text-align: center;
-            color: #ccc;
-            padding: 10px 0;
-            font-size: 1.1rem;
-        }}
-        .clickable-image {{
-            cursor: zoom-in;
-            transition: transform 0.2s;
-        }}
-        .clickable-image:hover {{
-            transform: scale(1.02);
-        }}
-        .page-detail {{
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }}
-        .page-image {{
-            flex: 1;
-            min-width: 300px;
-        }}
-        .page-items {{
-            flex: 1;
-            min-width: 300px;
-        }}
-        .page-items h3 {{
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }}
-        .item-list {{
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }}
-        .item-link {{
-            text-decoration: none;
-            color: #2c3e50;
-            padding: 12px 16px;
-            background: #f8f9fa;
-            border-radius: 6px;
-            border: 1px solid #e9ecef;
-            transition: all 0.3s;
-            cursor: pointer;
-        }}
-        .item-link:hover {{
-            background: #e9ecef;
-            transform: translateX(5px);
-        }}
-        .no-results {{
-            text-align: center;
-            padding: 40px;
-            color: #7f8c8d;
-            font-size: 1.1rem;
-        }}
-        @media (max-width: 768px) {{
-            body {{
-                padding: 0;
-            }}
-            .container {{
-                margin: 0;
-                border-radius: 0;
-                box-shadow: none;
-            }}
-            .nav button {{
-                padding: 12px 10px;
-                font-size: 0.85rem;
-            }}
-            .category-tabs {{
-                padding: 8px 10px;
-                gap: 6px;
-            }}
-            .category-tabs button {{
-                padding: 6px 12px;
-                font-size: 0.8rem;
-            }}
-            .content {{
-                padding: 12px;
-            }}
-            .search-box {{
-                margin-bottom: 16px;
-            }}
-            .search-box input {{
-                width: 100%;
-                padding: 10px 16px;
-                box-sizing: border-box;
-            }}
-            .search-hint {{
-                font-size: 0.75rem;
-                margin-top: 6px;
-            }}
-            .category-section {{
-                margin-bottom: 24px;
-            }}
-            .category-header {{
-                margin-bottom: 12px;
-                padding-bottom: 10px;
-            }}
-            .category-header h2 {{
-                font-size: 1.3rem;
-            }}
-            .category-description {{
-                font-size: 0.85rem;
-            }}
-            .item-grid {{
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }}
-            .item-card {{
-                padding: 14px;
-            }}
-            .item-name {{
-                font-size: 1rem;
-            }}
-            .item-count {{
-                font-size: 0.8rem;
-            }}
-            .page-images {{
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }}
-            .page-card {{
-                padding: 8px;
-            }}
-            .page-title {{
-                margin-top: 6px;
-                font-size: 0.85rem;
-            }}
-            .page-detail {{
-                flex-direction: column;
-                gap: 16px;
-            }}
-            .page-image {{
-                min-width: unset;
-            }}
-            .page-items {{
-                min-width: unset;
-            }}
-            .page-items h3 {{
-                margin-bottom: 12px;
-                font-size: 1rem;
-            }}
-            .item-link {{
-                padding: 10px 12px;
-                font-size: 0.9rem;
-            }}
-            .item-list {{
-                gap: 8px;
-            }}
-            .collection-header {{
-                padding: 12px;
-                margin-bottom: 16px;
-            }}
-            .collection-header h2 {{
-                font-size: 1.4rem;
-                margin-bottom: 6px;
-            }}
-            .collection-stats {{
-                font-size: 0.9rem;
-            }}
-            .back-link {{
-                margin-bottom: 12px;
-                font-size: 0.9rem;
-            }}
-            .no-results {{
-                padding: 24px;
-                font-size: 1rem;
-            }}
-            .modal-close {{
-                top: 10px;
-                right: 15px;
-                font-size: 30px;
-            }}
-        }}
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="nav">
-            <button onclick="showCollection('summer')" class="active" id="nav-summer">☀️ Summer</button>
-            <button onclick="showCollection('spring')" id="nav-spring">🌸 Spring</button>
-            <button onclick="showCollection('fall')" id="nav-fall">🍂 Fall</button>
-            <button onclick="showCollection('winter')" id="nav-winter">❄️ Winter</button>
-        </div>
-        <div class="category-tabs">
-            <button onclick="filterByCategory('all')" class="active" id="cat-all">All</button>
-            <button onclick="filterByCategory('Bottoms')" id="cat-Bottoms">👖 Bottoms</button>
-            <button onclick="filterByCategory('Tops')" id="cat-Tops">👔 Tops</button>
-            <button onclick="filterByCategory('Footwear')" id="cat-Footwear">👞 Shoes</button>
-            <button onclick="filterByCategory('Outerwear')" id="cat-Outerwear">🧥 Jackets</button>
-            <button onclick="filterByCategory('Accessories')" id="cat-Accessories">👔 Ties</button>
-        </div>
-        <div class="content">
-            <!-- Summer Collection View -->
-            <div id="summer-view">
-                <div class="search-box">
-                    <input type="text" id="summerSearchInput" placeholder="Search summer items..." onkeyup="filterItems('summer')">
-                    <div class="search-hint">Supports fuzzy matching - try "sant lorent" for "Saint Laurent"</div>
-                </div>
-
-                <div id="summer-items-grid">
-                    {summer_html}
-                </div>
-                <div id="summer-no-results" class="no-results hidden">No matching items found</div>
-            </div>
-
-            <!-- Spring Collection View -->
-            <div id="spring-view" class="hidden">
-                <div class="search-box">
-                    <input type="text" id="springSearchInput" placeholder="Search spring items..." onkeyup="filterItems('spring')">
-                    <div class="search-hint">Supports fuzzy matching - try "sant lorent" for "Saint Laurent"</div>
-                </div>
-
-                <div id="spring-items-grid">
-                    {spring_html}
-                </div>
-                <div id="spring-no-results" class="no-results hidden">No matching items found</div>
-            </div>
-
-            <!-- Fall Collection View -->
-            <div id="fall-view" class="hidden">
-                <div class="search-box">
-                    <input type="text" id="fallSearchInput" placeholder="Search fall items..." onkeyup="filterItems('fall')">
-                    <div class="search-hint">Supports fuzzy matching - try "sant lorent" for "Saint Laurent"</div>
-                </div>
-
-                <div id="fall-items-grid">
-                    {fall_html}
-                </div>
-                <div id="fall-no-results" class="no-results hidden">No matching items found</div>
-            </div>
-
-            <!-- Winter Collection View -->
-            <div id="winter-view" class="hidden">
-                <div class="search-box">
-                    <input type="text" id="winterSearchInput" placeholder="Search winter items..." onkeyup="filterItems('winter')">
-                    <div class="search-hint">Supports fuzzy matching - try "sant lorent" for "Saint Laurent"</div>
-                </div>
-
-                <div id="winter-items-grid">
-                    {winter_html}
-                </div>
-                <div id="winter-no-results" class="no-results hidden">No matching items found</div>
-            </div>
-
-            <!-- Item Detail View -->
-            <div id="item-view" class="hidden">
-                <a onclick="backToCollection()" class="back-link">&larr; Back to collection</a>
-                <div id="item-detail-content"></div>
-            </div>
-
-            <!-- Page Detail View -->
-            <div id="page-view" class="hidden">
-                <a onclick="backToCollection()" class="back-link">&larr; Back to collection</a>
-                <div id="page-detail-content"></div>
-            </div>
-        </div>
-
-        <!-- Image Modal -->
-        <div id="imageModal" class="modal">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <img class="modal-content" id="modalImage">
-            <div class="modal-caption" id="modalCaption"></div>
-        </div>
-    </div>
-
-    <script>
-        // Data
-        const summerClothingIndex = {json.dumps(summer_index)};
-        const summerPageItems = {json.dumps(summer_items)};
-        const springClothingIndex = {json.dumps(spring_index)};
-        const springPageItems = {json.dumps(spring_items)};
-        const fallClothingIndex = {json.dumps(fall_index)};
-        const fallPageItems = {json.dumps(fall_items)};
-        const winterClothingIndex = {json.dumps(winter_index)};
-        const winterPageItems = {json.dumps(winter_items)};
-
-        let currentCollection = 'summer';
-        let currentClothingIndex = summerClothingIndex;
-        let currentPageItems = summerPageItems;
-        let currentCategory = 'all';
-
-        {fuzzy_search_js}
-
-        // Image source helper - tries WebP first, falls back to PNG
-        function getImageSrc(folder, page) {{
-            return folder + '/' + page + '.png';
-        }}
-
-        function getImageSrcSet(folder, page) {{
-            return folder + '/' + page + '.webp';
-        }}
-
-        // Modal functions
-        function openModal(imageSrc, caption) {{
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            const modalCaption = document.getElementById('modalCaption');
-
-            modal.style.display = 'block';
-            modalImg.src = imageSrc;
-            modalCaption.innerHTML = caption;
-
-            // Close on click outside
-            modal.onclick = function(event) {{
-                if (event.target === modal || event.target === modalImg) {{
-                    closeModal();
-                }}
-            }}
-
-            // Close on Escape key
-            document.onkeydown = function(event) {{
-                if (event.key === 'Escape') {{
-                    closeModal();
-                }}
-            }}
-        }}
-
-        function closeModal() {{
-            document.getElementById('imageModal').style.display = 'none';
-        }}
-
-        // Navigation
-        function showCollection(collection) {{
-            currentCollection = collection;
-
-            // Hide all views
-            document.getElementById('summer-view').classList.add('hidden');
-            document.getElementById('spring-view').classList.add('hidden');
-            document.getElementById('fall-view').classList.add('hidden');
-            document.getElementById('winter-view').classList.add('hidden');
-            document.getElementById('item-view').classList.add('hidden');
-            document.getElementById('page-view').classList.add('hidden');
-
-            // Show selected collection
-            document.getElementById(collection + '-view').classList.remove('hidden');
-
-            // Update navigation
-            document.querySelectorAll('.nav button').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('nav-' + collection).classList.add('active');
-
-            // Update current data
-            if (collection === 'summer') {{
-                currentClothingIndex = summerClothingIndex;
-                currentPageItems = summerPageItems;
-            }} else if (collection === 'spring') {{
-                currentClothingIndex = springClothingIndex;
-                currentPageItems = springPageItems;
-            }} else if (collection === 'fall') {{
-                currentClothingIndex = fallClothingIndex;
-                currentPageItems = fallPageItems;
-            }} else if (collection === 'winter') {{
-                currentClothingIndex = winterClothingIndex;
-                currentPageItems = winterPageItems;
-            }}
-
-            // Update browser title
-            document.title = "Kevin's Outfit Finder";
-        }}
-
-        function backToCollection() {{
-            showCollection(currentCollection);
-        }}
-
-        // Category filter functionality
-        function filterByCategory(category) {{
-            currentCategory = category;
-
-            // Update active tab
-            document.querySelectorAll('.category-tabs button').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('cat-' + category).classList.add('active');
-
-            // Filter all collection views
-            ['summer', 'spring', 'fall', 'winter'].forEach(collection => {{
-                const container = document.getElementById(collection + '-items-grid');
-                if (!container) return;
-
-                const sections = container.querySelectorAll('.category-section');
-                sections.forEach(section => {{
-                    const header = section.querySelector('.category-header h2');
-                    if (!header) return;
-
-                    const sectionCategory = header.textContent.split(' ').slice(1).join(' ');
-
-                    if (category === 'all') {{
-                        section.classList.remove('hidden');
-                    }} else if (sectionCategory === category) {{
-                        section.classList.remove('hidden');
-                    }} else {{
-                        section.classList.add('hidden');
-                    }}
-                }});
-            }});
-        }}
-
-        // Search functionality with fuzzy matching
-        function filterItems(collection) {{
-            const search = document.getElementById(collection + 'SearchInput').value.trim();
-            const container = document.getElementById(collection + '-items-grid');
-            const items = container.querySelectorAll('.item-card');
-            const noResults = document.getElementById(collection + '-no-results');
-
-            let visibleCount = 0;
-
-            items.forEach(item => {{
-                const itemName = item.querySelector('.item-name').textContent;
-
-                if (search === '' || fuzzyMatch(search, itemName)) {{
-                    item.classList.remove('hidden');
-                    visibleCount++;
-                }} else {{
-                    item.classList.add('hidden');
-                }}
-            }});
-
-            // Show/hide category sections based on visible items
-            const sections = container.querySelectorAll('.category-section');
-            sections.forEach(section => {{
-                const visibleItems = section.querySelectorAll('.item-card:not(.hidden)');
-                section.style.display = visibleItems.length > 0 ? 'block' : 'none';
-            }});
-
-            // Show no results message if needed
-            if (visibleCount === 0 && search !== '') {{
-                noResults.classList.remove('hidden');
-            }} else {{
-                noResults.classList.add('hidden');
-            }}
-        }}
-
-        // Show item detail
-        function showItemDetail(itemName, collection, imageFolder) {{
-            console.log('showItemDetail called:', itemName, collection, imageFolder);
-
-            // Determine which index to use based on collection name
-            let clothingIndex, pageItems;
-            if (collection === 'Summer') {{
-                clothingIndex = summerClothingIndex;
-                pageItems = summerPageItems;
-            }} else if (collection === 'Spring') {{
-                clothingIndex = springClothingIndex;
-                pageItems = springPageItems;
-            }} else if (collection === 'Fall') {{
-                clothingIndex = fallClothingIndex;
-                pageItems = fallPageItems;
-            }} else if (collection === 'Winter') {{
-                clothingIndex = winterClothingIndex;
-                pageItems = winterPageItems;
-            }}
-
-            console.log('Using index with', Object.keys(clothingIndex).length, 'items');
-
-            // Try to find the item with or without category suffix
-            let pages = null;
-            for (let key in clothingIndex) {{
-                if (key.startsWith(itemName)) {{
-                    console.log('Found match:', key);
-                    pages = clothingIndex[key];
-                    break;
-                }}
-            }}
-
-            console.log('Pages found:', pages);
-
-            if (!pages) {{
-                console.log('No pages found for:', itemName);
-                console.log('Available keys sample:', Object.keys(clothingIndex).slice(0, 5));
-                return;
-            }}
-
-            // Hide other views
-            document.getElementById('summer-view').classList.add('hidden');
-            document.getElementById('spring-view').classList.add('hidden');
-            document.getElementById('fall-view').classList.add('hidden');
-            document.getElementById('winter-view').classList.add('hidden');
-            document.getElementById('page-view').classList.add('hidden');
-            document.getElementById('item-view').classList.remove('hidden');
-
-            document.title = itemName + ' - ' + collection + ' Collection';
-
-            const content = document.getElementById('item-detail-content');
-            content.innerHTML = `
-                <div class="page-images">
-                    ${{pages.map(page => `
-                        <div class="page-card">
-                            <img src="${{imageFolder}}/${{page}}.png"
-                                 alt="${{page}}"
-                                 class="clickable-image"
-                                 loading="lazy"
-                                 onclick="openModal('${{imageFolder}}/${{page}}.png', '${{page.replace('page_', 'Page ')}} - ${{itemName}}')"
-                                 onerror="this.parentElement.style.display='none';">
-                            <div class="page-title" onclick="showPageDetail('${{page}}', '${{collection}}', '${{imageFolder}}')" style="cursor: pointer;">
-                                ${{page.replace('page_', 'Page ')}}
-                            </div>
-                        </div>
-                    `).join('')}}
-                </div>
-            `;
-        }}
-
-        // Show page detail
-        function showPageDetail(pageName, collection, imageFolder) {{
-            let pageItems;
-            if (collection === 'Summer') {{
-                pageItems = summerPageItems;
-            }} else if (collection === 'Spring') {{
-                pageItems = springPageItems;
-            }} else if (collection === 'Fall') {{
-                pageItems = fallPageItems;
-            }} else if (collection === 'Winter') {{
-                pageItems = winterPageItems;
-            }}
-
-            if (!pageItems[pageName]) return;
-
-            const items = pageItems[pageName];
-
-            // Hide other views
-            document.getElementById('summer-view').classList.add('hidden');
-            document.getElementById('spring-view').classList.add('hidden');
-            document.getElementById('fall-view').classList.add('hidden');
-            document.getElementById('winter-view').classList.add('hidden');
-            document.getElementById('item-view').classList.add('hidden');
-            document.getElementById('page-view').classList.remove('hidden');
-
-            document.title = pageName.replace('page_', 'Page ') + ' - ' + collection + ' Collection';
-
-            const content = document.getElementById('page-detail-content');
-
-            // Handle different data formats (all should be objects now)
-            let itemsList = '';
-            if (Array.isArray(items)) {{
-                if (items.length > 0 && typeof items[0] === 'object') {{
-                    // Categorized format (array of objects with name and category)
-                    itemsList = items.map(item => `
-                        <a onclick="showItemDetail('${{item.name.replace(/'/g, "\\\\\'")}}', '${{collection}}', '${{imageFolder}}')" class="item-link">
-                            ${{item.name}} <span style="color: #7f8c8d; font-size: 0.9em;">[${{item.category}}]</span>
-                        </a>
-                    `).join('');
-                }} else {{
-                    // Legacy simple array format
-                    itemsList = items.map(item => `
-                        <a onclick="showItemDetail('${{item.replace(/'/g, "\\\\\'")}}', '${{collection}}', '${{imageFolder}}')" class="item-link">
-                            ${{item}}
-                        </a>
-                    `).join('');
-                }}
-            }}
-
-            content.innerHTML = `
-                <div class="page-detail">
-                    <div class="page-image">
-                        <img src="${{imageFolder}}/${{pageName}}.png" alt="${{pageName}}"
-                             class="clickable-image"
-                             loading="lazy"
-                             style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"
-                             onclick="openModal('${{imageFolder}}/${{pageName}}.png', '${{pageName.replace('page_', 'Page ')}} - ${{collection}} Collection')">
-                    </div>
-                    <div class="page-items">
-                        <h3>Clothing items on this page:</h3>
-                        <div class="item-list">
-                            ${{itemsList}}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }}
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {{
-            showCollection('summer');
-        }});
-    </script>
-</body>
-</html>"""
+    # Render template with data
+    html_content = html_template
+    html_content = html_content.replace("{{ css_content }}", css_content)
+    html_content = html_content.replace("{{ js_content }}", js_content)
+    html_content = html_content.replace("{{ summer_html }}", summer_html)
+    html_content = html_content.replace("{{ spring_html }}", spring_html)
+    html_content = html_content.replace("{{ fall_html }}", fall_html)
+    html_content = html_content.replace("{{ winter_html }}", winter_html)
+    html_content = html_content.replace("{{ summer_index_json }}", json.dumps(summer_index))
+    html_content = html_content.replace("{{ summer_items_json }}", json.dumps(summer_items))
+    html_content = html_content.replace("{{ spring_index_json }}", json.dumps(spring_index))
+    html_content = html_content.replace("{{ spring_items_json }}", json.dumps(spring_items))
+    html_content = html_content.replace("{{ fall_index_json }}", json.dumps(fall_index))
+    html_content = html_content.replace("{{ fall_items_json }}", json.dumps(fall_items))
+    html_content = html_content.replace("{{ winter_index_json }}", json.dumps(winter_index))
+    html_content = html_content.replace("{{ winter_items_json }}", json.dumps(winter_items))
 
     return html_content
 

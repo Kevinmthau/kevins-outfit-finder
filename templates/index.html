@@ -1,32 +1,113 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin's Outfit Finder - All Seasons</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <style>
+{{ css_content }}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <button onclick="showCollection('summer')" class="active" id="nav-summer">☀️ Summer</button>
+            <button onclick="showCollection('spring')" id="nav-spring">🌸 Spring</button>
+            <button onclick="showCollection('fall')" id="nav-fall">🍂 Fall</button>
+            <button onclick="showCollection('winter')" id="nav-winter">❄️ Winter</button>
+        </div>
+        <div class="category-tabs">
+            <button onclick="filterByCategory('all')" class="active" id="cat-all">All</button>
+            <button onclick="filterByCategory('Bottoms')" id="cat-Bottoms">👖 Bottoms</button>
+            <button onclick="filterByCategory('Tops')" id="cat-Tops">👔 Tops</button>
+            <button onclick="filterByCategory('Footwear')" id="cat-Footwear">👞 Shoes</button>
+            <button onclick="filterByCategory('Outerwear')" id="cat-Outerwear">🧥 Jackets</button>
+            <button onclick="filterByCategory('Accessories')" id="cat-Accessories">👔 Ties</button>
+        </div>
+        <div class="content">
+            <!-- Summer Collection View -->
+            <div id="summer-view">
+                <div class="search-box">
+                    <input type="text" id="summerSearchInput" placeholder="Search summer items..." onkeyup="filterItems('summer')">
+                    <div class="search-hint">Supports fuzzy matching - try "sant lorent" for "Saint Laurent"</div>
+                </div>
+                <div id="summer-items-grid">
+{{ summer_html }}
+                </div>
+                <div id="summer-no-results" class="no-results hidden">No matching items found</div>
+            </div>
 
-{% block title %}Clothing Items Directory - Kevin's Outfit Finder{% endblock %}
+            <!-- Spring Collection View -->
+            <div id="spring-view" class="hidden">
+                <div class="search-box">
+                    <input type="text" id="springSearchInput" placeholder="Search spring items..." onkeyup="filterItems('spring')">
+                    <div class="search-hint">Supports fuzzy matching - try "sant lorent" for "Saint Laurent"</div>
+                </div>
+                <div id="spring-items-grid">
+{{ spring_html }}
+                </div>
+                <div id="spring-no-results" class="no-results hidden">No matching items found</div>
+            </div>
 
-{% block content %}
-<div class="stats">
-    <strong>{{ total_items }}</strong> unique clothing items found across all outfit pages
-</div>
+            <!-- Fall Collection View -->
+            <div id="fall-view" class="hidden">
+                <div class="search-box">
+                    <input type="text" id="fallSearchInput" placeholder="Search fall items..." onkeyup="filterItems('fall')">
+                    <div class="search-hint">Supports fuzzy matching - try "sant lorent" for "Saint Laurent"</div>
+                </div>
+                <div id="fall-items-grid">
+{{ fall_html }}
+                </div>
+                <div id="fall-no-results" class="no-results hidden">No matching items found</div>
+            </div>
 
-<div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search for clothing items..." 
-           onkeyup="searchItems()" autocomplete="off">
-</div>
+            <!-- Winter Collection View -->
+            <div id="winter-view" class="hidden">
+                <div class="search-box">
+                    <input type="text" id="winterSearchInput" placeholder="Search winter items..." onkeyup="filterItems('winter')">
+                    <div class="search-hint">Supports fuzzy matching - try "sant lorent" for "Saint Laurent"</div>
+                </div>
+                <div id="winter-items-grid">
+{{ winter_html }}
+                </div>
+                <div id="winter-no-results" class="no-results hidden">No matching items found</div>
+            </div>
 
-<div id="searchResults" class="item-grid">
-    {% for item, pages in clothing_items %}
-    <div class="item-card" onclick="window.location.href='/item/{{ item | urlencode }}'">
-        <div class="item-name">{{ item }}</div>
-        <div class="item-count">
-            Appears on {{ pages|length }} page{% if pages|length > 1 %}s{% endif %}
+            <!-- Item Detail View -->
+            <div id="item-view" class="hidden">
+                <a onclick="backToCollection()" class="back-link">&larr; Back to collection</a>
+                <div id="item-detail-content"></div>
+            </div>
+
+            <!-- Page Detail View -->
+            <div id="page-view" class="hidden">
+                <a onclick="backToCollection()" class="back-link">&larr; Back to collection</a>
+                <div id="page-detail-content"></div>
+            </div>
+        </div>
+
+        <!-- Image Modal -->
+        <div id="imageModal" class="modal">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImage">
+            <div class="modal-caption" id="modalCaption"></div>
         </div>
     </div>
-    {% endfor %}
-</div>
 
-{% if not clothing_items %}
-<div style="text-align: center; color: #7f8c8d; margin-top: 50px;">
-    <p>No clothing items found. Make sure to run the extraction script first:</p>
-    <code>python extract_clothing_items.py</code>
-</div>
-{% endif %}
-{% endblock %}
+    <script>
+        // Data
+        const summerClothingIndex = {{ summer_index_json }};
+        const summerPageItems = {{ summer_items_json }};
+        const springClothingIndex = {{ spring_index_json }};
+        const springPageItems = {{ spring_items_json }};
+        const fallClothingIndex = {{ fall_index_json }};
+        const fallPageItems = {{ fall_items_json }};
+        const winterClothingIndex = {{ winter_index_json }};
+        const winterPageItems = {{ winter_items_json }};
+
+{{ js_content }}
+    </script>
+</body>
+</html>
